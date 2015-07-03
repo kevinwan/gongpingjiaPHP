@@ -10,6 +10,9 @@ switch ($_SERVER['HTTP_HOST'])
     case 'www.gpj.com':
         $application->setBootstrap('Front')->run();
         break;
+    case 'gpj.com':
+        $application->setBootstrap('Front')->run();
+        break;
     default:
         $application->setBootstrap('Main')->run();
 

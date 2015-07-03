@@ -38,7 +38,7 @@ class MainBootstrap extends XF_Application_Bootstrap
     
     protected function runStartup()
     {
-        
+        ini_set('session.cookie_domain', '.'.$this->_config->getDomain());
     }
     
     /**
@@ -46,7 +46,8 @@ class MainBootstrap extends XF_Application_Bootstrap
     */
     protected function initCloseModule()
     {
-
+        $this->_front->getRouter()
+                ->closeModule('front');
     }
     
     /**
@@ -54,7 +55,7 @@ class MainBootstrap extends XF_Application_Bootstrap
     */
     protected function initPlugin()
     {
-        
+        $this->_front->registerPlugin(new Application_Plugin_Main());
     }
     
     /**

@@ -6,5 +6,15 @@
 </head>
 <body>
 <h1>Welcome to gongpingjia <?php echo $this->nowCity->name; ?>站</h1>
+<?php
+    foreach($this->brands as $k =>$brand)
+    {
+        echo '<br>'.$brand['name'].'<br>';
+        foreach ($brand['brandNames'] as $name)
+        {
+            echo $name.' ';
+        }
+    }
+?>
 </body>
 </html>
