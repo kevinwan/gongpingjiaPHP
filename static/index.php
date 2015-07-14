@@ -85,6 +85,15 @@ if ($_GET['type'] == '2818x')
 }
 
 
+if ($_GET['type'] == '19812x')
+{
+	$width = 198;
+	$height = 120;
+	$saveFile = APPLICATION_PATH.'/../static/cacheimg/19812/'.$_GET['file'].'.png';
+	$location = 'http://static.souchela.com/cacheimg/19812/'.$_GET['file'].'.png';
+}
+
+
 
 if (is_file($saveFile))
 {
