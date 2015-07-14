@@ -117,7 +117,14 @@ $path = pathinfo($saveFile);
 XF_File::mkdirs($path['dirname']);
 
 //保存图片
-$thumb->save($saveFile);
+if(strpos($_GET['type'],'gray') === false)
+{
+    $thumb->save($saveFile);
+}
+else 
+{
+    $thumb->saveGray($saveFile);
+}
 
 header('Location:'.$location);
 
