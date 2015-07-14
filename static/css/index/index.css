@@ -56,7 +56,7 @@ body {
 	float: left;
 	font-weight: bold;
 	font-size: 14px;
-	background: url(../images/arrow.png) no-repeat right center;
+	background: url(../../img/index/arrow.png) no-repeat right center;
 	padding-right: 15px;
 	cursor: pointer;
 }
@@ -77,7 +77,7 @@ body {
 	cursor: pointer;
 }
 #search .subbtn .searchbtn {
-	background: url(../images/searchbtn.png) no-repeat center center;
+	background: url(../../img/index/searchbtn.png) no-repeat center center;
 	height: 50px;
 	width: 50px;
 	border: 0;
@@ -91,10 +91,10 @@ body {
 	width: 99px;
 }
 #search .salebtn {
-	background: url(../images/sale.png) no-repeat center center #f5f5f5;
+	background: url(../../img/index/sale.png) no-repeat center center #f5f5f5;
 }
 #search .buybtn {
-	background: url(../images/buy.png) no-repeat center center #f5f5f5;
+	background: url(../../img/index/buy.png) no-repeat center center #f5f5f5;
 }
 #search .label-value {
 	float: left;
