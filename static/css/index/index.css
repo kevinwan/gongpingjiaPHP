@@ -1,0 +1,258 @@
+@charset "UTF-8";
+body {
+	overflow: hidden;
+}
+#wrapper {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+#wrapper .shade {
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	cursor: pointer;
+}
+#top {
+	height: 120px;
+	width: 198px;
+	position: absolute;
+	background: #2ca7e0;
+	top: 0;
+	z-index: 100;
+}
+#carMore {
+	height: 120px;
+	width: 198px;
+	background: #397294;
+	filter: alpha(opacity=80);
+	-moz-opacity:0.8;
+	opacity: 0.8;
+	position: absolute;
+	z-index: 100;
+	line-height: 120px;
+	font-size: 18px;
+	text-align: center;
+	color: #FFF;
+}
+#top .wrap {
+	padding: 15px 30px;
+}
+#top .selarea {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #FFF;
+	font-size: 12px;
+	color: #FFF;
+	height: 17px;
+	line-height: 17px;
+}
+#top .selarea .label-text {
+	float: left;
+}
+#top .selarea .area {
+	float: left;
+	font-weight: bold;
+	font-size: 14px;
+	background: url(../images/arrow.png) no-repeat right center;
+	padding-right: 15px;
+	cursor: pointer;
+}
+#search {
+	height: 120px;
+	position: absolute;
+	background: #212435;
+	z-index: 100;
+}
+#search .wrap {
+	padding: 35px 40px;
+	height: 50px;
+}
+#search .subbtn {
+	float: right;
+}
+#search .subbtn input {
+	cursor: pointer;
+}
+#search .subbtn .searchbtn {
+	background: url(../images/searchbtn.png) no-repeat center center;
+	height: 50px;
+	width: 50px;
+	border: 0;
+}
+#search .lable-text {
+	float: left;
+	padding: 14px 10px;
+	background: #f5f5f5;
+	cursor: pointer;
+	height: 22px;
+	width: 99px;
+}
+#search .salebtn {
+	background: url(../images/sale.png) no-repeat center center #f5f5f5;
+}
+#search .buybtn {
+	background: url(../images/buy.png) no-repeat center center #f5f5f5;
+}
+#search .label-value {
+	float: left;
+	height: 100%;
+	background: #FFF;
+}
+#search .label-value .salebox,
+#search .label-value .buybox {
+	height: 50px;
+	cursor: pointer;
+}
+#search .label-value .buybox input,
+#search .label-value .salebox {
+	padding: 0 24px;
+}
+#search .label-value .buybox input {
+	height: 48px;
+	width: 100%;
+	font-size: 14px;
+	color: #999999;
+	border: 0;
+}
+#cdsSearchBox {
+    height: 380px;
+    margin: 0 auto;
+    position: relative;
+    width: 990px;
+}
+.cdsSearchMain .cdsbrandbg {
+    height: 380px;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    width: 260px;
+    z-index: 0;
+}
+.cdsSbrand {
+    float: left;
+    height: 600px;
+    position: relative;
+    width: 250px;
+}
+.csbNav {
+    padding: 0 0 10px 10px;
+}
+.csbNav a {
+    background: #FFF;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    margin: 10px 8px 0 0;
+    text-align: center;
+    width: 22px;
+    border: 1px solid #dadada;
+    text-decoration: none;
+}
+.cdsBtabBox {
+    height: 488px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-left: 10px;
+    position: relative;
+    width: 240px;
+}
+.cdsBtabBox p {
+    color: #2da7e0;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 4px;
+    width: 290px;
+    margin: 0;
+}
+.cdsBtabBox li {
+    height: 30px;
+    line-height: 30px;
+    padding: 10px 0;
+    list-style: none;
+}
+.cdsBtabBox li .preview {
+	float: left;
+}
+.cdsBtabBox a {
+    color: #000;
+    float: left;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 8px;
+}
+.cdsStabBox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 600px;
+    width: 740px;
+}
+.cdsStabBox p {
+    color: #777777;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background: #f8f8f8;
+}
+.cdsStabBox .isTab {
+    padding: 6px 0;
+    width: 100%;
+}
+.cdsStabBox a {
+    display: block;
+    float: left;
+    height: 87px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 120px;
+}
+.cdsStabBox a img {
+    display: block;
+    height: 60px;
+    margin: 0 auto;
+    transition: all 0.5s ease 0s;
+    width: 90px;
+}
+.cdsStabBox a div {
+    bottom: 0;
+    font-size: 0;
+    height: 20px;
+    left: 0;
+    line-height: 20px;
+    position: absolute;
+    text-align: center;
+    width: 111px;
+}
+.cdsStabBox a span {
+    color: #415C8C;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    max-width: 92px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cdsBtabBox a.active {
+    color: #2da7e0;
+}
+.csbNav a.active {
+    background: #31a5db;
+    color: #FFF;
+    border: 1px solid #31a5db;
+}
