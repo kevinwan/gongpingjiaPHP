@@ -26,5 +26,6 @@ class IndexController extends XF_Controller_Abstract
                 }
                 $this->_view->brands = $first_letter;
 		$this->_view->title = 'welcome to gongpingjia';
+                $this->_view->my = 'abiao';
 	}
 }
