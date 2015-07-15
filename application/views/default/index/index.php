@@ -95,6 +95,35 @@
 									</a>
 								</div>
 							</div>
+							<div class="cdsStab">
+								<p>东风标致</p>
+								<div class="isTab clearfix">
+									<a target="_blank" href="javascript:void(0);">
+										<img src="http://static.cheduoshao.com/upload/autopics/2013/04/22/7b875ac6c19b0521e83f4eb4b495c0bf.jpg?128x" />
+										<div><span>3008</span></div>
+									</a>
+									<a target="_blank" href="javascript:void(0);">
+										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/338b6089a350bbadb1aa1a8767ecd416.jpg?128x" />
+										<div><span>301</span></div>
+									</a>
+									<a target="_blank" href="javascript:void(0);">
+										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/14ff672cc69fe37908c45d64b60014f6.jpg?128x" />
+										<div><span>308</span></div>
+									</a>
+									<a target="_blank" href="javascript:void(0);">
+										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/6a7d2df06cc322bd58b9c2ae432164c0.jpg?128x" />
+										<div><span>408</span></div>
+									</a>
+									<a target="_blank" href="javascript:void(0);">
+										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/7aca0d44b39a8aa2dcb8a1c092ecb785.jpg?128x" />
+										<div><span>508</span></div>
+									</a>
+									<a target="_blank" href="javascript:void(0);">
+										<img src="http://static.cheduoshao.com/upload/autopics/2014/05/20/f1b6ac44f170e1c88a470867383b0b8c.jpg?128x" />
+										<div><span>2008</span></div>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

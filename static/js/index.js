@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var api_url = "http://www.gongpingjia.com";
 	var axis = 0;
 	var max_width = 1920;
 	var max_height = 1200;
@@ -75,16 +76,71 @@ $(document).ready(function() {
 			$("#search .lable-text").removeClass("buybtn").addClass("salebtn");
 		}
 	});
-
+	
+	$(document).on("click", "#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li", function() {
+		$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li a.active").removeClass("active");
+		var ibrandBoxA = $(this).find("a");
+		$(ibrandBoxA).addClass("active");
+		var objAry = $(this).attr("id").split("_");
+		var brandId = objAry[1];
+		$.ajax({
+			url: api_url + "/api/cars/category/models/gongpingjia-php/",
+			data: "brand="+brandId,
+			dataType: 'jsonp',
+			jsonp: 'callback',
+			success: function(msg){
+				$("#cdsSearchBox .cdsStabBox").empty();
+				var modelList = msg.models;
+				$.each(modelList, function(i,n) {
+					var cdsStab = $("<div class=\"cdsStab\"></div>");
+					var cdsStabP = $("<p>"+n[0]+"</p>");
+					var isTabD = $("<div class=\"isTab clearfix\">");
+					$.each(n[1], function(y,m) {
+						var cdsStabA = $("<a target=\"_blank\" href=\"javascript:void(0);\"><img src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><div><span>"+m.name+"</span></div></a>");
+						cdsStabA.appendTo(isTabD);
+					});
+					cdsStabP.appendTo(cdsStab);
+					isTabD.appendTo(cdsStab);
+					cdsStab.appendTo($("#cdsSearchBox .cdsStabBox"));
+				});
+			}
+		});
+	});
+	
 	$(document).on("click", "#search .salebox", function() {
-		layer.open({
-			type: 1,
-			shade: [0.8, '#393D49'],
-			shadeClose: true,
-			maxWidth: 990,
-			title: false,
-			content: $('#cdsSearchBox'),
-			cancel: function(index) {
+		$.ajax({
+			url: api_url + "/api/cars/category/brands/gongpingjia-php/",
+			data: "",
+			dataType: 'jsonp',
+			jsonp: 'callback',
+			success: function(msg){
+				$("#cdsSearchBox .cdsSbrand .cdsBtabBox").empty();
+				$("#cdsSearchBox .cdsStabBox").empty();
+				var brandList = msg.brands;
+				$.each(brandList, function(i,n) {
+					var ibrandBox = $("<div class=\"ibrandBox clearfix\"></div>");
+					var ibrandBoxP = $("<p id=\""+n[0]+"\">"+n[0]+"</p>");
+					var ibrandBoxUl = $("<ul></ul>");
+					$.each(n[1], function(y,m) {
+						var ibrandBoxLi = $("<li id=\"brand_"+m.id+"\"><img class=\"preview\" src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><a href=\"javascript:void(0);\" ref=\"+m.name+\">"+m.name+"</a></li>");
+						ibrandBoxLi.appendTo(ibrandBoxUl);
+					});
+					ibrandBoxP.appendTo(ibrandBox);
+					ibrandBoxUl.appendTo(ibrandBox);
+					ibrandBox.appendTo($("#cdsSearchBox .cdsSbrand .cdsBtabBox"));
+				});
+				$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first").trigger("click");
+				$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first a").addClass("active");
+				layer.open({
+					type: 1,
+					shade: [0.8, '#393D49'],
+					shadeClose: true,
+					maxWidth: 990,
+					title: false,
+					content: $('#cdsSearchBox'),
+					cancel: function(index) {
+					}
+				});
 			}
 		});
 	});
@@ -95,27 +151,4 @@ function exchangeImg(imgObj) {
 	var sourcesrc = imgObj.attr("sourcesrc");
 	imgObj.attr("src", sourcesrc);
 	imgObj.attr("sourcesrc", yuansrc);
-}
-
-getBrand();
-//获取品牌
-function getBrand()
-{
-	$.ajax({
-	url: "http://www.gongpingjia.com/api/cars/category/brands/gongpingjia-php/",
-	data: "",
-	success: function(msg){
-			msgObj=jQuery.parseJSON(msg);
-			var str = '';
-			var letter = '';
-			console.log(msgObj.brands);
-			for(var r in msgObj.brands)
-			{
-				//console.log(msgObj.brands);
-			}
-
-
-
-	}
-	});
 }

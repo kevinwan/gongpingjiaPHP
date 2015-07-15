@@ -118,141 +118,143 @@ body {
 	border: 0;
 }
 #cdsSearchBox {
-    height: 380px;
-    margin: 0 auto;
-    position: relative;
-    width: 990px;
+	height: 380px;
+	margin: 0 auto;
+	position: relative;
+	width: 990px;
 }
 .cdsSearchMain .cdsbrandbg {
-    height: 380px;
-    left: 0;
-    opacity: 0.7;
-    position: absolute;
-    top: 0;
-    width: 260px;
-    z-index: 0;
+	height: 380px;
+	left: 0;
+	opacity: 0.7;
+	position: absolute;
+	top: 0;
+	width: 260px;
+	z-index: 0;
 }
 .cdsSbrand {
-    float: left;
-    height: 600px;
-    position: relative;
-    width: 250px;
+	float: left;
+	height: 600px;
+	position: relative;
+	width: 250px;
 }
 .csbNav {
-    padding: 0 0 10px 10px;
+	padding: 0 0 10px 10px;
 }
 .csbNav a {
-    background: #FFF;
-    color: #000;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 12px;
-    height: 22px;
-    line-height: 22px;
-    margin: 10px 8px 0 0;
-    text-align: center;
-    width: 22px;
-    border: 1px solid #dadada;
-    text-decoration: none;
+	background: #FFF;
+	color: #000;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 12px;
+	height: 22px;
+	line-height: 22px;
+	margin: 10px 8px 0 0;
+	text-align: center;
+	width: 22px;
+	border: 1px solid #dadada;
+	text-decoration: none;
 }
 .cdsBtabBox {
-    height: 488px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding-left: 10px;
-    position: relative;
-    width: 240px;
+	height: 488px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding-left: 10px;
+	position: relative;
+	width: 240px;
 }
 .cdsBtabBox p {
-    color: #2da7e0;
-    font-size: 24px;
-    height: 40px;
-    line-height: 40px;
-    text-indent: 4px;
-    width: 290px;
-    margin: 0;
+	color: #2da7e0;
+	font-size: 24px;
+	height: 40px;
+	line-height: 40px;
+	text-indent: 4px;
+	width: 290px;
+	margin: 0;
 }
 .cdsBtabBox li {
-    height: 30px;
-    line-height: 30px;
-    padding: 10px 0;
-    list-style: none;
+	height: 30px;
+	line-height: 30px;
+	padding: 10px 0;
+	list-style: none;
+	cursor: pointer;
 }
 .cdsBtabBox li .preview {
 	float: left;
+	width: 30px;
 }
 .cdsBtabBox a {
-    color: #000;
-    float: left;
-    font-size: 14px;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 8px;
+	color: #000;
+	float: left;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 8px;
 }
 .cdsStabBox {
-    background: none repeat scroll 0 0 #FFFFFF;
-    float: left;
-    height: 600px;
-    width: 740px;
+	background: none repeat scroll 0 0 #FFFFFF;
+	float: left;
+	height: 600px;
+	width: 740px;
 }
 .cdsStabBox p {
-    color: #777777;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    height: 32px;
-    line-height: 32px;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    background: #f8f8f8;
+	color: #777777;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	height: 32px;
+	line-height: 32px;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	background: #f8f8f8;
 }
 .cdsStabBox .isTab {
-    padding: 6px 0;
-    width: 100%;
+	padding: 6px 0;
+	width: 100%;
 }
 .cdsStabBox a {
-    display: block;
-    float: left;
-    height: 87px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    width: 120px;
+	display: block;
+	float: left;
+	height: 87px;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	width: 120px;
 }
 .cdsStabBox a img {
-    display: block;
-    height: 60px;
-    margin: 0 auto;
-    transition: all 0.5s ease 0s;
-    width: 90px;
+	display: block;
+	height: 60px;
+	margin: 0 auto;
+	transition: all 0.5s ease 0s;
+	width: 90px;
 }
 .cdsStabBox a div {
-    bottom: 0;
-    font-size: 0;
-    height: 20px;
-    left: 0;
-    line-height: 20px;
-    position: absolute;
-    text-align: center;
-    width: 111px;
+	bottom: 0;
+	font-size: 0;
+	height: 20px;
+	left: 0;
+	line-height: 20px;
+	position: absolute;
+	text-align: center;
+	width: 111px;
 }
 .cdsStabBox a span {
-    color: #415C8C;
-    display: inline-block;
-    font-size: 14px;
-    height: 20px;
-    line-height: 20px;
-    max-width: 92px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	color: #415C8C;
+	display: inline-block;
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+	max-width: 92px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .cdsBtabBox a.active {
-    color: #2da7e0;
+	color: #2da7e0;
 }
 .csbNav a.active {
-    background: #31a5db;
-    color: #FFF;
-    border: 1px solid #31a5db;
+	background: #31a5db;
+	color: #FFF;
+	border: 1px solid #31a5db;
 }
