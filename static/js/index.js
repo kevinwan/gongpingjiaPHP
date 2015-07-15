@@ -78,8 +78,8 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("click", "#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li", function() {
-		$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li a.active").removeClass("active");
 		var ibrandBoxA = $(this).find("a");
+		$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li a.active").removeClass('active');
 		$(ibrandBoxA).addClass("active");
 		var objAry = $(this).attr("id").split("_");
 		var brandId = objAry[1];
@@ -118,16 +118,18 @@ $(document).ready(function() {
 				$("#cdsSearchBox .cdsStabBox").empty();
 				var brandList = msg.brands;
 				$.each(brandList, function(i,n) {
-					var ibrandBox = $("<div class=\"ibrandBox clearfix\"></div>");
-					var ibrandBoxP = $("<p id=\""+n[0]+"\">"+n[0]+"</p>");
-					var ibrandBoxUl = $("<ul></ul>");
-					$.each(n[1], function(y,m) {
-						var ibrandBoxLi = $("<li id=\"brand_"+m.id+"\"><img class=\"preview\" src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><a href=\"javascript:void(0);\" ref=\"+m.name+\">"+m.name+"</a></li>");
-						ibrandBoxLi.appendTo(ibrandBoxUl);
-					});
-					ibrandBoxP.appendTo(ibrandBox);
-					ibrandBoxUl.appendTo(ibrandBox);
-					ibrandBox.appendTo($("#cdsSearchBox .cdsSbrand .cdsBtabBox"));
+					if(n[0] != "P") {
+						var ibrandBox = $("<div class=\"ibrandBox clearfix\"></div>");
+						var ibrandBoxP = $("<p id=\""+n[0]+"\">"+n[0]+"</p>");
+						var ibrandBoxUl = $("<ul></ul>");
+						$.each(n[1], function(y,m) {
+							var ibrandBoxLi = $("<li id=\"brand_"+m.id+"\"><img class=\"preview\" src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><a href=\"javascript:void(0);\" ref=\"+m.name+\">"+m.name+"</a></li>");
+							ibrandBoxLi.appendTo(ibrandBoxUl);
+						});
+						ibrandBoxP.appendTo(ibrandBox);
+						ibrandBoxUl.appendTo(ibrandBox);
+						ibrandBox.appendTo($("#cdsSearchBox .cdsSbrand .cdsBtabBox"));
+					}
 				});
 				$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first").trigger("click");
 				$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first a").addClass("active");
@@ -138,7 +140,18 @@ $(document).ready(function() {
 					maxWidth: 990,
 					title: false,
 					content: $('#cdsSearchBox'),
-					cancel: function(index) {
+					success: function(layero, index){
+						var arrscroll = [];
+						for(var i=0;i< $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox").length; i++) {
+							arrscroll.push($(".ibrandBox").eq(i).position().top*2);
+						}
+						$("#cdsSearchBox .cdsSbrand .csbNav a").click(function() {
+							$(this).addClass('active').siblings('a').removeClass('active');
+							var index = $(this).index();
+							$("#cdsSearchBox .cdsSbrand .cdsBtabBox").animate({
+								scrollTop: arrscroll[index] + 'px'
+							},500);
+						});
 					}
 				});
 			}

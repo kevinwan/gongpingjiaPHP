@@ -44,90 +44,18 @@
 								<a class="active" href="javascript:;">A</a><a href="javascript:;">B</a><a href="javascript:;">C</a><a href="javascript:;">D</a><a href="javascript:;">F</a><a href="javascript:;">G</a><a href="javascript:;">H</a><a href="javascript:;">J</a><a href="javascript:;">K</a><a href="javascript:;">L</a><a href="javascript:;">M</a><a href="javascript:;">N</a><a href="javascript:;">O</a><a href="javascript:;">Q</a><a href="javascript:;">R</a><a href="javascript:;">S</a><a href="javascript:;">T</a><a href="javascript:;">W</a><a href="javascript:;">X</a><a href="javascript:;">Y</a><a href="javascript:;">Z</a>
 							</div>
 							<div class="cdsBtabBox">
-								<div class="ibrandBox clearfix">
-									<p id="A">A</p>
-									<ul>
-										<li><img class="preview" src="$static/img/index/demo.png" /><a class="active" href="javascript:void(0);" ref="奥迪">奥迪</a></li>
-										<li><img class="preview" src="$static/img/index/demo.png" /><a href="javascript:void(0);" ref="奥迪">奥迪</a></li>
-										<li><img class="preview" src="$static/img/index/demo.png" /><a href="javascript:void(0);" ref="奥迪">奥迪</a></li>
-									</ul>
-								</div>
-								<div class="ibrandBox clearfix">
-									<p id="B">B</p>
-									<ul>
-										<li><img class="preview" src="$static/img/index/demo.png" /><a href="javascript:void(0);" ref="奥迪">奥迪</a></li>
-										<li><img class="preview" src="$static/img/index/demo.png" /><a href="javascript:void(0);" ref="奥迪">奥迪</a></li>
-										<li><img class="preview" src="$static/img/index/demo.png" /><a href="javascript:void(0);" ref="奥迪">奥迪</a></li>
-										<li><img class="preview" src="$static/img/index/demo.png" /><a href="javascript:void(0);" ref="奥迪">奥迪</a></li>
-									</ul>
-								</div>
 							</div>
 						</div>
 						<!--车系-->
 						<div class="cdsStabBox cdsStabbg" style="overflow-y: scroll; display: block;">
 						<!--点击品牌的车系-->
-							<div class="cdsStab">
-								<p>东风标致</p>
-								<div class="isTab clearfix">
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2013/04/22/7b875ac6c19b0521e83f4eb4b495c0bf.jpg?128x" />
-										<div><span>3008</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/338b6089a350bbadb1aa1a8767ecd416.jpg?128x" />
-										<div><span>301</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/14ff672cc69fe37908c45d64b60014f6.jpg?128x" />
-										<div><span>308</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/6a7d2df06cc322bd58b9c2ae432164c0.jpg?128x" />
-										<div><span>408</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/7aca0d44b39a8aa2dcb8a1c092ecb785.jpg?128x" />
-										<div><span>508</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/05/20/f1b6ac44f170e1c88a470867383b0b8c.jpg?128x" />
-										<div><span>2008</span></div>
-									</a>
-								</div>
-							</div>
-							<div class="cdsStab">
-								<p>东风标致</p>
-								<div class="isTab clearfix">
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2013/04/22/7b875ac6c19b0521e83f4eb4b495c0bf.jpg?128x" />
-										<div><span>3008</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/338b6089a350bbadb1aa1a8767ecd416.jpg?128x" />
-										<div><span>301</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/14ff672cc69fe37908c45d64b60014f6.jpg?128x" />
-										<div><span>308</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/6a7d2df06cc322bd58b9c2ae432164c0.jpg?128x" />
-										<div><span>408</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/04/09/7aca0d44b39a8aa2dcb8a1c092ecb785.jpg?128x" />
-										<div><span>508</span></div>
-									</a>
-									<a target="_blank" href="javascript:void(0);">
-										<img src="http://static.cheduoshao.com/upload/autopics/2014/05/20/f1b6ac44f170e1c88a470867383b0b8c.jpg?128x" />
-										<div><span>2008</span></div>
-									</a>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div id="footer">
+			<div class="copyright">Copyright &copy; gongpingjia.com All Rights Reserved</div>
 		</div>
 	</div>
 </body>
