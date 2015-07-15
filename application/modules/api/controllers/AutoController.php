@@ -38,5 +38,19 @@ class Api_AutoController extends Api_AbstractController
             }
             $this->responseOK();	
 	}
+        
+        /**
+	 * 获取品牌关键词
+	 */
+        public function brandKeywordsAction()
+	{
+            $b = new Auto_Model_Brand ();
+            $keywords = $b->getBrandKeywords ();
+            if (!XF_Functions::isEmpty($keywords))
+            {
+                $this->responseOK($keywords);
+            }
+            $this->responseOK();
+        }
 }
 

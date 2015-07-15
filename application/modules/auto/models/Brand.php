@@ -20,5 +20,16 @@ class Auto_Model_Brand extends  Application_Model_Abstract
             $brand = $this->pull($query);
             return $brand->brands;
         }
+        
+        /**
+	 *  获取品牌关键词
+	 *  2015-7-15
+	 */
+        public function getBrandKeywords()
+        {
+            $query = 'http://www.gongpingjia.com/meta-data/model/';
+            $data = $this->pull($query);
+            return $data->data;
+        }
 }
 
