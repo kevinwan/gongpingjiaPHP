@@ -24,8 +24,8 @@ $(document).ready(function() {
 		url: "/",
 		data: "num="+x_num*y_num,
 		success: function(msg){
-			eval("msgObj="+JSON.stringify(msg));
-			$.each(msgObj, function(i,n) {
+			msgObj=jQuery.parseJSON(msg);
+			$.each(msgObj.result, function(i,n) {
 				var item_img = $("<img class=\"shade\" title=\""+n.title+"\" src=\""+n.imgGrayUrl+"\" sourcesrc=\""+n.imgUrl+"\" height=\""+itemheight+"\" width=\""+itemwidth+"\" />")
 				if(i%x_num == 0) {
 					img_left = axis;
@@ -34,6 +34,14 @@ $(document).ready(function() {
 					img_left = img_left + itemwidth;
 				}
 				item_img.css("top", img_top).css("left", img_left).appendTo($("#wrapper"));
+                                item_img.hover(
+                                        function(){
+                                                exchangeImg(item_img);
+                                        },
+                                        function(){
+                                                exchangeImg(item_img);
+                                        }
+                                );
 			});
 		}
 	});
@@ -46,14 +54,7 @@ $(document).ready(function() {
 	$("#search").css("width", search_item_num*itemwidth);
 	$("#search .label-value").css("width", search_item_num*itemwidth-249);
 
-	$("#wrapper .shade").hover(
-		function(){
-			exchangeImg($(this));
-		},
-		function(){
-			exchangeImg($(this));
-		}
-	);
+	
 
 	$(document).on("click", "#search .lable-text", function() {
 		var switch_val = $("#switch").val();
@@ -85,6 +86,7 @@ $(document).ready(function() {
 });
 
 function exchangeImg(imgObj) {
+        console.log(imgObj);
 	var yuansrc = imgObj.attr("src");
 	var sourcesrc = imgObj.attr("sourcesrc");
 	imgObj.attr("src", sourcesrc);

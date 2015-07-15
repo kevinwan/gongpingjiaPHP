@@ -37,7 +37,7 @@ class IndexController extends XF_Controller_Abstract
                 foreach ( $useds as $k=>$used )
 		{
                     $data[$k]['title'] = $used->dmodel;
-                    $newImgUrlTemp = str_replace('gongpingjia.qiniudn.com', 'static.souchela.com', $used->thumbnail); 
+                    $newImgUrlTemp = str_replace('gongpingjia.qiniudn.com', 'static.souchela.com/qiniudn', $used->thumbnail); 
                     $newImgUrl = $newImgUrlTemp.'?19812x';
                     $newGrayImgUrl = $newImgUrlTemp.'?gray19812x';
                     $data[$k]['imgUrl'] = $newImgUrl;

@@ -102,8 +102,5 @@
 		    </div>
 		</div>
 	</div>
-	<div id="temp_div">
-		<img class="shade" src="" />
-	</div>
 </body>
 </html>
