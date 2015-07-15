@@ -34,14 +34,21 @@ $(document).ready(function() {
 					img_left = img_left + itemwidth;
 				}
 				item_img.css("top", img_top).css("left", img_left).appendTo($("#wrapper"));
-                                item_img.hover(
-                                        function(){
-                                                exchangeImg(item_img);
-                                        },
-                                        function(){
-                                                exchangeImg(item_img);
-                                        }
-                                );
+				item_img.hover(
+					function(){
+						exchangeImg(item_img);
+					},
+					function(){
+						exchangeImg(item_img);
+					}
+				);
+				item_img.click(function(){
+					$("#switch").val("buy");
+					$("#search .label-value .buybox").show();
+					$("#search .label-value .buybox input").val(item_img.attr("title"));
+					$("#search .label-value .salebox").hide();
+					$("#search .lable-text").removeClass("salebtn").addClass("buybtn");
+				});
 			});
 		}
 	});
@@ -53,8 +60,6 @@ $(document).ready(function() {
 	$("#carMore").css("right", Math.ceil((x_num-search_item_num)/2)*itemwidth+axis);
 	$("#search").css("width", search_item_num*itemwidth);
 	$("#search .label-value").css("width", search_item_num*itemwidth-249);
-
-	
 
 	$(document).on("click", "#search .lable-text", function() {
 		var switch_val = $("#switch").val();
@@ -86,7 +91,6 @@ $(document).ready(function() {
 });
 
 function exchangeImg(imgObj) {
-        console.log(imgObj);
 	var yuansrc = imgObj.attr("src");
 	var sourcesrc = imgObj.attr("sourcesrc");
 	imgObj.attr("src", sourcesrc);
@@ -97,21 +101,21 @@ getBrand();
 //获取品牌
 function getBrand()
 {
-    $.ajax({
+	$.ajax({
 	url: "http://www.gongpingjia.com/api/cars/category/brands/gongpingjia-php/",
 	data: "",
 	success: function(msg){
-            msgObj=jQuery.parseJSON(msg);
-            var str = '';
-            var letter = '';
-            console.log(msgObj.brands);
-            for(var r in msgObj.brands)
-            {
-                //console.log(msgObj.brands);
-            }
-                        
-                        
-			
+			msgObj=jQuery.parseJSON(msg);
+			var str = '';
+			var letter = '';
+			console.log(msgObj.brands);
+			for(var r in msgObj.brands)
+			{
+				//console.log(msgObj.brands);
+			}
+
+
+
 	}
 	});
 }
