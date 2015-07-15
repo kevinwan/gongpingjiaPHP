@@ -16,7 +16,7 @@ class Auto_Model_Brand extends  Application_Model_Abstract
 	 */
 	public function getBrand()
         {
-            $query = 'http://www.gongpingjia.com/api/cars/category/brands/weidai/';
+            $query = 'http://www.gongpingjia.com/api/cars/category/brands/gongpingjia-php/';
             $brand = $this->pull($query);
             return $brand->brands;
         }

@@ -92,26 +92,3 @@ function exchangeImg(imgObj) {
 	imgObj.attr("src", sourcesrc);
 	imgObj.attr("sourcesrc", yuansrc);
 }
-
-getBrand();
-//获取品牌
-function getBrand()
-{
-    $.ajax({
-	url: "http://www.gongpingjia.com/api/cars/category/brands/gongpingjia-php/",
-	data: "",
-	success: function(msg){
-            msgObj=jQuery.parseJSON(msg);
-            var str = '';
-            var letter = '';
-            console.log(msgObj.brands);
-            for(var r in msgObj.brands)
-            {
-                //console.log(msgObj.brands);
-            }
-                        
-                        
-			
-	}
-	});
-}

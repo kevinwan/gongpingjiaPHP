@@ -47,6 +47,7 @@ class MainBootstrap extends XF_Application_Bootstrap
     protected function initCloseModule()
     {
         $this->_front->getRouter()
+                ->closeModule('api')
                 ->closeModule('front');
     }
     

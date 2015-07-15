@@ -13,6 +13,9 @@ switch ($_SERVER['HTTP_HOST'])
     case 'gpj.com':
         $application->setBootstrap('Front')->run();
         break;
+    case 'webapi.gpj.com':
+	$application->setBootstrap('Api')->run();
+	break;
     default:
         $application->setBootstrap('Main')->run();
 
