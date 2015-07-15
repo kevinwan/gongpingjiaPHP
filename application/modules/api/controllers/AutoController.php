@@ -48,7 +48,18 @@ class Api_AutoController extends Api_AbstractController
             $keywords = $b->getBrandKeywords ();
             if (!XF_Functions::isEmpty($keywords))
             {
-                $this->responseOK($keywords);
+                $tmp = array();
+                foreach($keywords as $r)
+                {
+                    $tmp[] = array(
+                        'keywords' => $r->keywords,
+			'slug' => $r->slug,
+			'brand_name' => $r->brand_name,
+			'parent' => $r->parent,
+			'name' => $r->name
+                    );
+                }
+                $this->responseOK($tmp);
             }
             $this->responseOK();
         }
