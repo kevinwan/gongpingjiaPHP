@@ -45,7 +45,7 @@ class IndexController extends XF_Controller_Abstract
                 }
                 //print_r($data);
                 //exit;
-                die(json_encode(array('status' => 'OK', 'result' => $tmp)));
+                die(json_encode(array('status' => 'OK', 'result' => $data)));
             }
                 
 		$this->_view->title = 'welcome to gongpingjia';
