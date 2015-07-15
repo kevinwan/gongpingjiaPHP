@@ -16,6 +16,7 @@ $(document).ready(function() {
 	var img_top = -itemheight;
 	var x_num = Math.ceil(w_width/itemwidth);
 	var y_num = Math.ceil(w_height/itemheight);
+	var input_width = 0;
 	search_item_num = x_num-2;
 	if(itemwidth*x_num > w_width) {
 		axis = -Math.ceil((itemwidth*x_num-w_width)/2);
@@ -56,11 +57,19 @@ $(document).ready(function() {
 
 	$("#top").css("left", axis+itemwidth);
 	$("#search").css("top", (Math.ceil(y_num/2)-1)*itemheight);
-	$("#search").css("left", Math.ceil((x_num-search_item_num)/2)*itemwidth+axis);
+	if(x_num == "10") {
+		$("#search").css("left", itemwidth*2+axis);
+		$("#search").css("width", itemwidth*6);
+		input_width = 6*itemwidth-249;
+		$("#search .label-value").css("width", input_width);
+	}else {
+		$("#search").css("left", Math.ceil((x_num-search_item_num)/2)*itemwidth+axis);
+		$("#search").css("width", search_item_num*itemwidth);
+		input_width = search_item_num*itemwidth-249;
+		$("#search .label-value").css("width", input_width);
+	}
 	$("#carMore").css("top", (y_num-2)*itemheight);
 	$("#carMore").css("right", Math.ceil((x_num-search_item_num)/2)*itemwidth+axis);
-	$("#search").css("width", search_item_num*itemwidth);
-	$("#search .label-value").css("width", search_item_num*itemwidth-249);
 
 	$(document).on("click", "#search .lable-text", function() {
 		var switch_val = $("#switch").val();
@@ -157,6 +166,46 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$.ajax({
+		url: "http://webapi.souchela.com/auto/brandKeywords/",
+		dataType: "jsonp",
+		jsonp: "jsonp",
+		success: function (data) {
+			initAutoComplete(data.result);
+		}
+	});
+
+	function initAutoComplete(data) {
+		$('#typeahead-input').autocomplete(data, {
+			max: 35,
+			minChars: 1,
+			width: input_width,
+			scrollHeight: 220,
+			matchContains: true,
+			autoFill: false,
+			formatItem: function(row, i, max) {
+				var brand = "";
+				if (row.brand_name) {
+					brand = row.brand_name + " ";
+				}
+				return "<div class='item'>" + brand + row.name + "</div>";
+			},
+			formatMatch: function(row, i, max) {
+				return row.keywords;
+			},
+			formatResult: function(row) {
+				return row.name;
+			}
+		}).result(function(event, data, formatted) {
+//			$("#typeahead_brand_slug").val(data.parent);
+//			$("#typeahead_model_slug").val(data.slug);
+//			carselected = true;
+//			$(".search_by_make").hide();
+//			$("#typeahead_go_btn").hide();
+//			showYearChoice(data.parent, data.slug);
+		});
+	}
 });
 
 function exchangeImg(imgObj) {

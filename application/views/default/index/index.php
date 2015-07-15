@@ -3,9 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="$static/css/index/base.css" rel="stylesheet" type="text/css" />
+<link href="$static/css/index/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
 <link href="$static/css/index/index.css" rel="stylesheet" type="text/css" />
 <script src="$static/js/jquery-1.11.1.js"></script>
+<script src="$static/js/jquery-migrate-1.2.1.min.js"></script>
 <script src="$static/js/layer/layer.js"></script>
+<script src="$static/js/jquery.autocomplete.min.js"></script>
 <script src="$static/js/index.js"></script>
 </head>
 <body>
@@ -27,7 +30,7 @@
 					</div>
 					<div class="label-value">
 						<div class="salebox" ></div>
-						<div class="buybox" style="display: none;"><input name="" value="2015款 大众甲壳虫 1.2TSI"></div>
+						<div class="buybox" style="display: none;"><input id="typeahead-input" name="" value="2015款 大众甲壳虫 1.2TSI"></div>
 					</div>
 					<div class="subbtn"><input type="submit" class="searchbtn" value="" /></div>
 				</div>
@@ -54,9 +57,9 @@
 				</div>
 			</div>
 		</div>
-		<div id="footer">
-			<div class="copyright">Copyright &copy; gongpingjia.com All Rights Reserved</div>
-		</div>
+	</div>
+	<div id="footer">
+		<div class="copyright">Copyright &copy; gongpingjia.com All Rights Reserved</div>
 	</div>
 </body>
 </html>
