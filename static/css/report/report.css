@@ -176,6 +176,18 @@ body {
 	background-image: url(../../img/report/bg_logo.png);
 }
 
+.bscreen .r-choose .selectcar {
+	background-color: #FFFFFF;
+	border: 1px solid #EEEEEE;
+	box-shadow: 2px 3px 5px #666666;
+	height: 380px;
+	left: 300px;
+	overflow: hidden;
+	position: absolute;
+	top: 400px;
+	width: 710px;
+}
+
 .bscreen .r-cost {
 	float: left;
 	width: 890px;
