@@ -13,7 +13,7 @@ class Used_IndexController extends XF_Controller_Abstract
     
     public function indexAction()
     {
-        
+        $this->setLayout(new Layout_Default());
     }
 }
 

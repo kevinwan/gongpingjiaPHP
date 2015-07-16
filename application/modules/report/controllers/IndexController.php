@@ -19,7 +19,7 @@ class Report_IndexController extends XF_Controller_Abstract
     //我要卖估值报告
     public function sellReportAction()
     {
-        
+        $this->setLayout(new Layout_Default());
     }
 }
 

@@ -8,6 +8,7 @@ class IndexController extends XF_Controller_Abstract
 	public function indexAction()
 	{
 		$this->nowCity->id;
+                $this->setLayout(new Layout_Default());
 		/*
 		 * $b = new Auto_Model_Brand ();
 		 * $brands = $b->getBrand ();
