@@ -1,909 +1,319 @@
 ﻿@charset "UTF-8";
 
-html,body{height:100%;overflow:hidden;}
-body{font-family:"Microsoft YaHei";background-image:url(../../img/report/bg_report.png);overflow-y:auto;}
-#main{height:100%;overflow-y:auto;}
-
-@media screen and (max-width: 1366px) {
-    .report{margin:2% auto 0;width:990px;height:600px;}
-    .r-choose{position:relative;float:left;width:300px;height:600px;background-image:url(../../img/bg_logo.png);}
-    .r-cost{float:left;width:690px;height:600px;}
-    .r-math{height:300px;background-color:#FFF;}
-    .r-logo{width:300px;height:300px;}
-    .r-sells li{float:left;text-align:center;color:#FFF;width:33.333%;height:300px;}
-    .r-sells .sealer{background-color:rgba(45,167,224,0.8);}
-    .r-sells .sFour{background-color:rgba(255,132,22,0.8);}
-    .r-sells .self{background-color:rgba(53,199,121,0.8);}
-    .r-sells h2{margin-top:90px;font-size:28px;font-weight:normal;}
-
-    /*弹窗*/
-    .dialog-chooseCar{position:absolute;top:300px;left:300px;overflow:hidden;background-color:#FFF;width:525px;height:295px;border:solid 1px #eee;
-        box-shadow:2px 3px 5px #666;
-    }
-    .carchoose{display:inline-block;float:left;padding:10px 5px;width:204px;height:280px;border-right:solid 1px #EEE;}
-    .car-letter a{display:inline-block;margin:0 4px 2px;width:20px;height:20px;border:solid 1px #dadada;font-size:12px;color:#34495e;text-align:center;line-height:20px;}
-    .car-letter a:hover{background-color:#31a5db;border-color:#31a5db;color:#FFF;}
-    .brandlist{height:180px;margin:10px 4px 0;overflow-y:auto;}
-    .sign-brand h2{font-size:20px;color:#2da7e0;font-weight:normal;}
-    .brand-link{display:block;height:40px;line-height:40px;font-size:14px;color:#34495e;}
-    .brand-link span,.brand-link i{float:left;}
-    .brand-link i{display:inline-block;margin-right:15px;width:40px;height:40px;background-image:url(../../img/all-brand.png);}
-    .brand-list li{margin:10px 0;}
-    .carlist{display:inline-block;float:left;width:310px;height:300px;overflow-y: auto;}
-    .carlist a{display:inline-block;text-align:center;margin:10px 14px;}
-    .carlist h2{background-color:#F8F8F8;height:32px;line-height:32px;text-align:center;font-weight:normal;}
-    .carlist img{margin-bottom:5px;width:115px;height:70px;display:block;}
-    .count-group{margin-top:50px;}
-    .r-math h4{font-size:20px;font-weight:normal;padding-top:40px;}
-}
-@media screen and (min-width: 1367px) {
-    .report{margin:3% auto 0;width:1190px;height:800px;}
-    .r-choose{position:relative;float:left;width:300px;height:800px;background-image:url(../../img/bg_logo.png);}
-    .r-cost{float:left;width:890px;height:800px;}
-    .r-math{height:400px;background-color:#FFF;}
-    .r-logo{width:300px;height:400px;}
-    .r-sells li{float:left;text-align:center;color:#FFF;width:33.333%;height:400px;}
-    .r-sells .sealer{background-color:rgba(45,167,224,0.8);}
-    .r-sells .sFour{background-color:rgba(255,132,22,0.8);}
-    .r-sells .self{background-color:rgba(53,199,121,0.8);}
-    .r-sells h2{margin-top:135px;font-size:28px;font-weight:normal;}
-    .count-group{margin-top:70px;}
-    .r-math h4{font-size:20px;font-weight:normal;padding-top:70px;}
-
-    /*弹窗*/
-    .dialog-chooseCar{position:absolute;top:400px;left:300px;overflow:hidden;background-color:#FFF;width:710px;height:380px;border:solid 1px #eee;
-        box-shadow:2px 3px 5px #666;
-    }
-    .carchoose{display:inline-block;float:left;padding:10px 5px;width:239px;height:360px;border-right:solid 1px #EEE;}
-    .car-letter a{display:inline-block;margin:0 4px 2px;width:20px;height:20px;border:solid 1px #dadada;font-size:12px;color:#34495e;text-align:center;line-height:20px;}
-    .car-letter a:hover{background-color:#31a5db;border-color:#31a5db;color:#FFF;}
-    .brandlist{height:285px;margin:10px 4px 0;overflow-y:auto;}
-    .sign-brand h2{font-size:20px;color:#2da7e0;font-weight:normal;}
-    .brand-link{display:block;height:40px;line-height:40px;font-size:14px;color:#34495e;}
-    .brand-link span,.brand-link i{float:left;}
-    .brand-link i{display:inline-block;margin-right:15px;width:40px;height:40px;background-image:url(../../img/all-brand.png);}
-    .brand-list li{margin:10px 0;}
-    .carlist{display:inline-block;float:left;width:460px;height:380px;overflow-y: auto;}
-    .carlist a{display:inline-block;text-align:center;margin:10px 14px;}
-    .carlist h2{background-color:#F8F8F8;height:32px;line-height:32px;text-align:center;font-weight:normal;}
-    .carlist img{margin-bottom:5px;width:115px;height:70px;display:block;}
+html, body {
+	height: 100%;
+	overflow: hidden;
 }
 
+body {
+	background-image: url(../../img/report/bg_report.png);
+	overflow-y: auto;
+}
 
+#main {
+	height: 100%;
+	overflow-y: auto;
+}
 
-.title-msg{font-size:14px;margin-top:15px;}
-.sell-cost{font-size:28px;margin-top:34px;}
-.sell-cost label{font-size:14px;}
-.r-form li{height:50px;line-height:50px;padding:0 15px;background-color:rgba(255,255,255,0.95);overflow:hidden;}
-.r-form li label{color:#999;}
-.r-form .r-form-even{background-color:rgba(245,245,245,0.95);}
-.more-car{display:block;color:#FFF;height:50px;line-height:50px;text-align:center;background-color:#ff8416;}
-.form-text{display:inline-block;width:190px;color:#212435;margin-left:15px;height:50px;line-height:50px;}
-.form-input{border:none;background:none;width:90px;font-size:14px;}
-.r-math {text-align:center;}
+#top {
+	height: 120px;
+	width: 198px;
+	position: absolute;
+	background: #2ca7e0;
+	top: 0;
+	z-index: 100;
+}
 
-.r-math .g-cost{font-size:16px;color:#b4b4b4;margin-top:30px;}
-.r-math .g-cost span{font-size:70px;color:#ff8416;}
-.count{width:45%;margin:0 auto;overflow:hidden;}
+#top .wrap {
+	padding: 15px 30px;
+}
 
-.count-group h5{font-size:12px;color:#999;font-weight:normal;}
-.count-group p{font-size:28px;margin-top:10px;}
+#top .selarea {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #FFF;
+	font-size: 12px;
+	color: #FFF;
+	height: 17px;
+	line-height: 17px;
+}
 
+#top .selarea .label-text {
+	float: left;
+}
 
+#top .selarea .area {
+	float: left;
+	font-weight: bold;
+	font-size: 14px;
+	background: url(../../img/index/arrow.png) no-repeat right center;
+	padding-right: 15px;
+	cursor: pointer;
+}
 
-/*车标小图片*/
-.audi{
-    background-position:0px 0px;
-    height:40px;
-    width:40px;
-}
-.alfaromeo{
-    background-position:0px -45px;
-    height:40px;
-    width:40px;
-}
-.astonmartin{
-    background-position:0px -90px;
-    height:40px;
-    width:40px;
-}
-.baojun{
-    background-position:0px -135px;
-    height:40px;
-    width:40px;
-}
-.baolong{
-    background-position:0px -180px;
-    height:40px;
-    width:40px;
-}
-.beijingqiche{
-    background-position:0px -225px;
-    height:40px;
-    width:40px;
-}
-.bujiadi{
-    background-position:0px -270px;
-    height:40px;
-    width:40px;
-}
-.beiqizhizao{
-    background-position:0px -315px;
-    height:40px;
-    width:40px;
-}
-.barbus{
-    background-position:0px -360px;
-    height:40px;
-    width:40px;
-}
-.biaozhi{
-    background-position:0px -405px;
-    height:40px;
-    width:40px;
-}
-.byd{
-    background-position:0px -450px;
-    height:40px;
-    width:40px;
-}
-.benz{
-    background-position:0px -495px;
-    height:40px;
-    width:40px;
-}
-.buick{
-    background-position:0px -540px;
-    height:40px;
-    width:40px;
-}
-.benteng{
-    background-position:0px -585px;
-    height:40px;
-    width:40px;
-}
-.bentley{
-    background-position:0px -630px;
-    height:40px;
-    width:40px;
-}
-.bmw{
-    background-position:0px -675px;
-    height:40px;
-    width:40px;
-}
-.honda{
-    background-position:0px -720px;
-    height:40px;
-    width:40px;
-}
-.porsche{
-    background-position:0px -765px;
-    height:40px;
-    width:40px;
-}
-.changan{
-    background-position:0px -810px;
-    height:40px;
-    width:40px;
-}
-.changcheng{
-    background-position:0px -855px;
-    height:40px;
-    width:40px;
-}
-.changhe{
-    background-position:0px -900px;
-    height:40px;
-    width:40px;
-}
-.liebao{
-    background-position:0px -945px;
-    height:40px;
-    width:40px;
-}
-.changanshangyong{
-    background-position:0px -990px;
-    height:40px;
-    width:40px;
-}
-.dongfengfengshen{
-    background-position:0px -1035px;
-    height:40px;
-    width:40px;
-}
-.dongfengxiaokang{
-    background-position:0px -1080px;
-    height:40px;
-    width:40px;
-}
-.dongfengfengxing{
-    background-position:0px -1125px;
-    height:40px;
-    width:40px;
-}
-.dongfengfengdu{
-    background-position:0px -1170px;
-    height:40px;
-    width:40px;
-}
-.logo_270{
-    background-position:0px -1215px;
-    height:40px;
-    width:40px;
-}
-.datong{
-    background-position:0px -1260px;
-    height:40px;
-    width:40px;
-}
-.dongfeng{
-    background-position:0px -1305px;
-    height:40px;
-    width:40px;
-}
-.dadi{
-    background-position:0px -1350px;
-    height:40px;
-    width:40px;
-}
-.dayu{
-    background-position:0px -1395px;
-    height:40px;
-    width:40px;
-}
-.dongnan{
-    background-position:0px -1440px;
-    height:40px;
-    width:40px;
-}
-.daoqi{
-    background-position:0px -1485px;
-    height:40px;
-    width:40px;
-}
-.dazhong{
-    background-position:0px -1530px;
-    height:40px;
-    width:40px;
-}
-.fiat{
-    background-position:0px -1575px;
-    height:40px;
-    width:40px;
-}
-.fudi{
-    background-position:0px -1620px;
-    height:40px;
-    width:40px;
-}
-.ferrari{
-    background-position:0px -1665px;
-    height:40px;
-    width:40px;
-}
-.toyota{
-    background-position:0px -1710px;
-    height:40px;
-    width:40px;
-}
-.ford {
-    background-position: 0px -1755px;
-    height:40px;
-    width:40px;
-}
-.futian{
-    background-position:0px -1800px;
-    height:40px;
-    width:40px;
-}
-.fusangheibao{
-    background-position:0px -1845px;
-    height:40px;
-    width:40px;
-}
-.gmc{
-    background-position:0px -1890px;
-    height:40px;
-    width:40px;
-}
-.guanzhi{
-    background-position:0px -1935px;
-    height:40px;
-    width:40px;
-}
-.guangqijiao{
-    background-position:0px -1980px;
-    height:40px;
-    width:40px;
-}
-.guangqichengyongche{
-    background-position:0px -2025px;
-    height:40px;
-    width:40px;
-}
-.galue{
-    background-position:0px -2070px;
-    height:40px;
-    width:40px;
-}
-.yunque{
-    background-position:0px -2115px;
-    height:40px;
-    width:40px;
-}
-.gzyunbao{
-    background-position:0px -2160px;
-    height:40px;
-    width:40px;
-}
-.huanghai{
-    background-position:0px -2205px;
-    height:40px;
-    width:40px;
-}
-.logo_266{
-    background-position:0px -2250px;
-    height:40px;
-    width:40px;
-}
-.hafu{
-    background-position:0px -2295px;
-    height:40px;
-    width:40px;
-}
-.sh-huizhong{
-    background-position:0px -2340px;
-    height:40px;
-    width:40px;
-}
-.huaxiangfuqi{
-    background-position:0px -2385px;
-    height:40px;
-    width:40px;
-}
-.hangtianyuantong{
-    background-position:0px -2430px;
-    height:40px;
-    width:40px;
-}
-.hanjiang{
-    background-position:0px -2475px;
-    height:40px;
-    width:40px;
-}
-.haiku{
-    background-position:0px -2520px;
-    height:40px;
-    width:40px;
-}
-.haima{
-    background-position:0px -2565px;
-    height:40px;
-    width:40px;
-}
-.hanma{
-    background-position:0px -2610px;
-    height:40px;
-    width:40px;
-}
-.huapu{
-    background-position:0px -2655px;
-    height:40px;
-    width:40px;
-}
-.hongqi{
-    background-position:0px -2700px;
-    height:40px;
-    width:40px;
-}
-.huatai{
-    background-position:0px -2745px;
-    height:40px;
-    width:40px;
-}
-.hafei{
-    background-position:0px -2790px;
-    height:40px;
-    width:40px;
-}
-.huachen{
-    background-position:0px -2835px;
-    height:40px;
-    width:40px;
-}
-.jiliqunaqiuying{
-    background-position:0px -2880px;
-    height:40px;
-    width:40px;
-}
-.logo_258{
-    background-position:0px -2925px;
-    height:40px;
-    width:40px;
-}
-.jiangnanauto{
-    background-position:0px -2970px;
-    height:40px;
-    width:40px;
-}
-.yinglunqiche{
-    background-position:0px -3015px;
-    height:40px;
-    width:40px;
-}
-.jiebao{
-    background-position:0px -3060px;
-    height:40px;
-    width:40px;
-}
-.jincheng{
-    background-position:0px -3105px;
-    height:40px;
-    width:40px;
-}
-.jianghuai{
-    background-position:0px -3150px;
-    height:40px;
-    width:40px;
-}
-.jili{
-    background-position:0px -3195px;
-    height:40px;
-    width:40px;
-}
-.jiangling{
-    background-position:0px -3240px;
-    height:40px;
-    width:40px;
-}
-.jinlvkeche{
-    background-position:0px -3285px;
-    height:40px;
-    width:40px;
-}
-.jingling{
-    background-position:0px -3330px;
-    height:40px;
-    width:40px;
-}
-.jeep{
-    background-position:0px -3375px;
-    height:40px;
-    width:40px;
-}
-.dihao{
-    background-position:0px -3420px;
-    height:40px;
-    width:40px;
-}
-.jiao{
-    background-position:0px -3465px;
-    height:40px;
-    width:40px;
-}
-.logo_269{
-    background-position:0px -3510px;
-    height:40px;
-    width:40px;
-}
-.cadillac{
-    background-position:0px -3555px;
-    height:40px;
-    width:40px;
-}
-.chrysler{
-    background-position:0px -3600px;
-    height:40px;
-    width:40px;
-}
-.kenisaige{
-    background-position:0px -3645px;
-    height:40px;
-    width:40px;
-}
-.kairui{
-    background-position:0px -3690px;
-    height:40px;
-    width:40px;
-}
-.lufeng{
-    background-position:0px -3735px;
-    height:40px;
-    width:40px;
-}
-.rolls-royce{
-    background-position:0px -3780px;
-    height:40px;
-    width:40px;
-}
-.lamborghini{
-    background-position:0px -3825px;
-    height:40px;
-    width:40px;
-}
-.rover{
-    background-position:0px -3870px;
-    height:40px;
-    width:40px;
-}
-.lifan{
-    background-position:0px -3915px;
-    height:40px;
-    width:40px;
-}
-.lotus{
-    background-position:0px -3960px;
-    height:40px;
-    width:40px;
-}
-.lincoln{
-    background-position:0px -4005px;
-    height:40px;
-    width:40px;
-}
-.suzuki{
-    background-position:0px -4050px;
-    height:40px;
-    width:40px;
-}
-.renault{
-    background-position:0px -4095px;
-    height:40px;
-    width:40px;
-}
-.linian{
-    background-position:0px -4140px;
-    height:40px;
-    width:40px;
-}
-.landrover{
-    background-position:0px -4185px;
-    height:40px;
-    width:40px;
-}
-.lexus{
-    background-position:0px -4230px;
-    height:40px;
-    width:40px;
-}
-.logo_259{
-    background-position:0px -4275px;
-    height:40px;
-    width:40px;
-}
-.logo_246{
-    background-position:0px -4320px;
-    height:40px;
-    width:40px;
-}
-.mazda{
-    background-position:0px -4365px;
-    height:40px;
-    width:40px;
-}
-.maserati{
-    background-position:0px -4410px;
-    height:40px;
-    width:40px;
-}
-.mini{
-    background-position:0px -4455px;
-    height:40px;
-    width:40px;
-}
-.mg{
-    background-position:0px -4500px;
-    height:40px;
-    width:40px;
-}
-.maybach{
-    background-position:0px -4545px;
-    height:40px;
-    width:40px;
-}
-.meiya{
-    background-position:0px -4590px;
-    height:40px;
-    width:40px;
-}
-.mudan{
-    background-position:0px -4635px;
-    height:40px;
-    width:40px;
-}
-.nanqi{
-    background-position:0px -4680px;
-    height:40px;
-    width:40px;
-}
-.dongfengyulongnazhijie{
-    background-position:0px -4725px;
-    height:40px;
-    width:40px;
-}
-.acura{
-    background-position:0px -4770px;
-    height:40px;
-    width:40px;
-}
-.opel{
-    background-position:0px -4815px;
-    height:40px;
-    width:40px;
-}
-.logo_257{
-    background-position:0px -4860px;
-    height:40px;
-    width:40px;
-}
-.pontiac{
-    background-position:0px -4905px;
-    height:40px;
-    width:40px;
-}
-.logo_191{
-    background-position:0px -4950px;
-    height:40px;
-    width:40px;
-}
-.qingling{
-    background-position:0px -4995px;
-    height:40px;
-    width:40px;
-}
-.chery{
-    background-position:0px -5040px;
-    height:40px;
-    width:40px;
-}
-.kia{
-    background-position:0px -5085px;
-    height:40px;
-    width:40px;
-}
-.logo_245{
-    background-position:0px -5130px;
-    height:40px;
-    width:40px;
-}
-.logo_271{
-    background-position:0px -5175px;
-    height:40px;
-    width:40px;
-}
-.ruilin{
-    background-position:0px -5220px;
-    height:40px;
-    width:40px;
-}
-.rongwei{
-    background-position:0px -5265px;
-    height:40px;
-    width:40px;
-}
-.richan{
-    background-position:0px -5310px;
-    height:40px;
-    width:40px;
-}
-.shuanghuan{
-    background-position:0px -5355px;
-    height:40px;
-    width:40px;
-}
-.smart{
-    background-position:0px -5400px;
-    height:40px;
-    width:40px;
-}
-.skoda{
-    background-position:0px -5445px;
-    height:40px;
-    width:40px;
-}
-.mitsubishi{
-    background-position:0px -5490px;
-    height:40px;
-    width:40px;
-}
-.shuanglong{
-    background-position:0px -5535px;
-    height:40px;
-    width:40px;
-}
-.saab{
-    background-position:0px -5580px;
-    height:40px;
-    width:40px;
-}
-.shijue{
-    background-position:0px -5625px;
-    height:40px;
-    width:40px;
-}
-.shunlv{
-    background-position:0px -5670px;
-    height:40px;
-    width:40px;
-}
-.logo_248{
-    background-position:0px -5715px;
-    height:40px;
-    width:40px;
-}
-.subaru{
-    background-position:0px -5760px;
-    height:40px;
-    width:40px;
-}
-.logo_247{
-    background-position:0px -5805px;
-    height:40px;
-    width:40px;
-}
-.tianma{
-    background-position:0px -5850px;
-    height:40px;
-    width:40px;
-}
-.tj-yiqi{
-    background-position:0px -5895px;
-    height:40px;
-    width:40px;
-}
-.tianye{
-    background-position:0px -5940px;
-    height:40px;
-    width:40px;
-}
-.tongtian{
-    background-position:0px -5985px;
-    height:40px;
-    width:40px;
-}
-.wh-wangtong{
-    background-position:0px -6030px;
-    height:40px;
-    width:40px;
-}
-.wushiling{
-    background-position:0px -6075px;
-    height:40px;
-    width:40px;
-}
-.weilin{
-    background-position:0px -6120px;
-    height:40px;
-    width:40px;
-}
-.wuling{
-    background-position:0px -6165px;
-    height:40px;
-    width:40px;
-}
-.volvo{
-    background-position:0px -6210px;
-    height:40px;
-    width:40px;
-}
-.wanfeng{
-    background-position:0px -6255px;
-    height:40px;
-    width:40px;
-}
-.chevrolet{
-    background-position:0px -6300px;
-    height:40px;
-    width:40px;
-}
-.xinkai{
-    background-position:0px -6345px;
-    height:40px;
-    width:40px;
-}
-.xiyate{
-    background-position:0px -6390px;
-    height:40px;
-    width:40px;
-}
-.hyundai{
-    background-position:0px -6435px;
-    height:40px;
-    width:40px;
-}
-.logo_260{
-    background-position:0px -6480px;
-    height:40px;
-    width:40px;
-}
-.citroen{
-    background-position:0px -6525px;
-    height:40px;
-    width:40px;
-}
-.logo_186{
-    background-position:0px -6570px;
-    height:40px;
-    width:40px;
-}
-.chuanqiyema{
-    background-position:0px -6615px;
-    height:40px;
-    width:40px;
-}
-.yiqijilin{
-    background-position:0px -6660px;
-    height:40px;
-    width:40px;
-}
-.yongyuan-ufo{
-    background-position:0px -6705px;
-    height:40px;
-    width:40px;
-}
-.yongyuanqiche{
-    background-position:0px -6750px;
-    height:40px;
-    width:40px;
-}
-.yiqitongyong{
-    background-position:0px -6795px;
-    height:40px;
-    width:40px;
-}
-.nj-iveco{
-    background-position:0px -6840px;
-    height:40px;
-    width:40px;
-}
-.yiqihuali{
-    background-position:0px -6885px;
-    height:40px;
-    width:40px;
-}
-.jilindafa{
-    background-position:0px -6930px;
-    height:40px;
-    width:40px;
-}
-.yiqi{
-    background-position:0px -6975px;
-    height:40px;
-    width:40px;
-}
-.infiniti{
-    background-position:0px -7020px;
-    height:40px;
-    width:40px;
-}
-.zhongxing{
-    background-position:0px -7065px;
-    height:40px;
-    width:40px;
-}
-.huachen-zhonghua{
-    background-position:0px -7110px;
-    height:40px;
-    width:40px;
-}
-.zhongtai{
-    background-position:0px -7155px;
-    height:40px;
-    width:40px;
-}
-.zhongshun{
-    background-position:0px -7200px;
-    height:40px;
-    width:40px;
-}
-.logo_179{
-    background-position:0px -7245px;
-    height:40px;
-    width:40px;
-}
-.zhongke-huabei{
-    background-position:0px -7290px;
-    height:40px;
-    width:40px;
+.sscreen .report {
+	margin: 1% auto 0;
+	width: 990px;
+	height: 600px;
+	position: relative;
+}
+
+.sscreen .r-choose {
+	position: relative;
+	float: left;
+	width: 300px;
+	height: 600px;
+	background-image: url(../../img/report/bg_logo.png);
+}
+
+.sscreen .r-choose .selectcar {
+	position: absolute;
+	background-color: #FFFFFF;
+	border: 1px solid #EEEEEE;
+	box-shadow: 2px 3px 5px #666666;
+	height: 295px;
+	left: 300px;
+	overflow-y: auto;
+	position: absolute;
+	top: 300px;
+	width: 510px;
+}
+
+.r-choose .selectcar .selectItem p {
+	height: 40px;
+	line-height: 40px;
+	color: #2da7e0;
+	font-size: 20px;
+	background: #f8f8f8;
+	padding-left: 26px;
+}
+
+.r-choose .selectcar .selectItem li {
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+.r-choose .selectcar .selectItem li:hover {
+	background: #76c6eb;
+	color: #FFF;
+}
+
+.r-choose .selectcar .selectItem .carmodel {
+	float: left;
+	padding-left: 23px;
+}
+
+.r-choose .selectcar .selectItem .carprice {
+	float: right;
+	padding-right: 23px;
+}
+
+.sscreen .r-cost {
+	float: left;
+	width: 690px;
+	height: 600px;
+}
+
+.sscreen .r-math {
+	height: 300px;
+	background-color: #FFF;
+}
+
+.sscreen .r-logo {
+	width: 300px;
+	height: 300px;
+}
+
+.sscreen .r-sells li {
+	float: left;
+	text-align: center;
+	color: #FFF;
+	width: 33.333%;
+	height: 300px;
+}
+
+.sscreen .r-sells .sealer {
+	background-color: rgba(45, 167, 224, 0.8);
+}
+
+.sscreen .r-sells .sFour {
+	background-color: rgba(255, 132, 22, 0.8);
+}
+
+.sscreen .r-sells .self {
+	background-color: rgba(53, 199, 121, 0.8);
+}
+
+.sscreen .r-sells h2 {
+	margin-top: 90px;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+.sscreen .count-group {
+	margin-top: 50px;
+}
+
+.sscreen .r-math h4 {
+	font-size: 20px;
+	font-weight: normal;
+	padding-top: 40px;
+}
+
+.bscreen .report {
+	margin: 1% auto 0;
+	width: 1190px;
+	height: 800px;
+	position: relative;
+}
+
+.bscreen .r-choose {
+	position: relative;
+	float: left;
+	width: 300px;
+	height: 800px;
+	background-image: url(../../img/report/bg_logo.png);
+}
+
+.bscreen .r-cost {
+	float: left;
+	width: 890px;
+	height: 800px;
+}
+
+.bscreen .r-math {
+	height: 400px;
+	background-color: #FFF;
+}
+
+.bscreen .r-logo {
+	width: 300px;
+	height: 400px;
+}
+
+.bscreen .r-sells li {
+	float: left;
+	text-align: center;
+	color: #FFF;
+	width: 33.333%;
+	height: 400px;
+}
+
+.bscreen .r-sells .sealer {
+	background-color: rgba(45, 167, 224, 0.8);
+}
+
+.bscreen .r-sells .sFour {
+	background-color: rgba(255, 132, 22, 0.8);
+}
+
+.bscreen .r-sells .self {
+	background-color: rgba(53, 199, 121, 0.8);
+}
+
+.bscreen .r-sells h2 {
+	margin-top: 135px;
+	font-size: 28px;
+	font-weight: normal;
+}
+
+.bscreen .count-group {
+	margin-top: 70px;
+}
+
+.bscreen .r-math h4 {
+	font-size: 20px;
+	font-weight: normal;
+	padding-top: 70px;
+}
+
+.title-msg {
+	font-size: 14px;
+	margin-top: 15px;
+}
+
+.sell-cost {
+	font-size: 28px;
+	margin-top: 34px;
+}
+
+.sell-cost label {
+	font-size: 14px;
+}
+
+.r-form .car-series {
+	cursor: pointer;
+}
+.r-form li {
+	height: 50px;
+	line-height: 50px;
+	padding: 0 15px;
+	background-color: rgba(255, 255, 255, 0.95);
+	overflow: hidden;
+}
+
+.r-form li label {
+	color: #999;
+}
+
+.r-form .r-form-even {
+	background-color: rgba(245, 245, 245, 0.95);
+}
+
+.more-car {
+	display: block;
+	color: #FFF;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background-color: #ff8416;
+}
+
+.form-text {
+	display: inline-block;
+	width: 190px;
+	color: #212435;
+	margin-left: 15px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.form-input {
+	border: none;
+	background: none;
+	width: 90px;
+	font-size: 14px;
+}
+
+.r-math {
+	text-align: center;
+}
+
+.r-math .g-cost {
+	font-size: 16px;
+	color: #b4b4b4;
+	margin-top: 30px;
+}
+
+.r-math .g-cost span {
+	font-size: 70px;
+	color: #ff8416;
+}
+
+.count {
+	width: 45%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.count-group h5 {
+	font-size: 12px;
+	color: #999;
+	font-weight: normal;
+}
+
+.count-group p {
+	font-size: 28px;
+	margin-top: 10px;
 }

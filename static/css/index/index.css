@@ -15,14 +15,6 @@ body {
 	position: absolute;
 	cursor: pointer;
 }
-#top {
-	height: 120px;
-	width: 198px;
-	position: absolute;
-	background: #2ca7e0;
-	top: 0;
-	z-index: 100;
-}
 #carMore {
 	height: 120px;
 	width: 198px;
@@ -36,6 +28,14 @@ body {
 	font-size: 18px;
 	text-align: center;
 	color: #FFF;
+}
+#top {
+	height: 120px;
+	width: 198px;
+	position: absolute;
+	background: #2ca7e0;
+	top: 0;
+	z-index: 100;
 }
 #top .wrap {
 	padding: 15px 30px;

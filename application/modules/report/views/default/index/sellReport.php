@@ -1,117 +1,78 @@
-<!--<!DOCTYPE html>-->
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>公平价 - 首页</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="$static/css/report/reset.css"  />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>公平价 - 估值详情</title>
+	<link rel="stylesheet" href="$static/css/base.css"  />
 	<link rel="stylesheet" href="$static/css/report/report.css"  />
+	<link rel="stylesheet" href="$static/css/valid.css"  />
+	<script src="$static/js/jquery/jquery-1.11.1.js"></script>
+	<script src="$static/js/layer/layer.js"></script>
+	<script src="$static/js/jquery/Validform_v5.3.2.js"></script>
+	<script src="$static/js/date/WdatePicker.js"></script>
+	<script src="$static/js/pagejs/sellreport.js"></script>
 </head>
 <body>
-	<div id="main">
+	<div id="main" class="bscreen">
 		<div class="report">
-			<div class="r-choose">
-				<div class="r-logo"></div>
-				<ul class="r-form">
-					<li>宝马X5  2014款 520i 典雅型</li>
-					<li class="r-form-even">
-						<label>上牌时间</label><a class="form-text" href="javascript:;">2011年</a>
-					</li>
-					<li>
-						<label>上牌城市</label><a class="form-text" href="javascript:;">南京</a>
-					</li>
-					<li class="r-form-even">
-						<label>行驶里程</label><input class="form-text form-input" type="text" />
-						<span>万公里</span>
-					</li>
-				</ul>
-				<a class="more-car" href="javascript:;">更新爱车信息</a>
-				<!--车型选择弹窗 [[-->
-				<div class="dialog-choosecar">
-					<div class="carchoose">
-						<div class="car-letter">
-							<a href="javascript:;">A</a>
-							<a href="javascript:;">B</a>
-							<a href="javascript:;">C</a>
-							<a href="javascript:;">D</a>
-							<a href="javascript:;">F</a>
-							<a href="javascript:;">G</a>
-							<a href="javascript:;">H</a>
-							<a href="javascript:;">J</a>
-							<a href="javascript:;">K</a>
-							<a href="javascript:;">L</a>
-							<a href="javascript:;">M</a>
-							<a href="javascript:;">N</a>
-							<a href="javascript:;">O</a>
-							<a href="javascript:;">Q</a>
-							<a href="javascript:;">R</a>
-							<a href="javascript:;">S</a>
-							<a href="javascript:;">T</a>
-							<a href="javascript:;">W</a>
-							<a href="javascript:;">X</a>
-							<a href="javascript:;">Y</a>
-							<a href="javascript:;">Z</a>
-						</div>
-						<div class="brandlist">
-							<div class="sign-brand">
-								<h2>A</h2>
-								<ul class="brand-list">
-									<li><a class="brand-link" href="javascript:;"><i class="bmw"></i><span>宝马</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="benz"></i><span>奔驰</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="buick"></i><span>别克</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="bmw"></i><span>宝马</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="benz"></i><span>奔驰</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="buick"></i><span>别克</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="bmw"></i><span>宝马</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="benz"></i><span>奔驰</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="buick"></i><span>别克</span></a></li>
-								</ul>
-							</div>
-							<div class="sign-brand">
-								<h2>B</h2>
-								<ul class="brand-list">
-									<li><a class="brand-link" href="javascript:;"><i class="bmw"></i><span>宝马</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="benz"></i><span>奔驰</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="buick"></i><span>别克</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="bmw"></i><span>宝马</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="benz"></i><span>奔驰</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="buick"></i><span>别克</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="bmw"></i><span>宝马</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="benz"></i><span>奔驰</span></a></li>
-									<li><a class="brand-link" href="javascript:;"><i class="buick"></i><span>别克</span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="carlist">
-						<h2>华晨宝马</h2>
-						<a href="javascript:;">
-							<img src="" />
-							<span>宝马5系</span>
-						</a>
-						<a href="javascript:;">
-							<img src="" />
-							<span>宝马5系</span>
-						</a>
-						<a href="javascript:;">
-							<img src="" />
-							<span>宝马5系</span>
-						</a>
-						<a href="javascript:;">
-							<img src="" />
-							<span>宝马3系</span>
-						</a>
-						<h2>进口宝马</h2>
-						<a href="javascript:;">
-							<img src="" />
-							<span>宝马5系</span>
-						</a>
-						<a href="javascript:;">
-							<img src="" />
-							<span>宝马5系</span>
-						</a>
+			<div id="top">
+				<div class="wrap">
+					<div id="logo"><img src="$static/img/index/logo.png" /></div>
+					<div class="selarea">
+						<div class="label-text">当前地区：</div>
+						<div class="area">北京</div>
 					</div>
 				</div>
-				<!--车型选择弹窗 ]]-->
+			</div>
+			<div class="r-choose">
+				<form name="srcForm" id="srcForm" action="" verify="true">
+					<div class="r-logo"></div>
+					<ul class="r-form">
+						<li class="car-series">宝马X5  2014款 520i 典雅型</li>
+						<li class="r-form-even">
+							<label>上牌时间</label><a class="form-text" onClick="WdatePicker({dateFmt:'yyyy年'})" href="javascript:;">2011年</a>
+						</li>
+						<li>
+							<label>上牌城市</label><a class="form-text" href="javascript:;">南京</a>
+						</li>
+						<li class="r-form-even">
+							<label>行驶里程</label><input datatype="plusInt" nullmsg="不能空" class="form-text form-input" type="text" />
+							<span>万公里</span>
+						</li>
+					</ul>
+					<a class="more-car" href="javascript:;" onclick="sellreport();">更新爱车信息</a>
+					<div id="selectcar" class="selectcar" style="display: none;">
+						<div class="selectItem">
+							<p>2015款</p>
+							<ul>
+								<li>
+									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
+									<div class="carprice">新车指导价￥25.58</div>
+								</li>
+								<li>
+									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
+									<div class="carprice">新车指导价￥25.58</div>
+								</li>
+								<li>
+									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
+									<div class="carprice">新车指导价￥25.58</div>
+								</li>
+								<li>
+									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
+									<div class="carprice">新车指导价￥25.58</div>
+								</li>
+								<li>
+									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
+									<div class="carprice">新车指导价￥25.58</div>
+								</li>
+								<li>
+									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
+									<div class="carprice">新车指导价￥25.58</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>
 			</div>
 			<div class="r-cost">
 				<div class="r-math">
