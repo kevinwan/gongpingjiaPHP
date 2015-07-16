@@ -37,7 +37,7 @@ class Application_Plugin_Main extends XF_Controller_Plugin_Abstract
 	//导入重写规则
 	$router = XF_Controller_Front::getInstance()->getRouter();
         require APPLICATION_PATH.'/rewrites/main/default.php';
-        require APPLICATION_PATH.'/rewrites/report/default.php';
+        require APPLICATION_PATH.'/rewrites/main/report.php';
     }
 	
     public function routeShutdown(XF_Controller_Request_Abstract $request)
