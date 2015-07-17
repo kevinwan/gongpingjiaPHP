@@ -16,7 +16,7 @@ $application = XF_Application::getInstance(TRUE, FALSE);
 
 require XF_PATH.'/Custom/PHPThumb/ThumbLib.inc.php';
 
-$file = 'http://gongpingjia.qiniudn.com/'.$_GET['file'];
+$file = 'http://gongpingjia.qiniudn.com/'.$_GET['file'].'?imageView/1/w/198/h/120';
 $saveFile = '';
 $location = '';
 $width = $height = 0;
