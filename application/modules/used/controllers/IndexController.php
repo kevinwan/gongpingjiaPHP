@@ -9,6 +9,7 @@ class Used_IndexController extends XF_Controller_Abstract
 	public function __construct()
 	{
 		parent::__construct($this);
+                $this->_view->setResourcePath($this->static_url);
 	}
 	
 	public function indexAction()

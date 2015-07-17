@@ -1,18 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>公平价 - 首页</title>
-	<link href="$static/css/base.css" rel="stylesheet" type="text/css" />
-	<link href="$static/css/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
-	<link href="$static/css/index/index.css" rel="stylesheet" type="text/css" />
-	<script src="$static/js/jquery/jquery-1.11.1.js"></script>
-	<script src="$static/js/jquery/jquery-migrate-1.2.1.min.js"></script>
-	<script src="$static/js/layer/layer.js"></script>
-	<script src="$static/js/jquery/jquery.autocomplete.min.js"></script>
-	<script src="$static/js/pagejs/index.js"></script>
-</head>
-<body>
+
 	<div id="wrapper">
 		<div id="top">
 			<div class="wrap">
@@ -62,5 +48,3 @@
 	<div id="footer">
 		<div class="copyright">Copyright &copy; gongpingjia.com All Rights Reserved</div>
 	</div>
-</body>
-</html>

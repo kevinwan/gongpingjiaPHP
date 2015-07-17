@@ -9,6 +9,7 @@ class Report_IndexController extends XF_Controller_Abstract
     public function __construct()
     {
         parent::__construct($this);
+        $this->_view->setResourcePath($this->static_url);
     }
     
     public function indexAction()
@@ -19,7 +20,6 @@ class Report_IndexController extends XF_Controller_Abstract
     //我要卖估值报告
     public function sellReportAction()
     {
-        $this->setLayout(new Layout_Default());
         $serialId = $this->getParam('serialId');
         $city_py= $this->getParam('city');
         $year= $this->getParam('year');
@@ -68,6 +68,11 @@ class Report_IndexController extends XF_Controller_Abstract
         $V = $mod->getValuation($cityid,$d_model,$year,'',$mile,$intent);
         $this->_view->V = $V;
         //print_r($V);
+        $this->setLayout(new Layout_Default());
+        // 设置页面资源
+        $this->_view->headStylesheet ( '/css/report/report.css' );
+        $this->_view->headStylesheet ( '/css/valid.css' );
+	$this->_view->headScript ( '/js/jquery/Validform_v5.3.2.js' )->appendFile ( '/js/date/WdatePicker.js' )->appendFile ( '/js/pagejs/sellreport.js' );
     }
 }
 
