@@ -33,6 +33,7 @@ class Report_IndexController extends XF_Controller_Abstract
         
         //当前地区名称
 	$name = $this->nowCity->name;
+        $this->_view->serialId = $serialId;
         
         //获取车型列表
         $mod = new Auto_Model_Type();
@@ -52,9 +53,21 @@ class Report_IndexController extends XF_Controller_Abstract
         
         $this->_view->type = $type;
         
+        //echo $this->nowCity->id.'_'.$type->id.'_'.($type->listed_year+2).'_'.$mileage.'_sell';
+        $cityid = $this->nowCity->id;
+        $d_model = $type->id;
+        $year = $year > 0 ? $year : $type->listed_year+2;
+        $month = '';
+        $mile = floatval($mileage) > 0 ? floatval($mileage) : (date("Y")-$type->listed_year);
+        $mile = 8;
+        $intent = 'sell';
+        $this->_view->mileage = $mile;
         //获取估值
-        $mod = new Auto_Model_Valuation();
-        //print_r($type);
+        echo $cityid.'_'.$d_model.'_'.$year.'_'.$mile.'_'.$intent;
+        $mod = new Report_Model_Valuation();
+        $V = $mod->getValuation($cityid,$d_model,$year,'',$mile,$intent);
+        $this->_view->V = $V;
+        //print_r($V);
     }
 }
 

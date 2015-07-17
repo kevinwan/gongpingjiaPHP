@@ -1,3 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+echo $this->getView()->headLink();
+echo $this->getView()->headTitle();
+echo $this->getView()->headMeta();
+?>
+<?php echo $this->getView()->headScript();?>
+
+<?php echo $this->getView()->headStylesheet();?>
+</head>
+<body>
 <?php 
 require_once APPLICATION_PATH.'/layouts/scripts/header.php';
 ?>
@@ -5,4 +19,6 @@ require_once APPLICATION_PATH.'/layouts/scripts/header.php';
 <?php 
 require_once APPLICATION_PATH.'/layouts/scripts/footer.php';
 ?>
+</body>
+</html>
 
