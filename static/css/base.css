@@ -143,3 +143,64 @@ input, select {
 .red-bg {
 	background: #fe5245;
 }
+
+#tipinfo {
+	text-align: center;
+	height: 30px;
+	width: 100%;
+	padding-top: 5px;
+}
+
+#selarea {
+	width: 540px;
+}
+
+#selarea a {
+	color: #999999;
+}
+
+#selarea .defsel {
+	color: #2da7e0;
+}
+
+#selarea .dialogs-title {
+	height: 45px;
+	line-height: 45px;
+	padding: 0 20px;
+	background: #f8f8f8;
+	font-size: 12px;
+}
+
+#selarea .dialogs-title .defsel {
+	font-size: 16px;
+}
+
+#selarea .dialogs-cont {
+	padding: 0 20px;
+	font-size: 12px;
+}
+
+#selarea .dialogs-cont .subtitle {
+	margin: 15px 0;
+}
+
+#selarea .dialogs-cont .area {
+	margin: 20px 0;
+	clear: both;
+}
+
+#selarea .dialogs-cont .label-text {
+	float: left;
+	width: 16%;
+	line-height: 22px;
+}
+
+#selarea .dialogs-cont .label-value {
+	float: left;
+	width: 84%;
+	line-height: 22px;
+}
+
+#selarea .dialogs-cont .label-value a {
+	margin-right: 5px;
+}

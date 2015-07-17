@@ -12,4 +12,10 @@ $(document).ready(function() {
 			$(sbtn).addClass("active").removeClass("smr");
 		}
 	});
+	$(document).scroll(function() {
+		totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+		if ($(document).height() <= totalheight) {
+			$("#tipinfo").show();
+		}
+	});
 });

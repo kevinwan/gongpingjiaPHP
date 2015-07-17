@@ -6,8 +6,17 @@
 	box-shadow: 0 0 5px #efefef;
 }
 
+#main {
+	margin-bottom: 40px;
+}
+
 .sscreen .content {
 	width: 990px;
+	margin: 0 auto;
+}
+
+.bscreen .content {
+	width: 1190px;
 	margin: 0 auto;
 }
 
@@ -275,7 +284,7 @@
 	float: left;
 	border-bottom: 1px solid #DDDDDD;
 	width: 190px;
-	margin: 0px 5px 20px;
+	margin: 0px 5px 10px;
 }
 
 .condition .used-list .useditem .row {
@@ -294,6 +303,7 @@
 .condition .used-list .useditem .usedl {
 	color: #ff8416;
 	font-size: 24px;
+	padding-top: 4px;
 }
 
 .condition .used-list .useditem .usedr {
@@ -316,4 +326,18 @@
 	color: #FFF;
 	font-size: 12px;
 }
-
+#footer {
+	position: fixed;
+	width: 100%;
+	background: #212435;
+	font-size: 12px;
+	height: 40px;
+	line-height: 40px;
+	bottom: 0;
+	z-index: 1000;
+	color: #FFF;
+}
+#footer .copyright {
+	padding-right: 15%;
+	text-align: right;
+}

@@ -11,7 +11,7 @@
 	<script src="$static/js/pagejs/used.js"></script>
 </head>
 <body>
-	<div id="main" class="sscreen">
+	<div id="main" class="bscreen">
 		<div id="header">
 			<div class="content">
 				<div id="top">
@@ -113,7 +113,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="used-list">
+				<div class="used-list clearfix">
 					<div class="useditem">
 						<div class="preview"><img src="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
@@ -307,6 +307,32 @@
 				</div>
 			</div>
 		</div>
+		<div id="tipinfo" style="display: none;">
+			<img src="$static/img/loading.gif" height="24px" width="24px" alt="正在加载..." />
+		</div>
+	</div>
+	<div id="selarea" style="display: none;">
+		<div class="dialogs-title">猜你要去 <a class="defsel" href="#">北京站</a> 或者 <a href="#">上海</a> <a href="#">广东</a> <a href="#">重庆</a> <a href="#">江苏</a> <a href="#">山西</a> <a href="#">山东</a></div>
+		<div class="dialogs-cont">
+			<p class="subtitle">请选择您的地区：</p>
+			<div class="area clearfix">
+				<div class="label-text">直辖市</div>
+				<div class="label-value">
+					<a class="defsel" href="#">北京</a> <a href="#">上海</a> <a href="#">重庆</a> <a href="#">天津</a>
+				</div>
+			</div>
+			<div class="area clearfix">
+				<div class="label-text">华北东北</div>
+				<div class="label-value">
+					<a href="#">河北</a> <a href="#">山西</a> <a href="#">内蒙古</a> <a href="#">黑龙江</a> <a href="#">吉林</a> <a href="#">辽宁</a>
+					<a href="#">河北</a> <a href="#">山西</a> <a href="#">内蒙古</a> <a href="#">黑龙江</a> <a href="#">吉林</a> <a href="#">辽宁</a>
+					<a href="#">河北</a> <a href="#">山西</a> <a href="#">内蒙古</a> <a href="#">黑龙江</a> <a href="#">吉林</a> <a href="#">辽宁</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="copyright">Copyright &copy; gongpingjia.com All Rights Reserved</div>
 	</div>
 </body>
 </html>
