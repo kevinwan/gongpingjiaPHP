@@ -1,4 +1,7 @@
 $(document).ready(function() {
+	$("img.lazy").lazyload({
+		effect : "fadeIn"
+	});
 	$(document).on("click", "#top .selarea .area", function() {
 		layer.open({
 			type: 1,

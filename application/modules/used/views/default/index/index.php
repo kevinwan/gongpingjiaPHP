@@ -9,6 +9,7 @@
 	<script src="$static/js/common.js"></script>
 	<script src="$static/js/layer/layer.js"></script>
 	<script src="$static/js/pagejs/used.js"></script>
+	<script src="$static/js/jquery/jquery.lazyload.min.js"></script>
 </head>
 <body>
 	<div id="main" class="bscreen">
@@ -115,7 +116,7 @@
 				</div>
 				<div class="used-list clearfix">
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -134,7 +135,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -153,7 +154,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -172,7 +173,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -191,7 +192,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -210,7 +211,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -229,7 +230,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -248,7 +249,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -267,7 +268,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
@@ -286,7 +287,7 @@
 						</div>
 					</div>
 					<div class="useditem">
-						<div class="preview"><img src="$static/img/used/demo.png" /></div>
+						<div class="preview"><img class="lazy" data-original="$static/img/used/demo.png" /></div>
 						<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
 						<div class="info row">
 							<div class="usedl fl">&yen;30.80 万</div>
