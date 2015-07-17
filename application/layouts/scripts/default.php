@@ -7,16 +7,22 @@ echo $this->getView()->headLink();
 echo $this->getView()->headTitle();
 echo $this->getView()->headMeta();
 ?>
+<script src="$static/js/jquery/jquery-1.11.1.js"></script>
+<script src="$static/js/layer/layer.js"></script>
+<script src="$static/js/common.js"></script>
 <?php echo $this->getView()->headScript();?>
-
+<link rel="stylesheet" href="$static/css/base.css"  />
 <?php echo $this->getView()->headStylesheet();?>
 </head>
 <body>
-<?php 
+<?php
 require_once APPLICATION_PATH.'/layouts/scripts/header.php';
 ?>
 <?php echo $this->{'$layoutContent'}?>
-<?php 
+<?php
+require_once APPLICATION_PATH.'/layouts/scripts/selectcity.php';
+?>
+<?php
 require_once APPLICATION_PATH.'/layouts/scripts/footer.php';
 ?>
 </body>
