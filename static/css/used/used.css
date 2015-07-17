@@ -1,0 +1,319 @@
+﻿@charset "UTF-8";
+
+#header {
+	height: 120px;
+	border-bottom: 1px solid #e4e4e4;
+	box-shadow: 0 0 5px #efefef;
+}
+
+.sscreen .content {
+	width: 990px;
+	margin: 0 auto;
+}
+
+#top {
+	height: 120px;
+	width: 198px;
+	background: #2ca7e0;
+	z-index: 100;
+	float: left;
+}
+
+#top .wrap {
+	padding: 15px 30px;
+}
+
+#top .selarea {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #FFF;
+	font-size: 12px;
+	color: #FFF;
+	height: 17px;
+	line-height: 17px;
+	font-size: 12px;
+}
+
+#top .selarea .label-text {
+	float: left;
+}
+
+#top .selarea .area {
+	float: left;
+	font-weight: bold;
+	background: url(../../img/index/arrow.png) no-repeat right center;
+	padding-right: 15px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+#search-container {
+	float: right;
+	margin-top: 40px;
+}
+
+#search-container .sbtn {
+	float: left;
+	position: relative;
+	width: 110px;
+	height: 40px;
+	border: 1px solid transparent;
+	padding: 4px 5px;
+	font-size: 14px;
+}
+
+#search-container .sbtn .sbtn-wrap {
+	border: 1px solid #dddddd;
+	padding: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#search-container .fl {
+	float: left;
+	display: inline;
+}
+
+#search-container .smr {
+	padding: 5px;
+}
+
+#search-container .active {
+	border: 1px solid transparent;
+	padding: 0;
+	height: 50px;
+	width: 120px;
+}
+
+#search-container .active .sbtn-wrap {
+	background: none repeat scroll 0 0 #F9F9F9;
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	padding: 15px 15px 16px;
+	position: absolute;
+	width: 89px;
+	z-index: 1000;
+}
+
+#search-container .bud-cont, #search-container .car-age-cont,
+	#search-container .mileage-cont {
+	display: none;
+	font-size: 12px;
+}
+
+#search-container .active .bud-cont, #search-container .active .car-age-cont,
+	#search-container .active .mileage-cont {
+	display: block;
+	padding: 10px 10px;
+}
+
+#search-container .bud-cont {
+	background: none repeat scroll 0 0 #F9F9F9;
+	border: 1px solid #DDDDDD;
+	position: absolute;
+	right: -240px;
+	top: 50px;
+	width: 630px;
+	z-index: 50;
+}
+
+#search-container .car-age-cont {
+	background: none repeat scroll 0 0 #F9F9F9;
+	border: 1px solid #DDDDDD;
+	position: absolute;
+	right: -117px;
+	top: 50px;
+	width: 474px;
+	z-index: 50;
+}
+
+#search-container .mileage-cont {
+	background: none repeat scroll 0 0 #F9F9F9;
+	border: 1px solid #DDDDDD;
+	position: absolute;
+	right: -1px;
+	top: 50px;
+	width: 474px;
+	z-index: 50;
+}
+
+#search-container .sbtn .gray-arrow {
+	background: url(../../img/index/gray-arrow.png) no-repeat right center;
+	padding-right: 22px;
+	height: 18px;
+	line-height: 18px;
+}
+
+#search-container .active .gray-arrow {
+	background: url(../../img/index/gray-top-arrow.png) no-repeat right
+		center;
+}
+
+#search-container .input-search input {
+	height: 38px;
+	line-height: 38px;
+	padding: 0 15px;
+	color: #cccccc;
+	width: 300px;
+	font-size: 14px;
+	text-align: center;
+}
+
+#search-container .advanced {
+	height: 38px;
+	line-height: 38px;
+	color: #ff8416;
+	text-decoration: underline;
+}
+
+#search-container .price_l {
+	line-height: 30px;
+}
+
+#search-container .price_l ul li {
+	float: left;
+	margin: 0 27px 0 10px;
+	cursor: pointer;
+}
+
+#search-container .price_l ul li:hover {
+	color: #ff8416;
+}
+
+#search-container .custom-price {
+	height: 30px;
+	line-height: 30px;
+	margin: 10px 10px 0 10px;
+}
+
+#search-container .custom-price .small-input {
+	height: 22px;
+	line-height: 22px;
+	width: 68px;
+}
+
+#search-container .custom-price .text-label {
+	margin-right: 12px;
+}
+
+#custom-price {
+	background: #ff8416;
+	border: 0;
+	height: 28px;
+	line-height: 28px;
+	margin-left: 5px;
+	width: 56px;
+	color: #FFF;
+}
+
+.condition .top-cont {
+	height: 30px;
+	margin: 15px 0;
+}
+
+.condition .top-cont .totalnum {
+	height: 30px;
+	line-height: 30px;
+}
+
+.condition .tags {
+	margin-left: 10px;
+}
+
+.condition .tags ul li {
+	float: left;
+	border: 1px solid #DDDDDD;
+	padding: 8px;
+	margin: 0 8px;
+}
+
+.condition .tags ul li .icon-close {
+	background: url(../../img/used/close.png) no-repeat right center;
+	height: 9px;
+	width: 9px;
+	display: inline-block;
+	padding-right: 8px;
+	cursor: pointer;
+}
+
+.condition .sort {
+	width: 240px;
+	line-height: 30px;
+}
+
+.condition .sort .sort-res {
+	margin-right: 10px;
+}
+
+.condition .sort .sort-res span {
+	color: #2da7e0;
+}
+
+.condition .sort .sort-l ul li {
+	float: left;
+	margin-right: 10px;
+}
+
+.condition .sort .sort-l ul .icon {
+	height: 14px;
+	width: 7px;
+	padding-right: 11px;
+}
+
+.condition .sort .sort-l ul .icon-up .icon {
+	background: url(../../img/used/up.png) no-repeat right center;
+}
+
+.condition .sort .sort-l ul .icon-down .icon {
+	background: url(../../img/used/down.png) no-repeat right center;
+}
+
+.condition .used-list {
+	margin: 0 -5px;
+}
+
+.condition .used-list .useditem {
+	float: left;
+	border-bottom: 1px solid #DDDDDD;
+	width: 190px;
+	margin: 0px 5px 20px;
+}
+
+.condition .used-list .useditem .row {
+	margin: 10px 0;
+	clear: both;
+}
+
+.condition .used-list .useditem .preview {
+	width: 100%;
+}
+
+.condition .used-list .useditem .info {
+	height: 30px;
+}
+
+.condition .used-list .useditem .usedl {
+	color: #ff8416;
+	font-size: 24px;
+}
+
+.condition .used-list .useditem .usedr {
+	text-align: right;
+	color: #999999;
+}
+
+.condition .used-list .useditem .price {
+	color: #999999;
+	font-size: 12px;
+}
+
+.condition .used-list .useditem .tags {
+	text-align: right;
+}
+
+.condition .used-list .useditem .tags .tag {
+	padding: 0 3px;
+	line-height: 20px;
+	color: #FFF;
+	font-size: 12px;
+}
+

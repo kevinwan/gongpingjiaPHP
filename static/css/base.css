@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
 body {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: "Microsoft YaHei", "宋体";
+	line-height: 1;
 }
 
 a {
@@ -44,12 +45,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	padding: 0;
 	border: 0;
 	outline: 0;
-	font-size: 100%;
 	background: transparent;
-}
-
-body {
-	line-height: 1;
 }
 
 :focus {
@@ -118,4 +114,32 @@ input, select {
 
 .clear {
 	clear: both;
+}
+
+.font-orange {
+	color: #ff8416;
+}
+
+.font-bold {
+	font-weight: bold;
+}
+
+.green-bg {
+	background: #35c779;
+}
+
+.blue-bg {
+	background: #2da7e0;
+}
+
+.violet-bg {
+	background: #d07dad;
+}
+
+.orange-bg {
+	background: #ff8416;
+}
+
+.red-bg {
+	background: #fe5245;
 }
