@@ -28,12 +28,12 @@
 				<form name="srcForm" id="srcForm" action="" verify="true">
 					<div class="r-logo"></div>
 					<ul class="r-form">
-						<li class="car-series">宝马X5  2014款 520i 典雅型</li>
+						<li class="car-series"><?php echo $this->type->detail_model ?></li>
 						<li class="r-form-even">
 							<label>上牌时间</label><a class="form-text" onClick="WdatePicker({dateFmt:'yyyy年'})" href="javascript:;">2011年</a>
 						</li>
 						<li>
-							<label>上牌城市</label><a class="form-text" href="javascript:;">南京</a>
+							<label>上牌城市</label><a class="form-text" href="javascript:;"><?php echo $this->nowCity->name; ?></a>
 						</li>
 						<li class="r-form-even">
 							<label>行驶里程</label><input datatype="plusInt" nullmsg="不能空" class="form-text form-input" type="text" />
@@ -42,35 +42,20 @@
 					</ul>
 					<a class="more-car" href="javascript:;" onclick="sellreport();">更新爱车信息</a>
 					<div id="selectcar" class="selectcar" style="display: none;">
+                                                <?php if(is_array($this->types)){ ?>
+                                                <?php foreach ($this->types as $type){ ?>
 						<div class="selectItem">
-							<p>2015款</p>
+							<p><?php echo $type[0] ?></p>
 							<ul>
+                                                                <?php foreach ($type[1] as $item){ ?>
 								<li>
-									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
-									<div class="carprice">新车指导价￥25.58</div>
+									<div class="carmodel"><?php echo $item->detail_model ?></div>
+									<div class="carprice">新车指导价￥<?php echo $item->price_bn ?></div>
 								</li>
-								<li>
-									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
-									<div class="carprice">新车指导价￥25.58</div>
-								</li>
-								<li>
-									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
-									<div class="carprice">新车指导价￥25.58</div>
-								</li>
-								<li>
-									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
-									<div class="carprice">新车指导价￥25.58</div>
-								</li>
-								<li>
-									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
-									<div class="carprice">新车指导价￥25.58</div>
-								</li>
-								<li>
-									<div class="carmodel">CC 1.8TSI 双离合 尊贵型</div>
-									<div class="carprice">新车指导价￥25.58</div>
-								</li>
+                                                                <?php } ?>								
 							</ul>
 						</div>
+                                                <?php }} ?>
 					</div>
 				</form>
 			</div>

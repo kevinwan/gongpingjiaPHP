@@ -31,10 +31,14 @@ class Report_IndexController extends XF_Controller_Abstract
             throw new XF_Exception('车系参数不正确');	
 	}
         
+        //当前地区名称
+	$name = $this->nowCity->name;
+        
         //获取车型列表
         $mod = new Auto_Model_Type();
         $types = $mod->getsBySerialId($serialId);
         //print_r($types);
+        $this->_view->types = $types;
         
         if ((!isset($serialId) || XF_Functions::isEmpty($typeId)) && !XF_Functions::isEmpty($types))
         {
@@ -45,7 +49,12 @@ class Report_IndexController extends XF_Controller_Abstract
         {
             $type = $mod->getsByTypeId($typeId);
         }
-        print_r($type);
+        
+        $this->_view->type = $type;
+        
+        //获取估值
+        $mod = new Auto_Model_Valuation();
+        //print_r($type);
     }
 }
 
