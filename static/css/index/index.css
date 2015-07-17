@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body {
 	overflow: hidden;
+	background: url(../../img/index/front.png) scroll;
 }
 #wrapper {
 	position: relative;
@@ -226,7 +227,6 @@ body {
 	height: 60px;
 	margin: 0 auto;
 	transition: all 0.5s ease 0s;
-	width: 90px;
 }
 .cdsStabBox a div {
 	bottom: 0;

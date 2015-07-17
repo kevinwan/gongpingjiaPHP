@@ -21,6 +21,8 @@ $(document).ready(function() {
 	if(itemwidth*x_num > w_width) {
 		axis = -Math.ceil((itemwidth*x_num-w_width)/2);
 	}
+	
+	$("body").css("background-position", "-10px 0");
 
 	$.ajax({
 		url: "/",
