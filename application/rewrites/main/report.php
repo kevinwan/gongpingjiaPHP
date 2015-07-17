@@ -4,31 +4,22 @@
 $router->addRewrite('sellReport',
     new XF_Controller_Router_Rewrite(
         array(
-            '/^\/sellreport\/$/',
-            '/^\/sellreport\/(.*?)\/?s(\d)m(\d+)ax(\d+)f(\d+)\/$/',
-            '/^\/(.*?)\/discountnew\/$/',
-            '/^\/(.*?)\/discountnew\/(.*?)\/?s(\d)m(\d+)ax(\d+)f(\d+)\/$/',
+            '/^\/sellreport\/(\d+)\/$/',
+            '/^\/sellreport\/(\d+)\/(.*?)\/(.*?)\/(.*?)\/(.*?)\/$/',
 	),
 	array(
-            'module' => 'default',
+            'module' => 'report',
             'controller' => 'index',
-            'action' => 'discountNew'
+            'action' => 'sellReport'
 	),
 	array(
-            '1:1' => 'brand_py',
-            '1:2' => 'style',
-            '1:3' => 'min_price',
-						'1:4' => 'max_price',
-						'1:5' => 'flatly',
-						'2:1' => 'city',
-						'3:1' => 'city',
-						'3:2' => 'brand_py',
-						'3:3' => 'style',
-						'3:4' => 'min_price',
-						'3:5' => 'max_price',
-						'3:6' => 'flatly',
-						
-				)
-		)
+            '0:1' => 'serialId',
+            '1:1' => 'serialId',
+            '1:2' => 'city',
+            '1:3' => 'year',
+            '1:4' => 'typeId',
+            '1:5' => 'mileage',					
+	)
+    )
 );
 

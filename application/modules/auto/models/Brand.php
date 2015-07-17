@@ -16,7 +16,7 @@ class Auto_Model_Brand extends  Application_Model_Abstract
 	 */
 	public function getBrand()
         {
-            $query = 'http://www.gongpingjia.com/api/cars/category/brands/gongpingjia-php/';
+            $query = '/api/cars/category/brands/gongpingjia-php/';
             $brand = $this->pull($query);
             return $brand->brands;
         }
@@ -27,7 +27,7 @@ class Auto_Model_Brand extends  Application_Model_Abstract
 	 */
         public function getBrandKeywords()
         {
-            $query = 'http://www.gongpingjia.com/meta-data/model/';
+            $query = '/meta-data/model/';
             $data = $this->pull($query);
             return $data->data;
         }

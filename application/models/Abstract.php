@@ -42,6 +42,12 @@ abstract class Application_Model_Abstract
      * @var int
      */
     const _solr_port = 8383;
+    
+    /**
+     * solr服务器端口
+     * @var int
+     */
+    const _webapi_domain = 'http://www.gongpingjia.com';
 	
     /**
      * 初始化当前Model对应的Table对象
@@ -260,7 +266,7 @@ abstract class Application_Model_Abstract
         public function pull($query)
 	{
             //$url = urlencode($query);
-            $url = $query;
+            $url = self::_webapi_domain.$query;
             $curl = curl_init();  
             curl_setopt($curl, CURLOPT_URL, $url);  
             curl_setopt($curl, CURLOPT_HEADER, false);  
@@ -271,7 +277,7 @@ abstract class Application_Model_Abstract
             $response = curl_exec($curl);  
             curl_close($curl); 
             $json = json_decode($response);
-            if (is_object($json) && $json->status == 'success')
+            if (is_object($json))
             {
                 return $json;
             }

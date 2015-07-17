@@ -16,7 +16,7 @@ class Used_Model_Used extends  Application_Model_Abstract
 	 */
 	public function getIndexUsed($city,$num)
         {
-            $query = 'http://www.gongpingjia.com/api/cars/car/indexcar/gongpingjia-php/?city='.$city.'&num='.$num;
+            $query = '/api/cars/car/indexcar/gongpingjia-php/?city='.$city.'&num='.$num;
             $used = $this->pull($query);
             return $used->cars;
         }
