@@ -6,22 +6,22 @@
  */
 class Layout_Default extends XF_View_Layout_Abstract
 {
-    private $nowCity;
+	private $nowCity;
 	
-    public function __construct()
-    {
+	public function __construct()
+	{
 	$this->_tpl = 'default.php';
-    }
+	}
 
-    protected function _init() {
-        $this->nowCity = $this->getView()->nowCity;
+	protected function _init() {
+		$this->nowCity = $this->getView()->nowCity;
 	$this->assign('domain', XF_Config::getInstance()->getDomain());
 	$this->assign('nowCity', $this->nowCity);
 		
 	$a = $this->getRequest()->getAction();
 	$c = $this->getRequest()->getController();
 	$m = $this->getRequest()->getModule();
-    }
+	}
 
 }
 

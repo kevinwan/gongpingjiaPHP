@@ -9,7 +9,7 @@ class Used_IndexController extends XF_Controller_Abstract
 	public function __construct()
 	{
 		parent::__construct($this);
-                $this->_view->setResourcePath($this->static_url);
+				$this->_view->setResourcePath($this->static_url);
 	}
 	
 	public function indexAction()
@@ -22,7 +22,7 @@ class Used_IndexController extends XF_Controller_Abstract
 		
 		//设置页面资源
 		$this->_view->headStylesheet('/css/used/used.css');
-		$this->_view->headScript('/js/pagejs/used.js')->appendFile('/js/jquery/jquery.lazyload.min.js');
+		$this->_view->headScript('/js/pagejs/used.js');
 		
 	}
 }

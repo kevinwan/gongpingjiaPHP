@@ -18,9 +18,4 @@ $(document).ready(function() {
 			$("#tipinfo").show();
 		}
 	});
-        
-        
-        $("img.lazy").lazyload({
-            effect : "fadeIn"
-	});
 });
