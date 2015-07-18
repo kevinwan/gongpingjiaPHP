@@ -213,15 +213,24 @@ body {
 }
 
 .bscreen .r-sells .sealer {
-	background-color: rgba(45, 167, 224, 0.8);
+	background: #2DA7E0;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+	opacity: 0.8;
+	-moz-opacity: 0.8;
 }
 
 .bscreen .r-sells .sFour {
-	background-color: rgba(255, 132, 22, 0.8);
+	background: #FF8416;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+	opacity: 0.8;
+	-moz-opacity: 0.8;
 }
 
 .bscreen .r-sells .self {
-	background-color: rgba(53, 199, 121, 0.8);
+	background: #35C779;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+	opacity: 0.8;
+	-moz-opacity: 0.8;
 }
 
 .bscreen .r-sells h2 {
@@ -261,7 +270,10 @@ body {
 	height: 50px;
 	line-height: 50px;
 	padding: 0 15px;
-	background-color: rgba(255, 255, 255, 0.95);
+	background: #FFF;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=95);
+	opacity: 0.95;
+	-moz-opacity: 0.95;
 	overflow: hidden;
 }
 
@@ -270,7 +282,10 @@ body {
 }
 
 .r-form .r-form-even {
-	background-color: rgba(245, 245, 245, 0.95);
+	background: #F5F5F5;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=95);
+	opacity: 0.95;
+	-moz-opacity: 0.95;
 }
 
 .more-car {
