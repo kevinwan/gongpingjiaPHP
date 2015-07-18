@@ -1,0 +1,257 @@
+@charset "UTF-8";
+
+#top {
+	height: 120px;
+	width: 198px;
+	background: #2ca7e0;
+	margin: 0 auto;
+}
+
+#top .wrap {
+	padding: 15px 30px;
+}
+
+#top .selarea {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #FFF;
+	font-size: 12px;
+	color: #FFF;
+	height: 17px;
+	line-height: 17px;
+}
+
+#top .selarea .label-text {
+	float: left;
+}
+
+#top .selarea .area {
+	float: left;
+	font-weight: bold;
+	font-size: 14px;
+	background: url(../../img/index/arrow.png) no-repeat right center;
+	padding-right: 15px;
+	cursor: pointer;
+}
+
+/*选商家*/
+.saler_main{
+	width: 990px;
+	margin: 35px auto 0;
+	text-align: center;
+}
+.saler_mes{
+	font-size: 28px;
+	font-weight: 500;
+	color: #34495e;
+}
+.saler_choose{
+	overflow: hidden;
+	margin-top: 35px;
+}
+.saler_choose_part{
+	width: 190px;
+	float: left;
+}
+.saler_choose_part h5{
+	color: white;
+	padding: 8px 0;
+	font-weight: 500;
+}
+.saler_choose_con{
+	border: 2px solid #f8f8f8;
+	border-top: none;
+}
+.saler_choose_con img{
+	height: 35px;
+	padding: 25px 0;
+}
+.saler_choose_con p{
+	text-align: left;
+	font-size: 12px;
+	line-height: 20px;
+	color: #999;
+	padding: 0 8px 8px;
+}
+.saler_choose_con div{
+	background: #f8f8f8;
+	line-height: 40px;
+}
+.saler_choose_con a{
+	background: url(../../img/displace/saler_phone.png) no-repeat;
+	padding-left: 25px;
+	padding-bottom: 1px;
+	color: #aaa;
+}
+.saler_choose_part1 h5{
+	background: #33b773;
+}
+.saler_choose_part2 h5{
+	background: #2da7e0;
+}
+.saler_choose_margin{
+	margin: 0 10px;
+}
+.saler_other{
+	color: #b0b0b0;
+	display: block;
+	line-height: 40px;
+	background: #f8f8f8;
+	margin-top: 20px;
+}
+/*服务部分——选商家页面*/
+.serve_main{
+	margin: 35px auto;
+	overflow: hidden;
+	width: 660px;
+}
+.serve_part{
+	width: 195px;
+	float: left;
+	margin: 0 67px;
+}
+.serve_part div{
+	border: 2px solid #f0f0f0;
+	border-radius: 100%;
+	width: 93px;
+	margin: 0 auto;
+}
+.serve_part img{
+	padding: 25px;
+}
+.serve_part h4{
+	clear: both;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 15px 0;
+}
+.serve_part p{
+	color: #a1a1a1;
+	line-height: 22px;
+}
+/*搜索页面*/
+.search_part{
+	overflow: hidden;
+	margin-top: 35px;
+	margin-left: 60px;
+}
+.search_Txt{
+	border: 2px solid #ddd;
+	border-right: none;
+	width: 750px;
+	float: left;
+	height: 54px;
+	padding-left: 20px;
+	color: #cccccc;
+}
+.search_Btn{
+	width: 96px;
+	height: 59px;
+	background: #2da7e0;
+	border: none;
+	color: white;
+	float: left;
+	font-size: 18px;
+	cursor: pointer;
+}
+#cdsSearchBox {
+	height: 380px;
+	margin: 0 auto;
+	position: relative;
+	width: 990px;
+}
+.cdsSearchMain .cdsbrandbg {
+	height: 380px;
+	left: 0;
+	opacity: 0.7;
+	position: absolute;
+	top: 0;
+	width: 260px;
+	z-index: 0;
+}
+.cdsSbrand {
+	float: left;
+	height: 600px;
+	position: relative;
+	width: 250px;
+}
+.cdsStabBox .cdsbTitle,
+.cdsSbrand .cdsbTitle {
+	text-align: center;
+	margin: 14px 0;
+	color: #33495d;
+}
+.csbNav {
+	padding: 0 0 10px 10px;
+}
+.csbNav a {
+	background: #FFF;
+	color: #000;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 12px;
+	height: 22px;
+	line-height: 22px;
+	margin: 10px 8px 0 0;
+	text-align: center;
+	width: 22px;
+	border: 1px solid #dadada;
+	text-decoration: none;
+}
+.cdsBtabBox {
+	height: 446px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding-left: 10px;
+	position: relative;
+	width: 240px;
+}
+.cdsSearchMain .ibrandBox {
+	border: 1px solid #f8f8f8;
+	margin: 0 auto;
+	width: 95%;
+}
+.cdsSearchMain p {
+	color: #999999;
+	background: #f8f8f8;
+	font-size: 12px;
+	height: 29px;
+	line-height: 29px;
+	text-indent: 8px;
+	margin: 0;
+}
+.cdsSearchMain li {
+	height: 30px;
+	line-height: 30px;
+	list-style: none;
+	cursor: pointer;
+}
+.cdsSearchMain li .preview {
+	float: left;
+	width: 30px;
+}
+.cdsStabBox .cdsStab a,
+.cdsBtabBox a {
+	color: #000;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 8px;
+}
+.carModel ul .active a,
+.cdsSearchMain a.active {
+	color: #2da7e0;
+}
+.csbNav a.active {
+	background: #31a5db;
+	color: #FFF;
+	border: 1px solid #31a5db;
+}
+.cdsStabBox {
+	background: none repeat scroll 0 0 #FFFFFF;
+	float: left;
+	width: 370px;
+}
+.cdsStabBox .cdsStab {
+	height: 558px;
+}

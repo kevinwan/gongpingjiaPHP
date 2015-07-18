@@ -134,7 +134,7 @@ $(document).ready(function() {
 						var ibrandBoxP = $("<p id=\""+n[0]+"\">"+n[0]+"</p>");
 						var ibrandBoxUl = $("<ul></ul>");
 						$.each(n[1], function(y,m) {
-							var ibrandBoxLi = $("<li id=\"brand_"+m.id+"\"><img class=\"preview\" src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><a href=\"javascript:void(0);\" ref=\"+m.name+\">"+m.name+"</a></li>");
+							var ibrandBoxLi = $("<li id=\"brand_"+m.id+"\"><img class=\"preview\" src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><a href=\"javascript:void(0);\" ref=\""+m.name+"\">"+m.name+"</a></li>");
 							ibrandBoxLi.appendTo(ibrandBoxUl);
 						});
 						ibrandBoxP.appendTo(ibrandBox);
