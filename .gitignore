@@ -2,3 +2,6 @@
 /application/configs/application.php
 /static/cacheimg
 /static/upload
+/.settings/
+/.project
+/.gitignore
