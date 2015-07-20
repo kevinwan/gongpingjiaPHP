@@ -22,7 +22,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 		$this->setLayout (new Layout_Default());
 		$this->_view->headStylesheet ('/css/sell/upload.css');
 		$this->_view->headStylesheet ('/css/common.css');
-		$this->_view->headScript ('/js/demo/plupload.full.min.js')->appendFile ( '/js/demo/upload.js' );
+		$this->_view->headScript ('/js/plupload/plupload.full.min.js')->appendFile ( '/js/pagejs/upload.js' );
 	}
 	
 	public function uploadfileAction() {
