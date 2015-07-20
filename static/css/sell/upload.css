@@ -100,6 +100,32 @@
 	width: 228px;
 	height: 152px;
 	border: solid 1px #d1d1d1;
+	overflow: hidden;
+}
+
+.upload-img a .shade {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 228px;
+	height: 152px;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+	opacity: 0.7;
+	-moz-opacity: 0.7;
+	background: #000;
+	z-index: 1000;
+}
+
+.upload-img a .close {
+	background: url(../../img/sell/close.png) no-repeat center center #000;
+}
+
+.upload-img a .hide {
+	display: none;
+}
+
+.upload-img a:hover .close {
+	display: block;
 }
 
 .upload-img a label {
@@ -138,7 +164,6 @@
 }
 
 .upload-opcity {
-	display: none;
 	position: absolute;
 }
 
