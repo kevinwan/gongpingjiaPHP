@@ -1,3 +1,37 @@
+#top {
+	height: 120px;
+	width: 198px;
+	background: #2ca7e0;
+	margin: 0 auto;
+}
+
+#top .wrap {
+	padding: 15px 30px;
+}
+
+#top .selarea {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #FFF;
+	font-size: 12px;
+	color: #FFF;
+	height: 17px;
+	line-height: 17px;
+}
+
+#top .selarea .label-text {
+	float: left;
+}
+
+#top .selarea .area {
+	float: left;
+	font-weight: bold;
+	font-size: 14px;
+	background: url(../../img/index/arrow.png) no-repeat right center;
+	padding-right: 15px;
+	cursor: pointer;
+}
+
 .banner {
 	margin: 0 auto;
 	height: 350px;

@@ -133,7 +133,7 @@ class Report_IndexController extends XF_Controller_Abstract
 	public function displaceAction()
 	{
 		$this->setLayout ( new Layout_Default () );
-		$this->_view->headStylesheet ( '/css/displace/common.css' );
+		$this->_view->headStylesheet ( '/css/common.css' );
 		$this->_view->headStylesheet ( '/css/displace/displace.css' );
 		$this->_view->headScript ( '/js/pagejs/displace.js' );
 	}
