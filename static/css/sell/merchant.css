@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/*选商家*/
+.saler_main{
+	width: 990px;
+	margin: 35px auto 0;
+	text-align: center;
+}
+.saler_mes{
+	font-size: 28px;
+	font-weight: 500;
+	color: #34495e;
+}
+.saler_choose{
+	overflow: hidden;
+	margin-top: 35px;
+}
+.saler_choose_part{
+	width: 190px;
+	float: left;
+}
+.saler_choose_part h5{
+	color: white;
+	padding: 8px 0;
+	font-weight: 500;
+}
+.saler_choose_con{
+	border: 2px solid #f8f8f8;
+	border-top: none;
+	cursor: pointer;
+}
+.saler_choose_con img{
+	height: 35px;
+	padding: 25px 0;
+}
+.saler_choose_con p{
+	text-align: left;
+	font-size: 12px;
+	line-height: 20px;
+	color: #999;
+	padding: 0 8px 8px;
+}
+.saler_choose_con div{
+	background: #f8f8f8;
+	line-height: 40px;
+}
+.saler_choose_con a{
+	background: url(../../img/sell/saler_phone.png) no-repeat scroll 0 0;
+	padding-left: 25px;
+	padding-bottom: 1px;
+	color: #aaa;
+}
+.saler_choose_part1 h5{
+	background: #33b773;
+}
+.saler_choose_part2 h5{
+	background: #2da7e0;
+}
+.saler_choose_margin{
+	margin: 0 10px;
+}
+.saler_other{
+	color: #b0b0b0;
+	display: block;
+	line-height: 40px;
+	background: #f8f8f8;
+	margin-top: 20px;
+}
+/*服务部分——选商家页面*/
+.serve_main{
+	overflow: hidden;
+	margin: 35px 0;
+}
+.serve_part{
+	width: 195px;
+	float: left;
+	margin: 0 67px;
+}
+.serve_part div{
+	border: 2px solid #f0f0f0;
+	border-radius: 100%;
+	width: 93px;
+	margin: 0 auto;
+}
+.serve_part img{
+	padding: 25px;
+}
+.serve_part h4{
+	clear: both;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 15px 0;
+}
+.serve_part p{
+	color: #a1a1a1;
+}
+/*搜索页面*/
+.search_part{
+	overflow: hidden;
+	margin-top: 35px;
+	margin-left: 60px;
+}
+.search_Txt{
+	border: 2px solid #ddd;
+	border-right: none;
+	width: 750px;
+	float: left;
+	height: 54px;
+	padding-left: 20px;
+}
+.search_Btn{
+	width: 96px;
+	height: 60px;
+	background: #2da7e0;
+	border: none;
+	color: white;
+	float: left;
+	font-size: 18px;
+	cursor: pointer;
+}

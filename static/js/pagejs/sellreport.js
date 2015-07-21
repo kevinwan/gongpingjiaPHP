@@ -13,6 +13,15 @@ $(document).ready(function() {
 				$("input[name='typeid']").val(typeid);
 		$("#selectcar").hide();
 	});
+	$(document).on("click", "#main .r-sells .sealer", function() {
+		window.location.href='/sell/index/merchant';
+	});
+	$(document).on("click", "#main .r-sells .sFour", function() {
+		window.location.href='/sell/index/fourshop';
+	});
+	$(document).on("click", "#main .r-sells .self", function() {
+		window.location.href='/sell/index/selfperson';
+	});
 });
 function sellreport() {
 	if(srcForm.check()) {

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+.content {
+	width: 990px;
+	margin: 0 auto;
+}
+.content .selcar {
+	font-size: 20px;
+	color: #999999;
+	text-align: center;
+	margin-top: 34px;
+}
+.content .boxtitle {
+	font-size: 28px;
+	text-align: center;
+	color: #34495e;
+	margin-top: 30px;
+}
+.content .fourshops {
+	margin-top: 30px;
+}
+.content .fourshop {
+	width: 483px;
+	height: 87px;
+	margin: 5px;
+	float: left;
+	border: 1px solid #f0f0f0;
+	cursor: pointer;
+}
+.content .fourshop:hover {
+	border: 1px solid #2da7e0;
+}
+.content .fourshop .info {
+	padding: 0 12px;
+	width: 348px;
+}
+.content .fourshop .shoptel {
+	width: 110px;
+	background: #f8f8f8;
+	height: 87px;
+	text-align: center;
+}
+.content .fourshop .shoptel .tel {
+	background: url(../../img/sell/saler_phone_26.png) no-repeat top center;
+	padding-top: 34px;
+	color: #999999;
+	margin-top: 18px;
+}
+.content .fourshop .info .shopname {
+	color: #2da7e0;
+	font-weight: bold;
+	margin: 18px 0;
+}
+.content .fourshop .info .shopadr {
+	line-height: 16px;
+	font-size: 12px;
+}
+.saler_other {
+	background: none repeat scroll 0 0 #F8F8F8;
+	color: #B0B0B0;
+	display: block;
+	line-height: 40px;
+	margin-top: 20px;
+	clear: both;
+	text-align: center;
+}

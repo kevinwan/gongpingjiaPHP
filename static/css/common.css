@@ -79,3 +79,40 @@
 .footer span {
 	color: #2ca6df;
 }
+
+/*服务部分——选商家页面*/
+.serve_main {
+	margin: 35px auto;
+	overflow: hidden;
+	width: 660px;
+	text-align: center;
+}
+
+.serve_part {
+	width: 195px;
+	float: left;
+	margin: 0 67px;
+}
+
+.serve_part div {
+	border: 2px solid #f0f0f0;
+	border-radius: 100%;
+	width: 93px;
+	margin: 0 auto;
+}
+
+.serve_part img {
+	padding: 25px;
+}
+
+.serve_part h4 {
+	clear: both;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 15px 0;
+}
+
+.serve_part p {
+	color: #a1a1a1;
+	line-height: 22px;
+}

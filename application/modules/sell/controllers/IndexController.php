@@ -11,104 +11,179 @@ class Sell_IndexController extends XF_Controller_Abstract
 		parent::__construct ( $this );
 		$this->_view->setResourcePath ( $this->static_url );
 	}
-	
 	public function indexAction()
 	{
 	}
-	
-	// 上传图片
+
+	// 添加个人信息
+	public function personinfoAction()
+	{
+		$dataFrom = $this->getParam ( 'dataFrom' );
+		$infoId = $this->getParam ( 'infoId' );
+
+		if ((! isset ( $dataFrom ) || XF_Functions::isEmpty ( $dataFrom ))) {
+			throw new XF_Exception ( '数据来源不正确' );
+		}
+
+		if ((! isset ( $infoId ) || XF_Functions::isEmpty ( $infoId ))) {
+			throw new XF_Exception ( '数据内容不正确' );
+		}
+
+// 		XF_Functions::go("");
+
+		$this->setLayout ( new Layout_Default () );
+		$this->_view->headStylesheet ( '/css/sell/personinfo.css' );
+		$this->_view->headStylesheet ( '/css/common.css' );
+		$this->_view->headScript ( '/js/pagejs/personinfo.js' );
+
+		XF_View::getInstance()->assign('dataFrom', $dataFrom);
+		XF_View::getInstance()->assign('infoId', $infoId);
+	}
+
+	// 补充图片信息
 	public function uploadAction()
 	{
-		$this->setLayout (new Layout_Default());
-		$this->_view->headStylesheet ('/css/sell/upload.css');
-		$this->_view->headStylesheet ('/css/common.css');
-		$this->_view->headScript ('/js/plupload/plupload.full.min.js')->appendFile ( '/js/pagejs/upload.js' );
+		$this->setLayout ( new Layout_Default () );
+		$this->_view->headStylesheet ( '/css/sell/upload.css' );
+		$this->_view->headStylesheet ( '/css/common.css' );
+		$this->_view->headScript ( '/js/plupload/plupload.full.min.js' )->appendFile ( '/js/pagejs/upload.js' );
 	}
-	
-	public function uploadfileAction() {
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-		header("Cache-Control: no-store, no-cache, must-revalidate");
-		header("Cache-Control: post-check=0, pre-check=0", false);
-		header("Pragma: no-cache");
-			
-		@set_time_limit(5 * 60);
-			
+	public function uploadfileAction()
+	{
+		header ( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" );
+		header ( "Last-Modified: " . gmdate ( "D, d M Y H:i:s" ) . " GMT" );
+		header ( "Cache-Control: no-store, no-cache, must-revalidate" );
+		header ( "Cache-Control: post-check=0, pre-check=0", false );
+		header ( "Pragma: no-cache" );
+
+		@set_time_limit ( 5 * 60 );
+
 		// usleep(5000);
-			
+
 		$targetDir = "D:/xampp/htdocs/pahaoche/gongpingjiaPHP/static/uploads/car";
-			
-		//$targetDir = 'uploads';
+
+		// $targetDir = 'uploads';
 		$cleanupTargetDir = true;
 		$maxFileAge = 5 * 3600;
-			
-		if (!file_exists($targetDir)) {
-			@mkdir($targetDir);
+
+		if (! file_exists ( $targetDir ))
+		{
+			@mkdir ( $targetDir );
 		}
-			
-		if (isset($_REQUEST["name"])) {
-			$fileName = $_REQUEST["name"];
-		} elseif (!empty($_FILES)) {
-			$fileName = $_FILES["file"]["name"];
-		} else {
-			$fileName = uniqid("file_");
+
+		if (isset ( $_REQUEST ["name"] ))
+		{
+			$fileName = $_REQUEST ["name"];
+		} elseif (! empty ( $_FILES ))
+		{
+			$fileName = $_FILES ["file"] ["name"];
+		} else
+		{
+			$fileName = uniqid ( "file_" );
 		}
-			
+
 		$filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
-			
-		$chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
-		$chunks = isset($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 0;
-		
-		if ($cleanupTargetDir) {
-			if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
-				die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}');
+
+		$chunk = isset ( $_REQUEST ["chunk"] ) ? intval ( $_REQUEST ["chunk"] ) : 0;
+		$chunks = isset ( $_REQUEST ["chunks"] ) ? intval ( $_REQUEST ["chunks"] ) : 0;
+
+		if ($cleanupTargetDir)
+		{
+			if (! is_dir ( $targetDir ) || ! $dir = opendir ( $targetDir ))
+			{
+				die ( '{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}' );
 			}
-				
-			while (($file = readdir($dir)) !== false) {
+
+			while ( ($file = readdir ( $dir )) !== false )
+			{
 				$tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
-					
-				if ($tmpfilePath == "{$filePath}.part") {
+
+				if ($tmpfilePath == "{$filePath}.part")
+				{
 					continue;
 				}
-					
-				if (preg_match('/\.part$/', $file) && (filemtime($tmpfilePath) < time() - $maxFileAge)) {
-					@unlink($tmpfilePath);
+
+				if (preg_match ( '/\.part$/', $file ) && (filemtime ( $tmpfilePath ) < time () - $maxFileAge))
+				{
+					@unlink ( $tmpfilePath );
 				}
 			}
-			closedir($dir);
+			closedir ( $dir );
 		}
-			
-		if (!$out = @fopen("{$filePath}.part", $chunks ? "ab" : "wb")) {
-			die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
-		}
-			
-		if (!empty($_FILES)) {
-			if ($_FILES["file"]["error"] || !is_uploaded_file($_FILES["file"]["tmp_name"])) {
-				die('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');
-			}
-				
-			if (!$in = @fopen($_FILES["file"]["tmp_name"], "rb")) {
-				die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
-			}
-		} else {
-			if (!$in = @fopen("php://input", "rb")) {
-				die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
-			}
-		}
-			
-		while ($buff = fread($in, 4096)) {
-			fwrite($out, $buff);
-		}
-			
-		@fclose($out);
-		@fclose($in);
-			
-		if (!$chunks || $chunk == $chunks - 1) {
-			rename("{$filePath}.part", $filePath);
-		}
-			
-		die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
-	}
-	
-}
 
+		if (! $out = @fopen ( "{$filePath}.part", $chunks ? "ab" : "wb" ))
+		{
+			die ( '{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}' );
+		}
+
+		if (! empty ( $_FILES ))
+		{
+			if ($_FILES ["file"] ["error"] || ! is_uploaded_file ( $_FILES ["file"] ["tmp_name"] ))
+			{
+				die ( '{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}' );
+			}
+
+			if (! $in = @fopen ( $_FILES ["file"] ["tmp_name"], "rb" ))
+			{
+				die ( '{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}' );
+			}
+		} else
+		{
+			if (! $in = @fopen ( "php://input", "rb" ))
+			{
+				die ( '{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}' );
+			}
+		}
+
+		while ( $buff = fread ( $in, 4096 ) )
+		{
+			fwrite ( $out, $buff );
+		}
+
+		@fclose ( $out );
+		@fclose ( $in );
+
+		if (! $chunks || $chunk == $chunks - 1)
+		{
+			rename ( "{$filePath}.part", $filePath );
+		}
+
+		die ( '{"jsonrpc" : "2.0", "result" : null, "id" : "id"}' );
+	}
+
+	// 卖给商家
+	public function merchantAction()
+	{
+		$this->setLayout ( new Layout_Default () );
+		$this->_view->headStylesheet ( '/css/sell/merchant.css' );
+		$this->_view->headStylesheet ( '/css/common.css' );
+		$this->_view->headScript ( '/js/pagejs/merchant.js' );
+	}
+
+	// 卖给4s店
+	public function fourshopAction()
+	{
+		$this->setLayout ( new Layout_Default () );
+		$this->_view->headStylesheet ( '/css/sell/fourshop.css' );
+		$this->_view->headStylesheet ( '/css/common.css' );
+		$this->_view->headScript ( '/js/pagejs/fourshop.js' );
+	}
+
+	// 卖给个人
+	public function selfpersonAction()
+	{
+		$this->setLayout ( new Layout_Default () );
+		$this->_view->headStylesheet ( '/css/sell/selfperson.css' );
+		$this->_view->headStylesheet ( '/css/common.css' );
+		$this->_view->headScript ( '/js/pagejs/selfperson.js' );
+	}
+
+	// 4s置换
+	public function displaceAction()
+	{
+		$this->setLayout ( new Layout_Default () );
+		$this->_view->headStylesheet ( '/css/common.css' );
+		$this->_view->headStylesheet ( '/css/displace/displace.css' );
+		$this->_view->headScript ( '/js/pagejs/displace.js' );
+	}
+}
