@@ -32,5 +32,16 @@ class Auto_Model_Type extends  Application_Model_Abstract
             return $data;
         }
         
+        /**
+	 *  根据城市ID和车系获取车型列表
+	 *  2015-7-17
+	 */
+	public function getsByCityAndSerialId($city,$auto_serial_id)
+        {
+            $query = '/api/cars/car/listcar/gongpingjia-php/?city='.$city.'&d_model='.$auto_serial_id;
+            $d_models = $this->pull($query);
+            return $d_models->d_models;
+        }
+        
 }
 
