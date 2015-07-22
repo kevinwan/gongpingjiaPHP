@@ -94,11 +94,15 @@
 
 .info-match a {
     display: inline-block;
-    width: 108px;
+    width: 107px;
     line-height: 40px;
     border: 1px dashed #d1d1d1;
     font-size: 16px;
     color: #212435;
+}
+
+.info-match a input {
+    display: none;
 }
 
 .info-match-margin {
@@ -235,10 +239,101 @@
     height: 90px;
 }
 
+/*信息补充-颜色*/
+.info-color-black {
+    background: black
+}
+
+.info-color-white {
+    background: white
+}
+
+.info-color-silvery {
+    background: #eeeeec
+}
+
+.info-color-gray {
+    background: #c5c5c5
+}
+
+.info-color-red {
+    background: #ff000b
+}
+
+.info-color-brown {
+    background: #b26f3b
+}
+
+.info-color-hbrown {
+    background: #853929
+}
+
+.info-color-blue {
+    background: #4200ff
+}
+
+.info-color-chestnut {
+    background: #711d1b
+}
+
+.info-color-golden {
+    background: #ff8f04
+}
+
+.info-color-orange {
+    background: #fa7307
+}
+
+.info-color-cream {
+    background: #fff3ad
+}
+
+.info-color-yellow {
+    background: #f8ff04
+}
+
+.info-color-purple {
+    background: #be01c0
+}
+
+.info-color-indigo {
+    background: #01ffff
+}
+
+.info-color-green {
+    background: #05ff00
+}
+
 /*提交成功弹窗*/
 .dialog-box {
+    display: none;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
+}
+
+.sub-dialogShade {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.dialog-box .sub-dialog {
+    margin: 10% auto 0;
+    width: 550px;
     height: 450px;
+    background-color: #FFF;
+    border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    box-shadow: 0 0 15px #000;
+    -moz-box-shadow: 0 0 15px #000;
+    -webkit-box-shadow: 0 0 15px #000;
+    -o-box-shadow: 0 0 15px #000;
 }
 
 .sub-dialog i {

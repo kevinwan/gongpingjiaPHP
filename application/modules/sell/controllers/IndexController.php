@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 估值报告控制器
  *
@@ -6,184 +7,258 @@
  */
 class Sell_IndexController extends XF_Controller_Abstract
 {
-	public function __construct()
-	{
-		parent::__construct ( $this );
-		$this->_view->setResourcePath ( $this->static_url );
-	}
-	public function indexAction()
-	{
-	}
+    public function __construct()
+    {
+        parent::__construct($this);
+        $this->_view->setResourcePath($this->static_url);
+    }
 
-	// 添加个人信息
-	public function personinfoAction()
-	{
-		$dataFrom = $this->getParam ( 'dataFrom' );
-		$infoId = $this->getParam ( 'infoId' );
+    public function indexAction()
+    {
+    }
 
-		if ((! isset ( $dataFrom ) || XF_Functions::isEmpty ( $dataFrom ))) {
-			throw new XF_Exception ( '数据来源不正确' );
-		}
+    // 添加个人信息
+    public function personinfoAction()
+    {
+        $submit_statue = $this->getParam('statue');
+        $dataFrom = $this->getParam('dataFrom');
+        $infoId = $this->getParam('infoId');
 
-		if ((! isset ( $infoId ) || XF_Functions::isEmpty ( $infoId ))) {
-			throw new XF_Exception ( '数据内容不正确' );
-		}
+        if ((!isset ($dataFrom) || XF_Functions::isEmpty($dataFrom))) {
+            throw new XF_Exception ('添加个人信息:数据来源不正确');
+        }
 
-// 		XF_Functions::go("");
+        if ((!isset ($infoId) || XF_Functions::isEmpty($infoId))) {
+            throw new XF_Exception ('添加个人信息:数据内容不正确');
+        }
 
-		$this->setLayout ( new Layout_Default () );
-		$this->_view->headStylesheet ( '/css/sell/personinfo.css' );
-		$this->_view->headStylesheet ( '/css/common.css' );
-		$this->_view->headScript ( '/js/pagejs/personinfo.js' );
+        if ((isset ($submit_statue) && !XF_Functions::isEmpty($submit_statue))) {
+            if ($submit_statue == "submit") {
+                $userObj = new Sell_Model_User();
+                $username = $this->getParam("username");
+                $phone = $this->getParam("phone");
+                $validate_code = $this->getParam("validate_code");
+                $user = $userObj->findUserByPhone($phone);
+                $session_ary = array();
 
-		XF_View::getInstance()->assign('dataFrom', $dataFrom);
-		XF_View::getInstance()->assign('infoId', $infoId);
-	}
+                if($user) {
+                    $submit_statue = "ok";
+                    XF_View::getInstance()->assign('userId', $user->id);
+                    $session_ary["userId"] = $user->id;
+                }else {
+                    $last_id = $userObj->addUser($username, $phone, $dataFrom, $infoId);
+                    if($last_id) {
+                        $submit_statue = "ok";
+                        XF_View::getInstance()->assign('userId', $last_id);
+                        $session_ary["userId"] = $last_id;
+                    }
+                }
 
-	// 补充图片信息
-	public function uploadAction()
-	{
-		$this->setLayout ( new Layout_Default () );
-		$this->_view->headStylesheet ( '/css/sell/upload.css' );
-		$this->_view->headStylesheet ( '/css/common.css' );
-		$this->_view->headScript ( '/js/plupload/plupload.full.min.js' )->appendFile ( '/js/pagejs/upload.js' );
-	}
-	public function uploadfileAction()
-	{
-		header ( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" );
-		header ( "Last-Modified: " . gmdate ( "D, d M Y H:i:s" ) . " GMT" );
-		header ( "Cache-Control: no-store, no-cache, must-revalidate" );
-		header ( "Cache-Control: post-check=0, pre-check=0", false );
-		header ( "Pragma: no-cache" );
+                $session_ary["dataFrom"] = $dataFrom;
+                $session_ary["infoId"] = $infoId;
 
-		@set_time_limit ( 5 * 60 );
+                $gpj_session = new XF_Session("gpj_session");
+                $gpj_session->write($session_ary);
+            }
+        }else {
+            $submit_statue = "submit";
+        }
 
-		// usleep(5000);
+        $this->setLayout(new Layout_Default ());
+        $this->_view->headStylesheet('/css/sell/personinfo.css');
+        $this->_view->headStylesheet('/css/common.css');
+        $this->_view->headScript('/js/pagejs/personinfo.js');
 
-		$targetDir = "D:/xampp/htdocs/pahaoche/gongpingjiaPHP/static/uploads/car";
+        XF_View::getInstance()->assign('dataFrom', $dataFrom);
+        XF_View::getInstance()->assign('infoId', $infoId);
+        XF_View::getInstance()->assign('statue', $submit_statue);
+    }
 
-		// $targetDir = 'uploads';
-		$cleanupTargetDir = true;
-		$maxFileAge = 5 * 3600;
+    //补充商品信息
+    public function goodinfoAction()
+    {
+        $submit_statue = $this->getParam('statue');
+        $gpj_session = new XF_Session("gpj_session");
 
-		if (! file_exists ( $targetDir ))
-		{
-			@mkdir ( $targetDir );
-		}
+        if (!$gpj_session->hasContent("userId")) {
+            throw new XF_Exception ('补充商品信息:用户没有登录');
+        }
 
-		if (isset ( $_REQUEST ["name"] ))
-		{
-			$fileName = $_REQUEST ["name"];
-		} elseif (! empty ( $_FILES ))
-		{
-			$fileName = $_FILES ["file"] ["name"];
-		} else
-		{
-			$fileName = uniqid ( "file_" );
-		}
+        if (isset ($submit_statue) && !XF_Functions::isEmpty($submit_statue)) {
+            if ($submit_statue == "submit") {
+                $car_parts = $this->getParam("car_parts");
+                $car_color = $this->getParam("car_color");
+                $period_insurance = $this->getParam("period_insurance");
+                $car_maintain = $this->getParam("car_maintain");
+                $max_cost = $this->getParam("max_cost");
+                $transfer_num = $this->getParam("transfer_num");
+                $session_ary = $gpj_session->read();
 
-		$filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
+                $sellObj = new Sell_Model_Sellinfo();
+                $last_id = $sellObj->addSellInfo($session_ary["userId"], $session_ary["dataFrom"], $session_ary["infoId"], implode(",", $car_parts), $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num);
+                if($last_id) {
+                    $session_ary["sellInfoId"] = $last_id;
+                    $gpj_session->write($session_ary);
+                    XF_Functions::go("/sell/index/upload/");
+                }
+            }
+        }else {
+            $submit_statue = "submit";
+        }
 
-		$chunk = isset ( $_REQUEST ["chunk"] ) ? intval ( $_REQUEST ["chunk"] ) : 0;
-		$chunks = isset ( $_REQUEST ["chunks"] ) ? intval ( $_REQUEST ["chunks"] ) : 0;
+        $this->setLayout(new Layout_Default ());
+        $this->_view->headStylesheet('/css/sell/goodinfo.css');
+        $this->_view->headStylesheet('/css/common.css');
+        $this->_view->headScript('/js/pagejs/goodinfo.js');
+        XF_View::getInstance()->assign('statue', $submit_statue);
+    }
 
-		if ($cleanupTargetDir)
-		{
-			if (! is_dir ( $targetDir ) || ! $dir = opendir ( $targetDir ))
-			{
-				die ( '{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}' );
-			}
+    // 补充图片信息
+    public function uploadAction()
+    {
+        $this->setLayout(new Layout_Default ());
+        $this->_view->headStylesheet('/css/sell/upload.css');
+        $this->_view->headStylesheet('/css/common.css');
+        $this->_view->headScript('/js/plupload/plupload.full.min.js')->appendFile('/js/pagejs/upload.js');
+    }
 
-			while ( ($file = readdir ( $dir )) !== false )
-			{
-				$tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
+    public function uploadfileAction()
+    {
+        $gpj_session = new XF_Session("gpj_session");
 
-				if ($tmpfilePath == "{$filePath}.part")
-				{
-					continue;
-				}
+        var_dump($gpj_session->read());
 
-				if (preg_match ( '/\.part$/', $file ) && (filemtime ( $tmpfilePath ) < time () - $maxFileAge))
-				{
-					@unlink ( $tmpfilePath );
-				}
-			}
-			closedir ( $dir );
-		}
+        if (!$gpj_session->hasContent("userId")) {
+            throw new XF_Exception ('上传商品图片:用户没有登录');
+        }
+        if (!$gpj_session->hasContent("sellInfoId")) {
+            throw new XF_Exception ('上传商品图片:没有数据来源');
+        }
 
-		if (! $out = @fopen ( "{$filePath}.part", $chunks ? "ab" : "wb" ))
-		{
-			die ( '{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}' );
-		}
+        $attDes = $this->getParam('attdes');
+        $attrType = $this->getParam('attrtype');
 
-		if (! empty ( $_FILES ))
-		{
-			if ($_FILES ["file"] ["error"] || ! is_uploaded_file ( $_FILES ["file"] ["tmp_name"] ))
-			{
-				die ( '{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}' );
-			}
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
 
-			if (! $in = @fopen ( $_FILES ["file"] ["tmp_name"], "rb" ))
-			{
-				die ( '{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}' );
-			}
-		} else
-		{
-			if (! $in = @fopen ( "php://input", "rb" ))
-			{
-				die ( '{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}' );
-			}
-		}
+        @set_time_limit(5 * 60);
 
-		while ( $buff = fread ( $in, 4096 ) )
-		{
-			fwrite ( $out, $buff );
-		}
+        // usleep(5000);
 
-		@fclose ( $out );
-		@fclose ( $in );
+        $targetDir = "D:/xampp/htdocs/pahaoche/gongpingjiaPHP/static/uploads/car";
 
-		if (! $chunks || $chunk == $chunks - 1)
-		{
-			rename ( "{$filePath}.part", $filePath );
-		}
+        // $targetDir = 'uploads';
+        $cleanupTargetDir = true;
+        $maxFileAge = 5 * 3600;
 
-		die ( '{"jsonrpc" : "2.0", "result" : null, "id" : "id"}' );
-	}
+        if (!file_exists($targetDir)) {
+            @mkdir($targetDir);
+        }
 
-	// 卖给商家
-	public function merchantAction()
-	{
-		$this->setLayout ( new Layout_Default () );
-		$this->_view->headStylesheet ( '/css/sell/merchant.css' );
-		$this->_view->headStylesheet ( '/css/common.css' );
-		$this->_view->headScript ( '/js/pagejs/merchant.js' );
-	}
+        if (isset ($_REQUEST ["name"])) {
+            $fileName = $_REQUEST ["name"];
+        } elseif (!empty ($_FILES)) {
+            $fileName = $_FILES ["file"] ["name"];
+        } else {
+            $fileName = uniqid("file_");
+        }
 
-	// 卖给4s店
-	public function fourshopAction()
-	{
-		$this->setLayout ( new Layout_Default () );
-		$this->_view->headStylesheet ( '/css/sell/fourshop.css' );
-		$this->_view->headStylesheet ( '/css/common.css' );
-		$this->_view->headScript ( '/js/pagejs/fourshop.js' );
-	}
+        $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
 
-	// 卖给个人
-	public function selfpersonAction()
-	{
-		$this->setLayout ( new Layout_Default () );
-		$this->_view->headStylesheet ( '/css/sell/selfperson.css' );
-		$this->_view->headStylesheet ( '/css/common.css' );
-		$this->_view->headScript ( '/js/pagejs/selfperson.js' );
-	}
+        $chunk = isset ($_REQUEST ["chunk"]) ? intval($_REQUEST ["chunk"]) : 0;
+        $chunks = isset ($_REQUEST ["chunks"]) ? intval($_REQUEST ["chunks"]) : 0;
 
-	// 4s置换
-	public function displaceAction()
-	{
-		$this->setLayout ( new Layout_Default () );
-		$this->_view->headStylesheet ( '/css/common.css' );
-		$this->_view->headStylesheet ( '/css/displace/displace.css' );
-		$this->_view->headScript ( '/js/pagejs/displace.js' );
-	}
+        if ($cleanupTargetDir) {
+            if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
+                die ('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}');
+            }
+
+            while (($file = readdir($dir)) !== false) {
+                $tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
+
+                if ($tmpfilePath == "{$filePath}.part") {
+                    continue;
+                }
+
+                if (preg_match('/\.part$/', $file) && (filemtime($tmpfilePath) < time() - $maxFileAge)) {
+                    @unlink($tmpfilePath);
+                }
+            }
+            closedir($dir);
+        }
+
+        if (!$out = @fopen("{$filePath}.part", $chunks ? "ab" : "wb")) {
+            die ('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
+        }
+
+        if (!empty ($_FILES)) {
+            if ($_FILES ["file"] ["error"] || !is_uploaded_file($_FILES ["file"] ["tmp_name"])) {
+                die ('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');
+            }
+
+            if (!$in = @fopen($_FILES ["file"] ["tmp_name"], "rb")) {
+                die ('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+            }
+        } else {
+            if (!$in = @fopen("php://input", "rb")) {
+                die ('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+            }
+        }
+
+        while ($buff = fread($in, 4096)) {
+            fwrite($out, $buff);
+        }
+
+        @fclose($out);
+        @fclose($in);
+
+        if (!$chunks || $chunk == $chunks - 1) {
+            rename("{$filePath}.part", $filePath);
+        }
+
+        $sessionAry = $gpj_session->read();
+        $attrObj = new Sell_Model_Attr();
+        $last_id = $attrObj->addAttr($sessionAry["userId"], $sessionAry["sellInfoId"], $attrType, $fileName, $attDes);
+
+        die ('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
+    }
+
+    // 卖给商家
+    public function merchantAction()
+    {
+        $this->setLayout(new Layout_Default ());
+        $this->_view->headStylesheet('/css/sell/merchant.css');
+        $this->_view->headStylesheet('/css/common.css');
+        $this->_view->headScript('/js/pagejs/merchant.js');
+    }
+
+    // 卖给4s店
+    public function fourshopAction()
+    {
+        $this->setLayout(new Layout_Default ());
+        $this->_view->headStylesheet('/css/sell/fourshop.css');
+        $this->_view->headStylesheet('/css/common.css');
+        $this->_view->headScript('/js/pagejs/fourshop.js');
+    }
+
+    // 卖给个人
+    public function selfpersonAction()
+    {
+        $this->setLayout(new Layout_Default ());
+        $this->_view->headStylesheet('/css/sell/selfperson.css');
+        $this->_view->headStylesheet('/css/common.css');
+        $this->_view->headScript('/js/pagejs/selfperson.js');
+    }
+
+    // 4s置换
+    public function displaceAction()
+    {
+        $this->setLayout(new Layout_Default ());
+        $this->_view->headStylesheet('/css/common.css');
+        $this->_view->headStylesheet('/css/displace/displace.css');
+        $this->_view->headScript('/js/pagejs/displace.js');
+    }
 }
