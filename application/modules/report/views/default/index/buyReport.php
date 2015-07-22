@@ -50,6 +50,15 @@
 			<div class="r-math">
 				<h4>您爱车的公平价值为</h4>
 				<p class="g-cost"><span><?php echo $this->V->deal_price; ?></span>万元</p>
+                <div id="vote" class="margin-top">
+                    <div class="right icon"></div>
+                    <div class="vote">
+                        <div class="user-num">已有<span class="total-vote"><?php echo $this->totalNum; ?></span>用户参与</div>
+                        <div class="scale"><span class="blue"></span></div>
+                        <div class="scale-num"><span class="font-blue"><?php echo $this->goodNum; ?></span>：<span class="font-gray"><?php echo $this->noGoodNum; ?></span></div>
+                    </div>
+                    <div class="no-right icon"></div>
+                </div>
 				<div class="count">
 					<div class="fl count-group">
 						<h5>分析数量总数</h5>
@@ -198,4 +207,6 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+    genVote("<?php echo $this->totalNum; ?>", "<?php echo $this->goodNum; ?>", "<?php echo $this->noGoodNum; ?>");
+</script>
