@@ -50,7 +50,21 @@ class Report_IndexController extends XF_Controller_Abstract
 
 		$this->_view->type = $type;
 
-		// echo $this->nowCity->id.'_'.$type->id.'_'.($type->listed_year+2).'_'.$mileage.'_sell';
+//        获取评估报告投票
+        $vote = new Report_Model_Vote();
+        $reportVote = $vote->getVoteByTypeId($typeId);
+
+        if($reportVote) {
+            $this->_view->goodNum = $reportVote->right_vote;
+            $this->_view->noGoodNum = $reportVote->noright_vote;
+            $this->_view->totalNum = $reportVote->right_vote+$reportVote->noright_vote;
+        }else {
+            $this->_view->goodNum = 0;
+            $this->_view->noGoodNum = 0;
+            $this->_view->totalNum = 0;
+        }
+
+        // echo $this->nowCity->id.'_'.$type->id.'_'.($type->listed_year+2).'_'.$mileage.'_sell';
 		$cityid = $this->nowCity->id;
 		$d_model = $type->id;
 		$year = $year > 0 ? $year : $type->listed_year + 2;
@@ -128,6 +142,66 @@ class Report_IndexController extends XF_Controller_Abstract
 		$this->_view->headStylesheet ( '/css/valid.css' );
 		$this->_view->headScript ( '/js/jquery/Validform_v5.3.2.js' )->appendFile ( '/js/date/WdatePicker.js' )->appendFile ( '/js/pagejs/buyreport.js' );
 	}
+
+    // 评估结果投票
+    public function voteReportAction() {
+        if ($this->_request->isXmlHttpRequest () && $this->_request->isPost()) {
+            $typeId = $this->getParam ("typeId");
+            $voteType = $this->getParam("voteType");
+
+            $gpjSession = new XF_Session("gpj_vote");
+
+            if (!$gpjSession->isEmpty()) {
+                if(in_array($typeId, $gpjSession->read())) {
+                    die ('{"code": "101"}');
+                }
+            }
+
+            $cookie = new XF_Cookie("gpj_vote");
+            $cookieAry = array();
+
+            if (!$cookie->isEmpty()) {
+                $cookieAry = explode(",", $cookie->read());
+                if(in_array($typeId, $cookieAry)) {
+                    die ('{"code": "101"}');
+                }
+            }
+
+            $vote = new Report_Model_Vote();
+            $reportVote = $vote->getVoteByTypeId($typeId);
+
+            if($reportVote) {
+                if($voteType == "right") {
+                    $voteAry["right_vote"] = $reportVote->right_vote + 1;
+                }elseif($voteType == "noright") {
+                    $voteAry["noright_vote"] = $reportVote->noright_vote + 1;
+                }
+                $res = $vote->upVoteById($reportVote->id, $voteAry);
+            }else {
+                if($voteType == "right") {
+                    $voteAry["right_vote"] = 1;
+                    $voteAry["noright_vote"] = 0;
+                }elseif($voteType == "noright") {
+                    $voteAry["right_vote"] = 0;
+                    $voteAry["noright_vote"] = 1;
+                }
+                $voteAry["car_id"] = $typeId;
+                $res = $vote->addVote($voteAry);
+            }
+
+            if($res) {
+                $cookieAry[] = $typeId;
+                $cookie->write(implode(",", $cookieAry), 86400);
+                if (!$gpjSession->isEmpty()) {
+                    $gpjAry = $gpjSession->read();
+                    $gpjAry[] = $typeId;
+                }
+                $gpjSession->write($gpjAry);
+                die('{"code":"200"}');
+            }
+
+        }
+    }
 
 }
 

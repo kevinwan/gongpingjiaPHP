@@ -12,7 +12,7 @@ var uploadopcity1 = new plupload.Uploader({
 		],
 		prevent_duplicates : true
 	},
-	unique_names : true,
+	unique_names : true
 });
 uploadopcity1.init();
 uploadopcity1.bind('FilesAdded',function(uploader,files){
@@ -59,7 +59,7 @@ var uploadopcity2 = new plupload.Uploader({
 		],
 		prevent_duplicates : true
 	},
-	unique_names : true,
+	unique_names : true
 });
 uploadopcity2.init();
 uploadopcity2.bind('FilesAdded',function(uploader,files){
@@ -106,7 +106,7 @@ var uploadopcity3 = new plupload.Uploader({
 		],
 		prevent_duplicates : true
 	},
-	unique_names : true,
+	unique_names : true
 });
 uploadopcity3.init();
 uploadopcity3.bind('FilesAdded',function(uploader,files){
@@ -153,7 +153,7 @@ var uploadopcity4 = new plupload.Uploader({
 		],
 		prevent_duplicates : true
 	},
-	unique_names : true,
+	unique_names : true
 });
 uploadopcity4.init();
 uploadopcity4.bind('FilesAdded',function(uploader,files){
@@ -200,7 +200,7 @@ var uploadopcity5 = new plupload.Uploader({
 		],
 		prevent_duplicates : true
 	},
-	unique_names : true,
+	unique_names : true
 });
 uploadopcity5.init();
 uploadopcity5.bind('FilesAdded',function(uploader,files){

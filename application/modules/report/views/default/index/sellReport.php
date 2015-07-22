@@ -50,6 +50,15 @@
 			<div class="r-math">
 				<h4>您爱车的公平价值为</h4>
 				<p class="g-cost"><span><?php echo $this->V->deal_price; ?></span>万元</p>
+                <div id="vote" class="margin-top">
+                    <div class="right icon"></div>
+                    <div class="vote">
+                        <div class="user-num">已有<span class="total-vote"><?php echo $this->totalNum; ?></span>用户参与</div>
+                        <div class="scale"><span class="blue"></span></div>
+                        <div class="scale-num"><span class="font-blue"><?php echo $this->goodNum; ?></span>：<span class="font-gray"><?php echo $this->noGoodNum; ?></span></div>
+                    </div>
+                    <div class="no-right icon"></div>
+                </div>
 				<div class="count">
 					<div class="fl count-group">
 						<h5>分析数量总数</h5>
@@ -60,6 +69,8 @@
 						<p><?php echo $this->V->accuracy ?>%</p>
 					</div>
 				</div>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a></div>
+                <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 			</div>
 			<ul class="r-sells">
 				<li class="sealer">
@@ -81,4 +92,6 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+    genVote("<?php echo $this->totalNum; ?>", "<?php echo $this->goodNum; ?>", "<?php echo $this->noGoodNum; ?>");
+</script>

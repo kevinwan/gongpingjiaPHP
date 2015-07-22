@@ -120,6 +120,10 @@ input, select {
 	color: #ff8416;
 }
 
+.font-blue {
+    color: #2DA7E0;
+}
+
 .font-bold {
 	font-weight: bold;
 }
