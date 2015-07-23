@@ -6,8 +6,29 @@
  */
 class Report_IndexController extends XF_Controller_Abstract
 {
+    var $source_type;
+
 	public function __construct()
 	{
+        // 车源类型
+        $this->source_type = array(
+            "dealer" => array(
+                "bg" => "green-bg",
+                "name" => "优质商家车源"
+            ),
+            "odealer" => array(
+                "bg" => "violet-bg",
+                "name" => "普通商家车源"
+            ),
+            "cpo" => array(
+                "bg" => "orange-bg",
+                "name" => "厂商认证二手车"
+            ),
+            "personal" => array(
+                "bg" => "blue-bg",
+                "name" => "个人车源"
+            )
+        );
 		parent::__construct ( $this );
 		$this->_view->setResourcePath ( $this->static_url );
 	}
@@ -125,6 +146,26 @@ class Report_IndexController extends XF_Controller_Abstract
             $type = $mod->getsByTypeId ( $typeId );
         }
 
+        // 随机抽取6辆车型
+//        TODO:修改默认参数
+//        $serialCars = $mod->getsByCityAndSerialId($this->nowCity->id, $typeId);
+        $serialCars = $mod->getsByCityAndSerialId("35", "127945");
+        foreach($serialCars as $key => $val) {
+            $val->mile = round($val->mile);
+            if(!XF_Functions::isEmpty($val->year)) {
+                $val->car_age = date("Y") - $val->year;
+            }
+            if(!XF_Functions::isEmpty($val->source_type)) {
+                $val->source_val = $this->source_type[$val->source_type];
+            }
+            if(!XF_Functions::isEmpty($val->thumbnail)) {
+                $val->thumbnail = $val->thumbnail."?imageView2/1/w/296/h/193";
+            }else {
+
+            }
+        }
+        $this->_view->serialCars = $serialCars;
+
 //        获得session,存车型id
         $gpj_session = new XF_Session("gpj_session");
         $sessionAry = array();
@@ -161,6 +202,7 @@ class Report_IndexController extends XF_Controller_Abstract
         $mod = new Report_Model_Valuation ();
         $V = $mod->getValuation ( $cityid, $d_model, $year, '', $mile, $intent );
         $this->_view->V = $V;
+
         // print_r($V);
         $this->setLayout ( new Layout_Default () );
         // 设置页面资源

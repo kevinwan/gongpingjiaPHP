@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$("input[name='typeid']").val(typeid);
 		$("#selectcar").hide();
 	});
-	$.each($(".r-list .item .carinfo"), function(i, n) {
+	$.each($(".r-list .item .carinfo").not(".last"), function(i, n) {
 		var title = $(n).find(".font-bold");
 		var h = $(n).parents(".wrap").height();
 		var title_h = h - $(title).height();

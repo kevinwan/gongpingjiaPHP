@@ -24,7 +24,7 @@
 					</li>
 					<li class="r-form-even">
 						<label>行驶里程</label><input datatype="float" name="mileage" id="mileage" nullmsg="不能空" class="form-text form-input" value="<?php echo $this->mileage; ?>" type="text" />
-							<span>万公里</span>
+                        <span>万公里</span>
 					</li>
 				</ul>
 				<a class="more-car" href="javascript:;" onclick="sellreport();">更新爱车信息</a>

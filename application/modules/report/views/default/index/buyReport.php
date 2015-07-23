@@ -71,138 +71,50 @@
 				</div>
 			</div>
 			<div class="r-list">
-				<div class="item">
-					<div class="wrap">
-						<img src="$static/img/report/demo.png" />
-						<div class="carinfo">
-							<div class="font-bold">北京别克 君威 2015款 2.0L </div>
-							<div class="info">
-								<div class="usedl fl">&yen;30.80 万</div>
-								<div class="usedr fr">
-									<div class="carage">3年</div>
-									<div class="mileage">2.8万公里</div>
-								</div>
-							</div>
-							<div class="tags">
-								<span class="tag green-bg">质保车</span>
-								<span class="tag blue-bg">纯个人</span>
-								<span class="tag violet-bg">低里程</span>
-								<span class="tag orange-bg">准新车</span>
-								<span class="tag red-bg">超实惠</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="wrap">
-						<img src="$static/img/report/demo.png" />
-						<div class="carinfo">
-							<div class="font-bold">北京别克 君威 2015款 2.0L </div>
-							<div class="info">
-								<div class="usedl fl">&yen;30.80 万</div>
-								<div class="usedr fr">
-									<div class="carage">3年</div>
-									<div class="mileage">2.8万公里</div>
-								</div>
-							</div>
-							<div class="tags">
-								<span class="tag green-bg">质保车</span>
-								<span class="tag blue-bg">纯个人</span>
-								<span class="tag violet-bg">低里程</span>
-								<span class="tag orange-bg">准新车</span>
-								<span class="tag red-bg">超实惠</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="wrap">
-						<img src="$static/img/report/demo.png" />
-						<div class="carinfo">
-							<div class="font-bold">北京别克 君威 2015款 2.0L </div>
-							<div class="info">
-								<div class="usedl fl">&yen;30.80 万</div>
-								<div class="usedr fr">
-									<div class="carage">3年</div>
-									<div class="mileage">2.8万公里</div>
-								</div>
-							</div>
-							<div class="tags">
-								<span class="tag green-bg">质保车</span>
-								<span class="tag blue-bg">纯个人</span>
-								<span class="tag violet-bg">低里程</span>
-								<span class="tag orange-bg">准新车</span>
-								<span class="tag red-bg">超实惠</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="wrap">
-						<img src="$static/img/report/demo.png" />
-						<div class="carinfo">
-							<div class="font-bold">北京别克 君威 2015款 2.0L </div>
-							<div class="info">
-								<div class="usedl fl">&yen;30.80 万</div>
-								<div class="usedr fr">
-									<div class="carage">3年</div>
-									<div class="mileage">2.8万公里</div>
-								</div>
-							</div>
-							<div class="tags">
-								<span class="tag green-bg">质保车</span>
-								<span class="tag blue-bg">纯个人</span>
-								<span class="tag violet-bg">低里程</span>
-								<span class="tag orange-bg">准新车</span>
-								<span class="tag red-bg">超实惠</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="wrap">
-						<img src="$static/img/report/demo.png" />
-						<div class="carinfo">
-							<div class="font-bold">北京别克 君威 2015款 2.0L </div>
-							<div class="info">
-								<div class="usedl fl">&yen;30.80 万</div>
-								<div class="usedr fr">
-									<div class="carage">3年</div>
-									<div class="mileage">2.8万公里</div>
-								</div>
-							</div>
-							<div class="tags">
-								<span class="tag green-bg">质保车</span>
-								<span class="tag blue-bg">纯个人</span>
-								<span class="tag violet-bg">低里程</span>
-								<span class="tag orange-bg">准新车</span>
-								<span class="tag red-bg">超实惠</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="wrap">
-						<img src="$static/img/report/demo.png" />
-						<div class="carinfo">
-							<div class="font-bold">北京别克 君威 2015款 2.0L </div>
-							<div class="info">
-								<div class="usedl fl">&yen;30.80 万</div>
-								<div class="usedr fr">
-									<div class="carage">3年</div>
-									<div class="mileage">2.8万公里</div>
-								</div>
-							</div>
-							<div class="tags">
-								<span class="tag green-bg">质保车</span>
-								<span class="tag blue-bg">纯个人</span>
-								<span class="tag violet-bg">低里程</span>
-								<span class="tag orange-bg">准新车</span>
-								<span class="tag red-bg">超实惠</span>
-							</div>
-						</div>
-					</div>
-				</div>
+                <?php
+                foreach ($this->serialCars as $key => $used) {
+                    if($key < 6) {
+                        if($key != 5) {
+                        ?>
+                        <div class="item">
+                            <div class="wrap">
+                                <img src="<?php echo $used->thumbnail ?>"/>
+                                <a href="<?php echo $used->url ?>">
+                                    <div class="carinfo">
+                                        <div class="font-bold"><?php echo $used->title; ?></div>
+                                        <div class="info">
+                                            <div class="usedl fl">&yen;<?php echo $used->price; ?> 万</div>
+                                            <div class="usedr fr">
+                                                <div class="carage"><?php echo $used->car_age; ?>年</div>
+                                                <div class="mileage"><?php echo $used->mile; ?>万公里</div>
+                                            </div>
+                                        </div>
+                                        <div class="tags">
+                                            <?php
+                                            if (!XF_Functions::isEmpty($used->source_type)) {
+                                                ?>
+                                                <span
+                                                    class="tag <?php echo $used->source_val["bg"] ?>"><?php echo $used->source_val["name"] ?></span>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <?php
+                        }else {
+                        ?>
+                        <div class="item last">
+                            <div class="wrap">
+                                <img src="<?php echo $used->thumbnail ?>"/>
+                                <a href="/used/index/index" id="carMore">随便看看...</a>
+                            </div>
+                        </div>
+                        <?php
+                        }
+                    }
+                }
+                ?>
 			</div>
 		</div>
 	</div>
