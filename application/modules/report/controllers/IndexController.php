@@ -48,6 +48,12 @@ class Report_IndexController extends XF_Controller_Abstract
 			$type = $mod->getsByTypeId ( $typeId );
 		}
 
+//        获得session,存车型id
+        $gpj_session = new XF_Session("gpj_session");
+        $sessionAry = array();
+        $sessionAry["modelId"] = $typeId;
+        $gpj_session->write($sessionAry);
+
 		$this->_view->type = $type;
 
 //        获取评估报告投票
@@ -118,6 +124,12 @@ class Report_IndexController extends XF_Controller_Abstract
         {
             $type = $mod->getsByTypeId ( $typeId );
         }
+
+//        获得session,存车型id
+        $gpj_session = new XF_Session("gpj_session");
+        $sessionAry = array();
+        $sessionAry["modelId"] = $typeId;
+        $gpj_session->write($sessionAry);
 
         $this->_view->type = $type;
 

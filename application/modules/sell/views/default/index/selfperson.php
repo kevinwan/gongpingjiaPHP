@@ -22,31 +22,31 @@
 		<!-- 优质商家 [[ -->
 		<h1 class="saler_mes">选择一个个人在线交易平台</h1>
 		<div class="saler_choose">
-			<div class="saler_choose_part saler_choose_part1">
+			<div id="saler_1" class="saler_choose_part saler_choose_part1">
 				<div class="saler_choose_con">
 					<img src="$static/img/sell/saler_choose_Img.png">
 					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
 				</div>
 			</div>
-			<div class="saler_choose_part saler_choose_part2 saler_choose_margin">
+			<div id="saler_2" class="saler_choose_part saler_choose_part2 saler_choose_margin">
 				<div class="saler_choose_con">
 					<img src="$static/img/sell/saler_choose_Img.png">
 					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
 				</div>
 			</div>
-			<div class="saler_choose_part saler_choose_part1">
+			<div id="saler_3" class="saler_choose_part saler_choose_part1">
 				<div class="saler_choose_con">
 					<img src="$static/img/sell/saler_choose_Img.png">
 					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
 				</div>
 			</div>
-			<div class="saler_choose_part saler_choose_part2 saler_choose_margin ">
+			<div id="saler_4" class="saler_choose_part saler_choose_part2 saler_choose_margin ">
 				<div class="saler_choose_con">
 					<img src="$static/img/sell/saler_choose_Img.png">
 					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
 				</div>
 			</div>
-			<div class="saler_choose_part saler_choose_part2">
+			<div id="saler_5" class="saler_choose_part saler_choose_part2">
 				<div class="saler_choose_con">
 					<img src="$static/img/sell/saler_choose_Img.png">
 					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>

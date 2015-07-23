@@ -17,7 +17,7 @@ $(document).ready(function() {
 		window.location.href='/sell/index/merchant';
 	});
 	$(document).on("click", "#main .r-sells .sFour", function() {
-		window.location.href='/sell/index/fourshop';
+		window.location.href='/sell/index/displace';
 	});
 	$(document).on("click", "#main .r-sells .self", function() {
 		window.location.href='/sell/index/selfperson';

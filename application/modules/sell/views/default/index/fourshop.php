@@ -22,7 +22,7 @@
 		<div class="selcar">已选择新车 “奥迪A4L 2015款 30TFSI 舒适型”</div>
 		<div class="boxtitle">请选择 4S店</div>
 		<div class="fourshops clearfix">
-			<div class="fourshop">
+			<div id="shop_1" class="fourshop">
 				<div class="info fl">
 					<div class="shopname">北京锋菲信诚商贸有限公司</div>
 					<div class="shopadr">公司地址：北京市朝阳区南五环亦庄桥北经开万佳广告城A315</div>
@@ -31,7 +31,7 @@
 					<div class="tel">400-603-1037</div>
 				</div>
 			</div>
-			<div class="fourshop">
+			<div id="shop_2" class="fourshop">
 				<div class="info fl">
 					<div class="shopname">北京锋菲信诚商贸有限公司</div>
 					<div class="shopadr">公司地址：北京市朝阳区南五环亦庄桥北经开万佳广告城A315</div>
@@ -40,7 +40,7 @@
 					<div class="tel">400-603-1037</div>
 				</div>
 			</div>
-			<div class="fourshop">
+			<div id="shop_3" class="fourshop">
 				<div class="info fl">
 					<div class="shopname">北京锋菲信诚商贸有限公司</div>
 					<div class="shopadr">公司地址：北京市朝阳区南五环亦庄桥北经开万佳广告城A315</div>
@@ -49,7 +49,7 @@
 					<div class="tel">400-603-1037</div>
 				</div>
 			</div>
-			<div class="fourshop">
+			<div  id="shop_4" class="fourshop">
 				<div class="info fl">
 					<div class="shopname">北京锋菲信诚商贸有限公司</div>
 					<div class="shopadr">公司地址：北京市朝阳区南五环亦庄桥北经开万佳广告城A315</div>

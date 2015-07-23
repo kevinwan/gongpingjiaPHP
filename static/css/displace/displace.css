@@ -175,7 +175,8 @@
 	padding: 0 8px;
 }
 .carModel ul .active a,
-.cdsSearchMain a.active {
+.cdsSearchMain a.active,
+#carSeries .active a {
 	color: #2da7e0;
 }
 .csbNav a.active {

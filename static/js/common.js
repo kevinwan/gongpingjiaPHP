@@ -1,3 +1,4 @@
+var api_url = "http://www.gongpingjia.com";
 $(document).ready(function() {
 	$(document).on("click", "#top .selarea .area", function() {
 		layer.open({

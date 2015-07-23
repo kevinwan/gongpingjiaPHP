@@ -54,94 +54,17 @@
 					</div>
 					<div class="cdsbTitle">请选择品牌</div>
 					<div class="cdsBtabBox">
-						<div class="ibrandBox clearfix">
-							<p id="A">A</p>
-							<ul>
-								<li >
-									<a href="javascript:void(0);" class="active">A&nbsp;奥迪</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);">A&nbsp;阿尔法罗米欧</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);">A&nbsp;阿斯顿马丁</a>
-								</li>
-							</ul>
-						</div>
-						<div class="ibrandBox clearfix">
-							<p id="A">A</p>
-							<ul>
-								<li>
-									<a href="javascript:void(0);">A&nbsp;奥迪</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);">A&nbsp;阿尔法罗米欧</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);">A&nbsp;阿斯顿马丁</a>
-								</li>
-							</ul>
-						</div>
 					</div>
 				</div>
 				<!--车系-->
-				<div class="cdsStabBox cdsStabbg">
+				<div id="carSeries" class="cdsStabBox cdsStabbg">
 					<div class="cdsbTitle">请选择车系</div>
 					<div class="cdsStab" style="overflow-y: scroll; display: block;">
-						<div class="ibrandBox clearfix">
-							<p>一汽奥迪</p>
-							<ul>
-								<li>
-									<a ref="" href="javascript:void(0);" class="active">A3</a>
-								</li>
-								<li>
-									<a ref="" href="javascript:void(0);">A4</a>
-								</li>
-								<li>
-									<a ref="" href="javascript:void(0);">A4L</a>
-								</li>
-							</ul>
-						</div>
-						<div class="ibrandBox clearfix">
-							<p>一汽奥迪</p>
-							<ul>
-								<li>
-									<a ref="" href="javascript:void(0);" class="active">A3</a>
-								</li>
-								<li>
-									<a ref="" href="javascript:void(0);">A4</a>
-								</li>
-								<li>
-									<a ref="" href="javascript:void(0);">A4L</a>
-								</li>
-							</ul>
-						</div>
 					</div>
 				</div>
-				<div class="cdsStabBox cdsStabbg">
+				<div id="carModel" class="cdsStabBox cdsStabbg">
 					<div class="cdsbTitle">请选择车型</div>
 					<div class="cdsStab" style="overflow-y: scroll; display: block;">
-						<div class="ibrandBox carModel clearfix">
-							<p>2015款</p>
-							<ul>
-								<li class="active">
-									<a href="javascript:void(0);" class="fl">奥迪A4L 45 TFSI </a>
-									<a href="javascript:void(0);" class="fr">47.36万</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" class="fl">奥迪A4L 45 TFSI </a>
-									<a href="javascript:void(0);" class="fr">47.36万</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" class="fl">奥迪A4L 45 TFSI </a>
-									<a href="javascript:void(0);" class="fr">47.36万</a>
-								</li>
-								<li>
-									<a href="javascript:void(0);" class="fl">奥迪A4L 45 TFSI </a>
-									<a href="javascript:void(0);" class="fr">47.36万</a>
-								</li>
-							</ul>
-						</div>
 					</div>
 				</div>
 			</div>

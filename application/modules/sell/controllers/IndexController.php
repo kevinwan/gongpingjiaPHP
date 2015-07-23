@@ -21,12 +21,7 @@ class Sell_IndexController extends XF_Controller_Abstract
     public function personinfoAction()
     {
         $submit_statue = $this->getParam('statue');
-        $dataFrom = $this->getParam('dataFrom');
         $infoId = $this->getParam('infoId');
-
-        if ((!isset ($dataFrom) || XF_Functions::isEmpty($dataFrom))) {
-            throw new XF_Exception ('添加个人信息:数据来源不正确');
-        }
 
         if ((!isset ($infoId) || XF_Functions::isEmpty($infoId))) {
             throw new XF_Exception ('添加个人信息:数据内容不正确');
@@ -39,14 +34,15 @@ class Sell_IndexController extends XF_Controller_Abstract
                 $phone = $this->getParam("phone");
                 $validate_code = $this->getParam("validate_code");
                 $user = $userObj->findUserByPhone($phone);
-                $session_ary = array();
+                $gpj_session = new XF_Session("gpj_session");
+                $session_ary = $gpj_session->read();
 
                 if($user) {
                     $submit_statue = "ok";
                     XF_View::getInstance()->assign('userId', $user->id);
                     $session_ary["userId"] = $user->id;
                 }else {
-                    $last_id = $userObj->addUser($username, $phone, $dataFrom, $infoId);
+                    $last_id = $userObj->addUser($username, $phone, $session_ary["dataFrom"], $infoId);
                     if($last_id) {
                         $submit_statue = "ok";
                         XF_View::getInstance()->assign('userId', $last_id);
@@ -54,10 +50,7 @@ class Sell_IndexController extends XF_Controller_Abstract
                     }
                 }
 
-                $session_ary["dataFrom"] = $dataFrom;
                 $session_ary["infoId"] = $infoId;
-
-                $gpj_session = new XF_Session("gpj_session");
                 $gpj_session->write($session_ary);
             }
         }else {
@@ -69,7 +62,6 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headScript('/js/pagejs/personinfo.js');
 
-        XF_View::getInstance()->assign('dataFrom', $dataFrom);
         XF_View::getInstance()->assign('infoId', $infoId);
         XF_View::getInstance()->assign('statue', $submit_statue);
     }
@@ -95,7 +87,7 @@ class Sell_IndexController extends XF_Controller_Abstract
                 $session_ary = $gpj_session->read();
 
                 $sellObj = new Sell_Model_Sellinfo();
-                $last_id = $sellObj->addSellInfo($session_ary["userId"], $session_ary["dataFrom"], $session_ary["infoId"], implode(",", $car_parts), $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num);
+                $last_id = $sellObj->addSellInfo($session_ary["userId"], $session_ary["modelId"], $session_ary["changeId"], $session_ary["dataFrom"], $session_ary["infoId"], implode(",", $car_parts), $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num);
                 if($last_id) {
                     $session_ary["sellInfoId"] = $last_id;
                     $gpj_session->write($session_ary);
@@ -125,8 +117,6 @@ class Sell_IndexController extends XF_Controller_Abstract
     public function uploadfileAction()
     {
         $gpj_session = new XF_Session("gpj_session");
-
-        var_dump($gpj_session->read());
 
         if (!$gpj_session->hasContent("userId")) {
             throw new XF_Exception ('上传商品图片:用户没有登录');
@@ -229,6 +219,17 @@ class Sell_IndexController extends XF_Controller_Abstract
     // 卖给商家
     public function merchantAction()
     {
+        // 获得session，平台id
+        $gpj_session = new XF_Session("gpj_session");
+
+        if($gpj_session->hasContent("modelId")) {
+            $sessionAry = $gpj_session->read();
+            $sessionAry["dataFrom"] = "merchant";
+            $gpj_session->write($sessionAry);
+        }else {
+            throw new XF_Exception ('选择商家页面:评估页面没有选择车型');
+        }
+
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/sell/merchant.css');
         $this->_view->headStylesheet('/css/common.css');
@@ -238,6 +239,20 @@ class Sell_IndexController extends XF_Controller_Abstract
     // 卖给4s店
     public function fourshopAction()
     {
+        $changeId = $this->getParam('changeId');
+
+        // 获得session，平台id
+        $gpj_session = new XF_Session("gpj_session");
+
+        if($gpj_session->hasContent("modelId")) {
+            $sessionAry = $gpj_session->read();
+            $sessionAry["dataFrom"] = "fourshop";
+            $sessionAry["changeId"] = $changeId;
+            $gpj_session->write($sessionAry);
+        }else {
+            throw new XF_Exception ('选择4s店页面:评估页面没有选择车型');
+        }
+
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/sell/fourshop.css');
         $this->_view->headStylesheet('/css/common.css');
@@ -247,6 +262,17 @@ class Sell_IndexController extends XF_Controller_Abstract
     // 卖给个人
     public function selfpersonAction()
     {
+        // 获得session，平台id
+        $gpj_session = new XF_Session("gpj_session");
+
+        if($gpj_session->hasContent("modelId")) {
+            $sessionAry = $gpj_session->read();
+            $sessionAry["dataFrom"] = "selfperson";
+            $gpj_session->write($sessionAry);
+        }else {
+            throw new XF_Exception ('选择个人页面:评估页面没有选择车型');
+        }
+
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/sell/selfperson.css');
         $this->_view->headStylesheet('/css/common.css');

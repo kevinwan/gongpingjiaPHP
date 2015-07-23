@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	var api_url = "http://www.gongpingjia.com";
 	var axis = 0;
 	var max_width = 1920;
 	var max_height = 1200;
@@ -21,7 +20,9 @@ $(document).ready(function() {
 	if(itemwidth*x_num > w_width) {
 		axis = -Math.ceil((itemwidth*x_num-w_width)/2);
 	}
-	
+    var seriesStatue = true;
+    var layerStatue = true;
+
 	$("body").css("background-position", "-10px 0");
 
 	$.ajax({
@@ -89,84 +90,96 @@ $(document).ready(function() {
 	});
 	
 	$(document).on("click", "#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li", function() {
-		var ibrandBoxA = $(this).find("a");
-		$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li a.active").removeClass('active');
-		$(ibrandBoxA).addClass("active");
-		var objAry = $(this).attr("id").split("_");
-		var brandId = objAry[1];
-		$.ajax({
-			url: api_url + "/api/cars/category/models/gongpingjia-php/",
-			data: "brand="+brandId,
-			dataType: 'jsonp',
-			jsonp: 'callback',
-			success: function(msg){
-				$("#cdsSearchBox .cdsStabBox").empty();
-				var modelList = msg.models;
-				$.each(modelList, function(i,n) {
-					var cdsStab = $("<div class=\"cdsStab\"></div>");
-					var cdsStabP = $("<p>"+n[0]+"</p>");
-					var isTabD = $("<div class=\"isTab clearfix\">");
-					$.each(n[1], function(y,m) {
-						var cdsStabA = $("<a target=\"_blank\" href=\"javascript:void(0);\"><img src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><div><span>"+m.name+"</span></div></a>");
-						cdsStabA.appendTo(isTabD);
-					});
-					cdsStabP.appendTo(cdsStab);
-					isTabD.appendTo(cdsStab);
-					cdsStab.appendTo($("#cdsSearchBox .cdsStabBox"));
-				});
-			}
-		});
+        if(seriesStatue) {
+            seriesStatue = false;
+            var ibrandBoxA = $(this).find("a");
+            $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li a.active").removeClass('active');
+            $(ibrandBoxA).addClass("active");
+            var objAry = $(this).attr("id").split("_");
+            var brandId = objAry[1];
+            $.ajax({
+                url: api_url + "/api/cars/category/models/gongpingjia-php/",
+                data: "brand=" + brandId,
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success: function (msg) {
+                    $("#cdsSearchBox .cdsStabBox").empty();
+                    var modelList = msg.models;
+                    $.each(modelList, function (i, n) {
+                        var cdsStab = $("<div class=\"cdsStab\"></div>");
+                        var cdsStabP = $("<p>" + n[0] + "</p>");
+                        var isTabD = $("<div class=\"isTab clearfix\">");
+                        $.each(n[1], function (y, m) {
+                            var cdsStabA = $("<a target=\"_blank\" href=\"javascript:void(0);\"><img src=\"http://gongpingjia.qiniudn.com/img/logo/" + m.logo_img + "\" /><div><span>" + m.name + "</span></div></a>");
+                            cdsStabA.appendTo(isTabD);
+                        });
+                        cdsStabP.appendTo(cdsStab);
+                        isTabD.appendTo(cdsStab);
+                        cdsStab.appendTo($("#cdsSearchBox .cdsStabBox"));
+                    });
+                    seriesStatue = true;
+                }
+            });
+        }
 	});
 	
 	$(document).on("click", "#search .salebox", function() {
-		$.ajax({
-			url: api_url + "/api/cars/category/brands/gongpingjia-php/",
-			data: "",
-			dataType: 'jsonp',
-			jsonp: 'callback',
-			success: function(msg){
-				$("#cdsSearchBox .cdsSbrand .cdsBtabBox").empty();
-				$("#cdsSearchBox .cdsStabBox").empty();
-				var brandList = msg.brands;
-				$.each(brandList, function(i,n) {
-					if(n[0] != "P") {
-						var ibrandBox = $("<div class=\"ibrandBox clearfix\"></div>");
-						var ibrandBoxP = $("<p id=\""+n[0]+"\">"+n[0]+"</p>");
-						var ibrandBoxUl = $("<ul></ul>");
-						$.each(n[1], function(y,m) {
-							var ibrandBoxLi = $("<li id=\"brand_"+m.id+"\"><img class=\"preview\" src=\"http://gongpingjia.qiniudn.com/img/logo/"+m.logo_img+"\" /><a href=\"javascript:void(0);\" ref=\""+m.name+"\">"+m.name+"</a></li>");
-							ibrandBoxLi.appendTo(ibrandBoxUl);
-						});
-						ibrandBoxP.appendTo(ibrandBox);
-						ibrandBoxUl.appendTo(ibrandBox);
-						ibrandBox.appendTo($("#cdsSearchBox .cdsSbrand .cdsBtabBox"));
-					}
-				});
-				$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first").trigger("click");
-				$("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first a").addClass("active");
-				layer.open({
-					type: 1,
-					shade: [0.8, '#393D49'],
-					shadeClose: true,
-					maxWidth: 990,
-					title: false,
-					content: $('#cdsSearchBox'),
-					success: function(layero, index){
-						var arrscroll = [];
-						for(var i=0;i< $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox").length; i++) {
-							arrscroll.push($(".ibrandBox").eq(i).position().top*2);
-						}
-						$("#cdsSearchBox .cdsSbrand .csbNav a").click(function() {
-							$(this).addClass('active').siblings('a').removeClass('active');
-							var index = $(this).index();
-							$("#cdsSearchBox .cdsSbrand .cdsBtabBox").animate({
-								scrollTop: arrscroll[index] + 'px'
-							},500);
-						});
-					}
-				});
-			}
-		});
+        if(layerStatue) {
+            layerStatue = false;
+            $.ajax({
+                url: api_url + "/api/cars/category/brands/gongpingjia-php/",
+                data: "",
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success: function (msg) {
+                    $("#cdsSearchBox .cdsSbrand .cdsBtabBox").empty();
+                    $("#cdsSearchBox .cdsStabBox").empty();
+                    var brandList = msg.brands;
+                    $.each(brandList, function (i, n) {
+                        if (n[0] != "P") {
+                            var ibrandBox = $("<div class=\"ibrandBox clearfix\"></div>");
+                            var ibrandBoxP = $("<p id=\"" + n[0] + "\">" + n[0] + "</p>");
+                            var ibrandBoxUl = $("<ul></ul>");
+                            $.each(n[1], function (y, m) {
+                                var ibrandBoxLi = $("<li id=\"brand_" + m.id + "\"><img class=\"preview\" src=\"http://gongpingjia.qiniudn.com/img/logo/" + m.logo_img + "\" /><a href=\"javascript:void(0);\" ref=\"" + m.name + "\">" + m.name + "</a></li>");
+                                ibrandBoxLi.appendTo(ibrandBoxUl);
+                            });
+                            ibrandBoxP.appendTo(ibrandBox);
+                            ibrandBoxUl.appendTo(ibrandBox);
+                            ibrandBox.appendTo($("#cdsSearchBox .cdsSbrand .cdsBtabBox"));
+                        }
+                    });
+                    $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first").trigger("click");
+                    $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox li:first a").addClass("active");
+                    layer.open({
+                        type: 1,
+                        shade: [0.8, '#393D49'],
+                        shadeClose: true,
+                        maxWidth: 990,
+                        title: false,
+                        content: $('#cdsSearchBox'),
+                        success: function (layero, index) {
+                            layerStatue = true;
+                            var arrscroll = [];
+                            for (var i = 0; i < $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox").length; i++) {
+                                arrscroll.push($(".ibrandBox").eq(i).position().top * 2);
+                            }
+                            $("#cdsSearchBox .cdsSbrand .csbNav a").click(function () {
+                                $(this).addClass('active').siblings('a').removeClass('active');
+                                var index = $(this).index();
+                                $("#cdsSearchBox .cdsSbrand .cdsBtabBox").animate({
+                                    scrollTop: arrscroll[index] + 'px'
+                                }, 500);
+                            });
+                        },
+                        close: function () {
+                            seriesStatue = true;
+                            layerStatue = true;
+                        }
+                    });
+                }
+            });
+        }
 	});
 	
 	$.ajax({

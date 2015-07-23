@@ -15,11 +15,15 @@ class Sell_Model_Sellinfo extends Application_Model_Abstract
      *  添加其他信息
      *  2015-7-17
      */
-    public function addSellInfo($userId, $dataFrom, $infoId, $car_parts, $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num)
+    public function addSellInfo($userId, $modelId, $changeModelId, $dataFrom, $infoId, $car_parts, $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num)
     {
         $sellInfo["user_id"] = $userId;
         $sellInfo["data_from"] = $dataFrom;
         $sellInfo["info_id"] = $infoId;
+        $sellInfo["model_id"] = $modelId;
+        if($dataFrom == "fourshop") {
+            $sellInfo["change_model_id"] = $changeModelId;
+        }
         $sellInfo["car_parts"] = $car_parts;
         $sellInfo["car_color"] = $car_color;
         $sellInfo["period_insurance"] = $period_insurance;
