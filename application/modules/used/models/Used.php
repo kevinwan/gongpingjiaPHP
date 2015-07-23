@@ -20,4 +20,26 @@ class Used_Model_Used extends  Application_Model_Abstract
             $used = $this->pull($query);
             return $used->cars;
         }
+        
+        /**
+	 *  获取首页二手车随便看看
+	 *  2015-7-15
+	 */
+        public function getUsedList($city,$page,$num)
+        {
+            $query = '/api/cars/car/lookcar/gongpingjia-php/?city='.$city.'&num='.$num.'&page='.$page;
+            $used = $this->pull($query);
+            return $used->cars;
+        }
+        
+        /**
+	 *  获取首页二手车随便看看
+	 *  2015-7-15
+	 */
+        public function getUsedCarDealers($city)
+        {
+            $query = '/api/cars/dealer/gongpingjia-php/?city='.$city;
+            $dealers = $this->pull($query);
+            return $dealers->dealers;
+        }
 }
