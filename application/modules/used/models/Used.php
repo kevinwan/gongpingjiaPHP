@@ -41,5 +41,5 @@ class Used_Model_Used extends  Application_Model_Abstract
             $query = '/api/cars/dealer/gongpingjia-php/?city='.$city;
             $dealers = $this->pull($query);
             return $dealers->dealers;
-        }
+        }  
 }
