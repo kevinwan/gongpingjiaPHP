@@ -19,7 +19,9 @@
 
 	</div>
 	<div class="content">
-		<div class="selcar">已选择新车 “奥迪A4L 2015款 30TFSI 舒适型”</div>
+        <?php if(!XF_Functions::isEmpty($this->changeModel)) { ?>
+		<div class="selcar">已选择新车 “<?php echo $this->changeModel ?>”</div>
+        <?php } ?>
 		<div class="boxtitle">请选择 4S店</div>
 		<div class="fourshops clearfix">
             <?php
