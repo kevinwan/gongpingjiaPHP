@@ -283,6 +283,11 @@ class Sell_IndexController extends XF_Controller_Abstract
             throw new XF_Exception ('选择个人页面:评估页面没有选择车型');
         }
 
+        //        获取车商
+        $used = new Used_Model_Used();
+        $carDealers = $used->getUsedCarDealers($this->nowCity->id);
+        $this->_view->fourshop = $carDealers->c2c;
+
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/sell/selfperson.css');
         $this->_view->headStylesheet('/css/common.css');

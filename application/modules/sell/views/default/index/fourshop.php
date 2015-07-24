@@ -50,7 +50,7 @@
             <?php } ?>
 		</div>
         <?php if(count($this->fourshop->data) > 4) {?>
-        <a class="saler_other" href="javascript:;">查看本地区其余<span><?php echo count($this->fourshop->data)-5; ?></span>家优质商户</a>
+        <a class="saler_other" href="javascript:;">查看本地区其余<span><?php echo count($this->fourshop->data)-4; ?></span>家优质商户</a>
         <?php } ?>
 		<div class="serve_main">
 			<div class="serve_part">
