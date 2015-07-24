@@ -103,7 +103,7 @@
                 <?php
                 foreach ($this->usedList->cars as $used){
                 ?>
-				<div class="useditem">
+				<div class="useditem" id="used_<?php echo $used->id ?>">
 					<div class="preview"><a href="<?php echo $used->url ?>"><img class="lazy" src="<?php echo $used->thumbnail ?>" /></a></div>
 					<div class="font-bold row title" title="<?php echo $used->title ?>"><a href="<?php echo $used->url ?>"><?php echo $used->title ?></a></div>
 					<div class="info row">

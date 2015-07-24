@@ -112,9 +112,16 @@ class Used_IndexController extends XF_Controller_Abstract
         }
     }
 
-    public function getValuationByModel() {
+    public function getValuaModelAction() {
         if($this->_request->isPost() && $this->_request->isXmlHttpRequest()) {
+            $report = new Report_Model_Valuation();
+            $dmodelId = $this->getParam("dmodel_id");
+            $year = $this->getParam("year");
+            $mile = $this->getParam("mile");
+            $usedId = $this->getParam("used_id");
 
+            $valua = $report->getValuation($this->nowCity->id, $dmodelId, $year, "", $mile, "buy");
+            die('{"code":"200","usedId":"'.$usedId.'","dealPrice":"'.$valua->deal_price.'"}');
         }
     }
 
