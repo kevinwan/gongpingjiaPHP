@@ -13,11 +13,12 @@
 }
 .saler_choose{
     overflow: hidden;
-    margin-top: 35px;
+    margin: 35px -5px 0;
 }
 .saler_choose_part{
     width: 190px;
     float: left;
+    margin: 0 5px 20px;
     cursor: pointer;
 }
 .saler_choose_part:hover .saler_choose_con {
@@ -35,6 +36,14 @@
     height: 35px;
     padding: 25px 0;
 }
+.saler_choose_con .preview {
+    padding: 0 20px;
+    height: 80px;
+    line-height: 80px;
+}
+.saler_choose_con .des {
+    height: 60px;
+}
 .saler_choose_con p{
     text-align: left;
     font-size: 12px;
@@ -47,7 +56,7 @@
     line-height: 40px;
 }
 .saler_choose_con a{
-    background: url(images/saler_phone.png) no-repeat;
+    background: url(../../img/sell/saler_phone.png) no-repeat;
     padding-left: 25px;
     padding-bottom: 1px;
     color: #aaa;
