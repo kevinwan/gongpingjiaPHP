@@ -80,12 +80,13 @@
 	color: #2ca6df;
 }
 
-/*服务部分——选商家页面*/
+/*锟斤拷锟今部分★拷锟斤拷选锟教硷拷页锟斤拷*/
 .serve_main {
 	margin: 35px auto;
 	overflow: hidden;
 	width: 660px;
 	text-align: center;
+    clear: both;
 }
 
 .serve_part {

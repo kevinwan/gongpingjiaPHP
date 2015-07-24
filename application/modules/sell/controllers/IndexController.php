@@ -230,6 +230,11 @@ class Sell_IndexController extends XF_Controller_Abstract
             throw new XF_Exception ('选择商家页面:评估页面没有选择车型');
         }
 
+//        获取车商
+        $used = new Used_Model_Used();
+        $carDealers = $used->getUsedCarDealers($this->nowCity->id);
+        $this->_view->dealers = $carDealers->dealer;
+
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/sell/merchant.css');
         $this->_view->headStylesheet('/css/common.css');
@@ -252,6 +257,11 @@ class Sell_IndexController extends XF_Controller_Abstract
         }else {
             throw new XF_Exception ('选择4s店页面:评估页面没有选择车型');
         }
+
+        //        获取车商
+        $used = new Used_Model_Used();
+        $carDealers = $used->getUsedCarDealers($this->nowCity->id);
+        $this->_view->fourshop = $carDealers->{'4s'};
 
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/sell/fourshop.css');

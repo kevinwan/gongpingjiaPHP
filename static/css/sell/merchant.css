@@ -13,16 +13,21 @@
 }
 .saler_choose{
 	overflow: hidden;
-	margin-top: 35px;
+    margin: 35px -5px 0;
 }
-.saler_choose_part{
+.saler_choose_part {
 	width: 190px;
 	float: left;
+    margin: 0 5px 20px;
 }
 .saler_choose_part h5{
 	color: white;
 	padding: 8px 0;
 	font-weight: 500;
+    background: #33b773;
+}
+.saler_choose_part .phone {
+    line-height: 40px;
 }
 .saler_choose_con{
 	border: 2px solid #f8f8f8;
@@ -33,6 +38,14 @@
 	height: 35px;
 	padding: 25px 0;
 }
+.saler_choose_con .preview {
+    padding: 20px 20px 0;
+    height: 60px;
+    line-height: 22px;
+}
+.saler_choose_con .des {
+    height: 60px;
+}
 .saler_choose_con p{
 	text-align: left;
 	font-size: 12px;
@@ -42,7 +55,6 @@
 }
 .saler_choose_con div{
 	background: #f8f8f8;
-	line-height: 40px;
 }
 .saler_choose_con a{
 	background: url(../../img/sell/saler_phone.png) no-repeat scroll 0 0;
@@ -50,12 +62,12 @@
 	padding-bottom: 1px;
 	color: #aaa;
 }
-.saler_choose_part1 h5{
-	background: #33b773;
-}
-.saler_choose_part2 h5{
-	background: #2da7e0;
-}
+/*.saler_choose_part1 h5{*/
+	/*background: #33b773;*/
+/*}*/
+/*.saler_choose_part2 h5{*/
+	/*background: #2da7e0;*/
+/*}*/
 .saler_choose_margin{
 	margin: 0 10px;
 }
@@ -64,7 +76,6 @@
 	display: block;
 	line-height: 40px;
 	background: #f8f8f8;
-	margin-top: 20px;
 }
 /*服务部分——选商家页面*/
 .serve_main{

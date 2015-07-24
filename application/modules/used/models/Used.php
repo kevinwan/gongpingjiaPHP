@@ -34,7 +34,7 @@ class Used_Model_Used extends Application_Model_Abstract
     }
 
     /**
-     *  获取首页二手车随便看看
+     *  获取二手车商
      *  2015-7-15
      */
     public function getUsedCarDealers($city)
