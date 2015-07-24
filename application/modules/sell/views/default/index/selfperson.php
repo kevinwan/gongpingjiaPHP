@@ -4,7 +4,7 @@
 			<div id="logo"><img src="$static/img/index/logo.png" /></div>
 			<div class="selarea">
 				<div class="label-text">当前地区：</div>
-				<div class="area">北京</div>
+				<div class="area"><?php echo $this->nowCity->name; ?></div>
 			</div>
 		</div>
 	</div>
