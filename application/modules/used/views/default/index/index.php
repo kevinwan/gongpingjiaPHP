@@ -3,9 +3,7 @@
 		<div class="content">
 			<div id="top">
 				<div class="wrap">
-					<div id="logo">
-						<img src="$static/img/index/logo.png" />
-					</div>
+                    <div id="logo"><a href="<?php echo "http://".$this->nowCity->pinyin.".".$this->domain; ?>"><img src="$static/img/index/logo.png" /></a></div>
 					<div class="selarea">
 						<div class="label-text">当前地区：</div>
 						<div class="area">北京</div>
