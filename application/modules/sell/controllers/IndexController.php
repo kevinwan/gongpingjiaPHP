@@ -22,6 +22,8 @@ class Sell_IndexController extends XF_Controller_Abstract
     {
         $submit_statue = $this->getParam('statue');
         $infoId = $this->getParam('infoId');
+        $gpj_session = new XF_Session("gpj_session");
+        $session_ary = $gpj_session->read();
 
         if ((!isset ($infoId) || XF_Functions::isEmpty($infoId))) {
             throw new XF_Exception ('添加个人信息:数据内容不正确');
@@ -34,8 +36,6 @@ class Sell_IndexController extends XF_Controller_Abstract
                 $phone = $this->getParam("phone");
                 $validate_code = $this->getParam("validate_code");
                 $user = $userObj->findUserByPhone($phone);
-                $gpj_session = new XF_Session("gpj_session");
-                $session_ary = $gpj_session->read();
 
                 if($user) {
                     $submit_statue = "ok";
@@ -64,6 +64,10 @@ class Sell_IndexController extends XF_Controller_Abstract
 
         XF_View::getInstance()->assign('infoId', $infoId);
         XF_View::getInstance()->assign('statue', $submit_statue);
+        $this->_view->detailModel = $session_ary["detail_model"];
+        $this->_view->detailYear = $session_ary["detail_year"];
+        $this->_view->detailMile = $session_ary["detail_mile"];
+        $this->_view->detailPrice = $session_ary["detail_price"];
     }
 
     //补充商品信息
@@ -71,6 +75,7 @@ class Sell_IndexController extends XF_Controller_Abstract
     {
         $submit_statue = $this->getParam('statue');
         $gpj_session = new XF_Session("gpj_session");
+        $session_ary = $gpj_session->read();
 
         if (!$gpj_session->hasContent("userId")) {
             throw new XF_Exception ('补充商品信息:用户没有登录');
@@ -84,7 +89,6 @@ class Sell_IndexController extends XF_Controller_Abstract
                 $car_maintain = $this->getParam("car_maintain");
                 $max_cost = $this->getParam("max_cost");
                 $transfer_num = $this->getParam("transfer_num");
-                $session_ary = $gpj_session->read();
 
                 $sellObj = new Sell_Model_Sellinfo();
                 $last_id = $sellObj->addSellInfo($session_ary["userId"], $session_ary["modelId"], $session_ary["changeId"], $session_ary["dataFrom"], $session_ary["infoId"], implode(",", $car_parts), $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num);
@@ -103,15 +107,25 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headScript('/js/pagejs/goodinfo.js');
         XF_View::getInstance()->assign('statue', $submit_statue);
+        $this->_view->detailModel = $session_ary["detail_model"];
+        $this->_view->detailYear = $session_ary["detail_year"];
+        $this->_view->detailMile = $session_ary["detail_mile"];
+        $this->_view->detailPrice = $session_ary["detail_price"];
     }
 
     // 补充图片信息
     public function uploadAction()
     {
+        $gpj_session = new XF_Session("gpj_session");
+        $session_ary = $gpj_session->read();
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/sell/upload.css');
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headScript('/js/plupload/plupload.full.min.js')->appendFile('/js/pagejs/upload.js');
+        $this->_view->detailModel = $session_ary["detail_model"];
+        $this->_view->detailYear = $session_ary["detail_year"];
+        $this->_view->detailMile = $session_ary["detail_mile"];
+        $this->_view->detailPrice = $session_ary["detail_price"];
     }
 
     public function uploadfileAction()
@@ -239,6 +253,10 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->headStylesheet('/css/sell/merchant.css');
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headScript('/js/pagejs/merchant.js');
+        $this->_view->detailModel = $sessionAry["detail_model"];
+        $this->_view->detailYear = $sessionAry["detail_year"];
+        $this->_view->detailMile = $sessionAry["detail_mile"];
+        $this->_view->detailPrice = $sessionAry["detail_price"];
     }
 
     // 卖给4s店
@@ -267,6 +285,10 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->headStylesheet('/css/sell/fourshop.css');
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headScript('/js/pagejs/fourshop.js');
+        $this->_view->detailModel = $sessionAry["detail_model"];
+        $this->_view->detailYear = $sessionAry["detail_year"];
+        $this->_view->detailMile = $sessionAry["detail_mile"];
+        $this->_view->detailPrice = $sessionAry["detail_price"];
     }
 
     // 卖给个人
@@ -292,14 +314,24 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->headStylesheet('/css/sell/selfperson.css');
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headScript('/js/pagejs/selfperson.js');
+        $this->_view->detailModel = $sessionAry["detail_model"];
+        $this->_view->detailYear = $sessionAry["detail_year"];
+        $this->_view->detailMile = $sessionAry["detail_mile"];
+        $this->_view->detailPrice = $sessionAry["detail_price"];
     }
 
     // 4s置换
     public function displaceAction()
     {
+        $gpj_session = new XF_Session("gpj_session");
+        $sessionAry = $gpj_session->read();
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headStylesheet('/css/displace/displace.css');
         $this->_view->headScript('/js/pagejs/displace.js');
+        $this->_view->detailModel = $sessionAry["detail_model"];
+        $this->_view->detailYear = $sessionAry["detail_year"];
+        $this->_view->detailMile = $sessionAry["detail_mile"];
+        $this->_view->detailPrice = $sessionAry["detail_price"];
     }
 }

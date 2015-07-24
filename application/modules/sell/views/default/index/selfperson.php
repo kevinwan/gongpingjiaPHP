@@ -10,11 +10,11 @@
 	</div>
 	<div class="banner">
 		<div class="banner-box">
-			<div class="info-car">
-				<h3>宝马5系  2014款 520i 典雅型</h3>
-				<p><span>2015年上牌</span>|<span>行驶里程：6.0万公里</span>|<span>上牌城市：北京</span></p>
-				<p>新车指导价：43.58万</p>
-			</div>
+            <div class="info-car">
+                <h3><?php echo $this->detailModel; ?></h3>
+                <p><span><?php echo $this->detailYear; ?>年上牌</span>|<span>行驶里程：<?php echo $this->detailMile; ?>万公里</span>|<span>上牌城市：<?php echo $this->nowCity->name; ?></span></p>
+                <p>新车指导价：<?php echo $this->detailPrice; ?>万</p>
+            </div>
 		</div>
 	</div>
 	<!-- 选商家 [[ -->
