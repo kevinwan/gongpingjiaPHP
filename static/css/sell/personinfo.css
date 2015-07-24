@@ -247,16 +247,19 @@
     width: 90px;
     height: 90px;
     background-image: url(../../img/sell/ico_right.png);
+    clear: both;
 }
 
 .sub-dialog p {
     font-size: 22px;
     line-height: 150%;
     margin-top: 28px;
+    clear: both;
 }
 
 .sub-dialog img {
     margin-top: 25px;
+    clear: both;
 }
 
 .sub-dialog a {
@@ -269,4 +272,5 @@
     font-size: 20px;
     color: #FFF;
     background-color: #2da7e0;
+    clear: both;
 }

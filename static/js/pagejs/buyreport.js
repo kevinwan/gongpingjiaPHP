@@ -3,9 +3,13 @@ $(document).ready(function() {
 	if(w_width < 1367) {
 		$("#main").removeClass("bscreen").addClass("sscreen");
 	}
-	$(document).on("click", ".r-choose .car-series", function() {
-		$("#selectcar").toggle();
-	});
+	//$(document).on("click", ".r-choose .car-series", function() {
+     //   $("#selectcar").siblings(".popup").hide();
+	//	$("#selectcar").toggle();
+	//});
+    //$(document).on("click", ".r-choose .report-year", function() {
+    //
+    //});
 	$(document).on("click", "#selectcar ul li", function() {
 		var carmodel = $(this).find(".carmodel");
 		var typeid = $(carmodel).attr("typeid");

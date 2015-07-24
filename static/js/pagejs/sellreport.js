@@ -3,9 +3,23 @@ $(document).ready(function() {
 	if(w_width < 1367) {
 		$("#main").removeClass("bscreen").addClass("sscreen");
 	}
-	$(document).on("click", ".r-choose .car-series", function() {
-		$("#selectcar").toggle();
-	});
+    $(document).on("click", ".r-choose .car-series", function() {
+        $("#selectcar").siblings(".popup").hide();
+    	$("#selectcar").toggle();
+    });
+    $(document).on("click", ".r-choose .report-year", function() {
+        $("#report-year").siblings(".popup").hide();
+        $("#report-year").toggle();
+    });
+    $(document).on("click", ".r-choose .report-city", function() {
+        $("#report-city").siblings(".popup").hide();
+        $("#report-city").toggle();
+    });
+    $(document).on("click", "#report-year .itemyear", function() {
+        $("#yearBox").text($(this).text());
+        $("#report-year").hide();
+        $("#year").val($(this).text());
+    });
 	$(document).on("click", "#selectcar ul li", function() {
 		var carmodel = $(this).find(".carmodel");
         var typeid = $(carmodel).attr("typeid");
@@ -13,6 +27,11 @@ $(document).ready(function() {
         $("input[name='typeid']").val(typeid);
 		$("#selectcar").hide();
 	});
+    $(document).on("click", "#report-city ul li", function() {
+        $("#cityBox").text($(this).text());
+        $("#report-city").hide();
+        $("#city").val($(this).text());
+    });
 	$(document).on("click", "#main .r-sells .sealer", function() {
 		window.location.href='/sell/index/merchant';
 	});
@@ -63,14 +82,16 @@ $(document).ready(function() {
 	});
 });
 function sellreport() {
-	if(srcForm.check()) {
-        var typeId = $("input[name='typeid']").val();
-        var year = $("#year").text();
-        var city = $("#city").attr("py");
-        var mileage = $("input[name='mileage']").val();
-        var serialId = $("input[name='serialId']").val();
-        window.location.href="/sellreport/"+serialId+"/"+city+"/"+year+"/"+typeId+"/"+mileage+"/";
-	}
+    var typeId = $("input[name='typeid']").val();
+    var year = $("#year").val();
+    var city = $("#citypy").val();
+    var mileage = $("input[name='mileage']").val();
+    var serialId = $("input[name='serialId']").val();
+    if(parseFloat(mileage) > 0) {
+        window.location.href="/sellreport/"+serialId+"/"+city+"/"+year+"/"+typeId+"/"+parseFloat(mileage)+"/";
+    }else {
+        layer.msg("请输入正确的里程数。");
+    }
 }
 function genVote(totalVote, goodVote) {
     if(goodVote != "0") {

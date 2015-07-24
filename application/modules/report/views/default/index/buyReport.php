@@ -10,14 +10,14 @@
 			</div>
 		</div>
 		<div class="r-choose">
-			<form name="srcForm" id="srcForm" action="" verify="true">
+			<form name="srcForm" id="srcForm" action="">
 				<div class="r-logo"></div>
 				<ul class="r-form">
 					<input type="hidden" name="serialId" id="serialId" value="<?php echo $this->serialId ?>" />
 					<li class="car-series"><?php echo $this->type->detail_model ?></li>
 					<input type="hidden" name="typeid" id="typeid" value="<?php echo $this->type->id ?>" />
-					<li class="r-form-even">
-						<label>上牌时间</label><a class="form-text" id="year" onClick="WdatePicker({dateFmt:'yyyy'})" href="javascript:;">2011</a>年
+					<li class="r-form-even report-year">
+						<label>上牌时间</label><a class="form-text" id="yearBox" href="javascript:;">2011</a>年
 					</li>
 					<li>
 						<label>上牌城市</label><a class="form-text" id="city" py="<?php echo $this->nowCity->pinyin; ?>" href="javascript:;"><?php echo $this->nowCity->name; ?></a>
@@ -28,7 +28,7 @@
 					</li>
 				</ul>
 				<a class="more-car" href="javascript:;" onclick="sellreport();">更新爱车信息</a>
-				<div id="selectcar" class="selectcar" style="display: none;">
+				<div id="selectcar" class="selectcar popup" style="display: none;">
 					<?php if(is_array($this->types)){ ?>
 					<?php foreach ($this->types as $type){ ?>
 					<div class="selectItem">
@@ -68,6 +68,8 @@
 						<h5>估值准确率</h5>
 						<p><?php echo $this->V->accuracy ?>%</p>
 					</div>
+                    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a></div>
+                    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 				</div>
 			</div>
 			<div class="r-list">

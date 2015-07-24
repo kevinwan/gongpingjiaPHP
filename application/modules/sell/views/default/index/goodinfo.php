@@ -24,23 +24,23 @@
             <h2 class="info-title"><span>补充信息</span></h2>
             <p class="info-msg">补充更多信息，让买家对您的爱车有更多了解</p>
             <ul class="info-list">
-                <li class="info-match">
-                    <label>是否匹配</label>
-                    <div>
-                        <a class="" href="javascript:;">
-                            <input type="checkbox" name="car_parts[]" value="gps"/>
-                            GPS导航
-                        </a>
-                        <a class="info-match-margin" href="javascript:;">
-                            <input type="checkbox" name="car_parts[]" value="radar"/>
-                            倒车雷达
-                        </a>
-                        <a href="javascript:;">
-                            <input type="checkbox" name="car_parts[]" value="recorder"/>
-                            行车记录仪
-                        </a>
-                    </div>
-                </li>
+<!--                <li class="info-match">-->
+<!--                    <label>是否匹配</label>-->
+<!--                    <div>-->
+<!--                        <a class="" href="javascript:;">-->
+<!--                            <input type="checkbox" name="car_parts[]" value="gps"/>-->
+<!--                            GPS导航-->
+<!--                        </a>-->
+<!--                        <a class="info-match-margin" href="javascript:;">-->
+<!--                            <input type="checkbox" name="car_parts[]" value="radar"/>-->
+<!--                            倒车雷达-->
+<!--                        </a>-->
+<!--                        <a href="javascript:;">-->
+<!--                            <input type="checkbox" name="car_parts[]" value="recorder"/>-->
+<!--                            行车记录仪-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </li>-->
                 <li>
                     <label>车辆颜色</label>
                     <div class="info-choose-out">
@@ -77,7 +77,7 @@
                         <a class="info-choose-tri" href="javascript:;"><img src="$static/img/sell/info-choose-tri.png"></a>
                         <!-- 车辆保险有效期的选择部分 [[ -->
                         <div class="info-choose-in  info-choose-insure">
-                            <div class="info-choose-in-one">
+                            <div class="info-choose-in-one insure-width">
                                 <!-- 这里的info-choose-active是选中状态 -->
                                 <a>2015</a>
                                 <a>2016</a>
