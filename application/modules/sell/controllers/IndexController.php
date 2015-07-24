@@ -276,6 +276,10 @@ class Sell_IndexController extends XF_Controller_Abstract
             throw new XF_Exception ('选择4s店页面:评估页面没有选择车型');
         }
 
+        $model = new Auto_Model_Type();
+        $car_model = $model->getsByTypeId($changeId);
+        $this->_view->changeModel = $car_model->detail_model;
+
         //        获取车商
         $used = new Used_Model_Used();
         $carDealers = $used->getUsedCarDealers($this->nowCity->id);
