@@ -4,4 +4,8 @@ $(document).ready(function() {
         var thiary = theobj.split("_");
         window.location.href='/sell/index/personinfo?infoId='+thiary["1"];
     });
+    $(document).on("click", ".content .saler_other", function() {
+        $(".fourshops .otherDealers").slideDown();
+        $(this).hide();
+    });
 });

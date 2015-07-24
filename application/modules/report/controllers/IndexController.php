@@ -73,7 +73,8 @@ class Report_IndexController extends XF_Controller_Abstract
         $gpj_session = new XF_Session("gpj_session");
         $sessionAry = array();
         $sessionAry["modelId"] = $typeId;
-        $gpj_session->write($sessionAry);
+        $sessionAry["detail_model"] = $type->detail_model;
+        $sessionAry["detail_price"] = $type->price_bn;
 
 		$this->_view->type = $type;
 
@@ -97,14 +98,19 @@ class Report_IndexController extends XF_Controller_Abstract
 		$year = $year > 0 ? $year : $type->listed_year + 2;
 		$month = '';
 		$mile = floatval ( $mileage ) > 0 ? floatval ( $mileage ) : (date ( "Y" ) - $type->listed_year);
-		$mile = 8;
 		$intent = 'sell';
 		$this->_view->mileage = $mile;
+		$this->_view->year = $year;
 		// 获取估值
 		//echo $cityid . '_' . $d_model . '_' . $year . '_' . $mile . '_' . $intent;
 		$mod = new Report_Model_Valuation ();
 		$V = $mod->getValuation ( $cityid, $d_model, $year, '', $mile, $intent );
 		$this->_view->V = $V;
+
+        $sessionAry["detail_year"] = $year;
+        $sessionAry["detail_mile"] = $mile;
+        $gpj_session->write($sessionAry);
+
 		// print_r($V);
 		$this->setLayout ( new Layout_Default () );
 		// 设置页面资源

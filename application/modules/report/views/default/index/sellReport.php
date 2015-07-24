@@ -17,7 +17,7 @@
 					<li class="car-series"><?php echo $this->type->detail_model ?></li>
 					<input type="hidden" name="typeid" id="typeid" value="<?php echo $this->type->id ?>" />
 					<li class="r-form-even">
-						<label>上牌时间</label><a class="form-text" id="year" onClick="WdatePicker({dateFmt:'yyyy'})" href="javascript:;">2011</a>年
+						<label>上牌时间</label><a class="form-text" id="year" onClick="WdatePicker({dateFmt:'yyyy'})" href="javascript:;"><?php echo $this->year; ?></a>年
 					</li>
 					<li>
 						<label>上牌城市</label><a class="form-text" id="city" py="<?php echo $this->nowCity->pinyin; ?>" href="javascript:;"><?php echo $this->nowCity->name; ?></a>
