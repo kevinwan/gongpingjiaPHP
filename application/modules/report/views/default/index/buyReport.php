@@ -79,7 +79,7 @@
                         <div class="item">
                             <div class="wrap">
                                 <img src="<?php echo $used->thumbnail ?>"/>
-                                <a href="<?php echo $used->url ?>">
+                                <a href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站">
                                     <div class="carinfo">
                                         <div class="font-bold"><?php echo $used->title; ?></div>
                                         <div class="info">

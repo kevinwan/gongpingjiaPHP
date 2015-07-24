@@ -1,124 +1,129 @@
 @charset "UTF-8";
 
 body {
-	font-size: 14px;
-	font-family: "Microsoft YaHei", "宋体";
-	line-height: 1;
+    font-size: 14px;
+    font-family: "Microsoft YaHei", "宋体";
+    line-height: 1;
 }
 
 a {
-    color: #cccccc;
-	text-decoration: none;
+    bblr: expression(this.onFocus=this.blur());
+    outline-style: none;
+}
+
+a {
+    color: #999;
+    text-decoration: none;
 }
 
 .clearfix:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-	font-size: 0;
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
 }
 
 .clearfix {
-	display: inline-block;
+    display: inline-block;
 }
 
 * html .clearfix {
-	height: 1%;
+    height: 1%;
 }
 
 .clearfix {
-	display: block;
+    display: block;
 }
 
 .clearfix {
-	zoom: 1;
+    zoom: 1;
 }
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
-	blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd,
-	q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
-	fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr,
-	th, td, article, aside, canvas, details, figcaption, figure, footer,
-	header, hgroup, menu, nav, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	background: transparent;
+blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd,
+q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr,
+th, td, article, aside, canvas, details, figcaption, figure, footer,
+header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
 }
 
 :focus {
-	outline: 1;
+    outline: 1;
 }
 
 ul li, ol li {
-	list-style: none;
+    list-style: none;
 }
 
 a {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	background: transparent;
-	text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    background: transparent;
+    text-decoration: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 hr {
-	display: block;
-	height: 1px;
-	border: 0;
-	border-top: 1px solid #cccccc;
-	margin: 1em 0;
-	padding: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
 }
 
 input, select {
-	vertical-align: middle;
-	outline: none;
+    vertical-align: middle;
+    outline: none;
 }
 
 .fl {
-	float: left;
+    float: left;
 }
 
 .fr {
-	float: right;
+    float: right;
 }
 
 .ml5 {
-	margin-left: 5px;
+    margin-left: 5px;
 }
 
 .mr10 {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 .mt10 {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 .mb10 {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .mb50 {
-	margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
 .font-orange {
-	color: #ff8416;
+    color: #ff8416;
 }
 
 .font-blue {
@@ -126,88 +131,88 @@ input, select {
 }
 
 .font-bold {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .green-bg {
-	background: #35c779;
+    background: #35c779;
 }
 
 .blue-bg {
-	background: #2da7e0;
+    background: #2da7e0;
 }
 
 .violet-bg {
-	background: #d07dad;
+    background: #d07dad;
 }
 
 .orange-bg {
-	background: #ff8416;
+    background: #ff8416;
 }
 
 .red-bg {
-	background: #fe5245;
+    background: #fe5245;
 }
 
 #tipinfo {
-	text-align: center;
-	height: 30px;
-	width: 100%;
-	padding-top: 5px;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    padding-top: 5px;
 }
 
 #selarea {
-	width: 540px;
+    width: 540px;
 }
 
 #selarea a {
-	color: #999999;
+    color: #999999;
 }
 
 #selarea .defsel {
-	color: #2da7e0;
+    color: #2da7e0;
 }
 
 #selarea .dialogs-title {
-	height: 45px;
-	line-height: 45px;
-	padding: 0 20px;
-	background: #f8f8f8;
-	font-size: 12px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    background: #f8f8f8;
+    font-size: 12px;
 }
 
 #selarea .dialogs-title .defsel {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #selarea .dialogs-cont {
-	padding: 0 20px;
-	font-size: 12px;
+    padding: 0 20px;
+    font-size: 12px;
 }
 
 #selarea .dialogs-cont .subtitle {
-	margin: 15px 0;
+    margin: 15px 0;
 }
 
 #selarea .dialogs-cont .area {
-	margin: 20px 0;
-	clear: both;
+    margin: 20px 0;
+    clear: both;
 }
 
 #selarea .dialogs-cont .label-text {
-	float: left;
-	width: 16%;
-	line-height: 22px;
+    float: left;
+    width: 16%;
+    line-height: 22px;
 }
 
 #selarea .dialogs-cont .label-value {
-	float: left;
-	width: 84%;
-	line-height: 22px;
+    float: left;
+    width: 84%;
+    line-height: 22px;
 }
 
 #selarea .dialogs-cont .label-value a {
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 .text_ellipsis {

@@ -6,7 +6,7 @@
                     <div id="logo"><a href="<?php echo "http://".$this->nowCity->pinyin.".".$this->domain; ?>"><img src="$static/img/index/logo.png" /></a></div>
 					<div class="selarea">
 						<div class="label-text">当前地区：</div>
-						<div class="area">北京</div>
+						<div class="area"><?php echo $this->nowCity->name; ?></div>
 					</div>
 				</div>
 			</div>
@@ -102,8 +102,8 @@
                 foreach ($this->usedList->cars as $used){
                 ?>
 				<div class="useditem" id="used_<?php echo $used->id ?>">
-					<div class="preview"><a href="<?php echo $used->url ?>"><img class="lazy" src="<?php echo $used->thumbnail ?>" /></a></div>
-					<div class="font-bold row title" title="<?php echo $used->title ?>"><a href="<?php echo $used->url ?>"><?php echo $used->title ?></a></div>
+					<div class="preview"><a href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站"><img class="lazy" src="<?php echo $used->thumbnail ?>" /></a></div>
+					<div class="font-bold row title" title="<?php echo $used->title ?>"><a href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站"><?php echo $used->title ?></a></div>
 					<div class="info row">
 						<div class="usedl fl">&yen;<?php echo $used->price ?> 万</div>
 						<div class="usedr fr">

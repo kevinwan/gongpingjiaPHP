@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+* {
+    font-family: "Microsoft YaHei"
+}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, dl, dt, dd, ol, ul, li, input, p, i {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    list-style: none;
+    font-style: normal;
+}
+
+.cds_linkBox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+}
+
+.cds_linkCon {
+    width: 516px;
+    height: 272px;
+    background: url(../img/newCar20150119/autoLogo.jpg) no-repeat 447px 244px #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -136px 0 0 -258px;
+    background: #fff;
+    z-index: 99991;
+}
+
+.cds_linkCon h1 {
+    height: 34px;
+    line-height: 34px;
+    background: #f4f4f4;
+    font-size: 14px;
+    font-weight: normal;
+    padding-left: 18px;
+}
+
+.cds_linkCon h2 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 22px;
+    color: #666;
+    height: 72px;
+    line-height: 72px;
+    padding-bottom: 61px;
+    background: url(../img/linksite/linkSiteIco.gif) no-repeat center bottom;
+}
+
+.cds_linkCon h2 span {
+    color: #ff7700;
+    padding-left: 12px;
+}
+
+.cds_linkCon p {
+    text-align: center;
+    color: #a1a1a1;
+    font-size: 16px;
+    padding-top: 9px;
+    height: 44px;
+    line-height: 44px;
+}
+
+.cds_linkCon p span {
+    color: #de3839;
+    padding-right: 6px;
+}
+
+.cds_linkCon a {
+    display: block;
+    margin: 0 auto;
+    width: 102px;
+    height: 36px;
+    background: url(../img/linksite/linkBtnbg.gif);
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 18px;
+    color: #444;
+    text-decoration: none;
+}
+
+.cds_linkCon a:hover {
+    text-decoration: none;
+}
+
+.cds_trbg, .cds_autoTgabg, .cds_linkbg {
+    background: #000;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
+    opacity: 0.4;
+    -moz-opacity: 0.4;
+    height: 100%;
+    width: 100%;
+}

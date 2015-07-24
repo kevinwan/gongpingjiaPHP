@@ -88,8 +88,13 @@ class Front_IndexController extends XF_Controller_Abstract
 	
 	public function indexAction()
 	{
-                $this->setLayout(new Layout_Default());
-                $this->switchCity();
+        $this->setLayout(new Layout_Default());
+        $this->switchCity();
 		$this->_view->title = 'welcome to gongpingjia';
 	}
+
+    public function linkSiteAction()
+    {
+
+    }
 }
