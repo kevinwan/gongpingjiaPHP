@@ -113,6 +113,9 @@ class Report_IndexController extends XF_Controller_Abstract
 
 		// print_r($V);
 		$this->setLayout ( new Layout_Default () );
+                $this->_view->headTitle("卖车价格评估-卖车估价-卖车技巧-卖二手车流程-公平价");
+		$this->_view->headMeta("二手车卖车评估，二手车卖车估价，卖二手车流程，卖二手车技巧");
+		$this->_view->headMeta("公平价-卖车评估频道为您提供：二手车卖车估价、二手车卖车估值、二手车卖车估价计算器，给您的爱车一个精准的、公平、公道的价格。二手车卖车服务就上公平价!");
 		// 设置页面资源
 		$this->_view->headStylesheet ( '/css/report/report.css' );
 		$this->_view->headStylesheet ( '/css/valid.css' );
@@ -211,6 +214,9 @@ class Report_IndexController extends XF_Controller_Abstract
 
         // print_r($V);
         $this->setLayout ( new Layout_Default () );
+        $this->_view->headTitle("买二手车价格评估-买二手车估价-买二手车技巧流程-公平价");
+	$this->_view->headMeta("买二手车车评估，买二手车估价，买二手车流程，买二手车技巧");
+	$this->_view->headMeta("公平价-买车评估频道为您提供：二手车买车估值、二手车买车估价、二手车买车估价计算器，给您所选爱车一个精准、公平、公道的价格。二手车买车服务就上公平价!");
         // 设置页面资源
         $this->_view->headStylesheet ( '/css/report/report.css' );
         $this->_view->headStylesheet ( '/css/valid.css' );

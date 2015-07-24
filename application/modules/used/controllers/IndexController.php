@@ -46,9 +46,9 @@ class Used_IndexController extends XF_Controller_Abstract
 
         //设置布局、页面资源
         $this->setLayout(new Layout_Default());
-//		$this->_view->headTitle("【{$name}{$brand->show_name}报价_{$name}{$brand->show_name}汽车报价及图片】- 车多少网{$name}站");
-//		$this->_view->headMeta('name="keywords" content="'.$name.$brand->show_name.'报价,'.$name.$brand->show_name.'汽车报价,'.$name.$brand->show_name.'汽车报价及图片"');
-//		$this->_view->headMeta('name="description" content="车多少网(cheduoshao.com)'.$name.$brand->show_name.'报价频道提供海量'.$name.$brand->show_name.'汽车报价及图片信息,同时欢迎您来查询'.$name.$brand->show_name.'汽车比价信息,及定制'.$name.$brand->show_name.'汽车降价提醒服务."');
+		$this->_view->headTitle("{$this->nowCity->name}二手车价格查询-{$this->nowCity->name}二手车交易市场-{$this->nowCity->name}二手车报价网-公平价");
+		$this->_view->headMeta("{$this->nowCity->name}二手车网，{$this->nowCity->name}二手车交易市场，{$this->nowCity->name}二手车报价，{$this->nowCity->name}二手车市场价格");
+		$this->_view->headMeta("{$this->nowCity->name}公平价-为您提供真实的{$this->nowCity->name}二手车报价信息，{$this->nowCity->name}二手车市场价格,{$this->nowCity->name}二手车交易价格,{$this->nowCity->name}二手车交易等信息，方便您获得估值、选购、出售、{$this->nowCity->name}二手车的服务。");
 
         //设置页面资源
         $this->_view->headStylesheet('/css/used/used.css');

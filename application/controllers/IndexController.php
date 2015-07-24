@@ -11,9 +11,9 @@ class IndexController extends XF_Controller_Abstract
 		$this->nowCity->id;
 		// 设置布局、页面资源
 		$this->setLayout ( new Layout_Default () );
-		$this->_view->headTitle ( "【{$name}{$brand->show_name}报价_{$name}{$brand->show_name}汽车报价及图片】- 车多少网{$name}站" );
-		$this->_view->headMeta ( 'name="keywords" content="' . $name . $brand->show_name . '报价,' . $name . $brand->show_name . '汽车报价,' . $name . $brand->show_name . '汽车报价及图片"' );
-		$this->_view->headMeta ( 'name="description" content="车多少网(cheduoshao.com)' . $name . $brand->show_name . '报价频道提供海量' . $name . $brand->show_name . '汽车报价及图片信息,同时欢迎您来查询' . $name . $brand->show_name . '汽车比价信息,及定制' . $name . $brand->show_name . '汽车降价提醒服务."' );
+		$this->_view->headTitle ( "爱车估价，就上公平价！{$this->nowCity->name}二手车在线评估_{$this->nowCity->name}二手车估价网" );
+		$this->_view->headMeta ( "{$this->nowCity->name}二手车估价网，{$this->nowCity->name}二手车评估网，{$this->nowCity->name}二手车网，{$this->nowCity->name}二手车交易市场" );
+		$this->_view->headMeta ("{$this->nowCity->name}公平价-国内首创免费二手车估值服务平台，每天收集分析{$this->nowCity->name}二手车交易的真实交易信息,为您提供：{$this->nowCity->name}二手车买车估价/卖车估价/价格评估/估价计算器等服务！");
 		
 		// 设置页面资源
 		$this->_view->headStylesheet ( '/css/jquery.autocomplete.css' );
