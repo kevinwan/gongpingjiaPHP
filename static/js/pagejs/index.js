@@ -122,7 +122,15 @@ $(document).ready(function() {
             });
         }
 	});
-	
+
+    $(document).on("click", "#searchbtn", function() {
+        var switch_val = $("#switch").val();
+        if(switch_val == "buy") {
+            var buyId = $("#buyId").val();
+            window.location.href = "/buyreport/"+buyId+"/";
+        }
+    });
+
 	$(document).on("click", "#search .salebox", function() {
         if(layerStatue) {
             layerStatue = false;

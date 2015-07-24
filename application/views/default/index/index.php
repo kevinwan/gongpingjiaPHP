@@ -12,6 +12,7 @@
 		<div id="search">
 			<form action="" method="post">
 				<input id="switch" type="hidden" name="switch" value="sale" />
+				<input id="buyId" type="hidden" name="buyId" value="161" />
 				<div class="wrap">
 					<div class="lable-text salebtn">
 					</div>
@@ -19,7 +20,7 @@
 						<div class="salebox" ></div>
 						<div class="buybox" style="display: none;"><input id="typeahead-input" name="" value=""></div>
 					</div>
-					<div class="subbtn"><input type="submit" class="searchbtn" value="" /></div>
+					<div class="subbtn"><input id="searchbtn" type="button" class="searchbtn" value="" /></div>
 				</div>
 			</form>
 		</div>
