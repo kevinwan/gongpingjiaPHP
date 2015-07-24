@@ -4,7 +4,9 @@ $(document).ready(function() {
 	var max_height = 1200;
 	var w_width = $(document).width();
 	var w_height = $(document).height();
+    var temp_width;
 	if(w_width > max_width) {
+        temp_width = w_width;
 		w_width = max_width;
 		$("#wrapper").css("width", max_width).css("margin", "0 auto");
 	}
@@ -23,7 +25,12 @@ $(document).ready(function() {
     var seriesStatue = true;
     var layerStatue = true;
 
-	$("body").css("background-position", "-10px 0");
+    if(w_width < 1920) {
+        $("body").css("background-position", axis+"px 0");
+    }else {
+        var offset = $("#wrapper").offset();
+        $("body").css("background-position", offset.left+axis+"px 0");
+    }
 
 	$.ajax({
 		url: "/",
