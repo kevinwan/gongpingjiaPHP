@@ -48,7 +48,7 @@
 			</a>
 		</div>
 		<div class="btn-list">
-			<a href="/sellreport/<?php echo serialId."/".$this->nowCity->pinyin."/".detailYear."/".modelId."/".detailMile."/" ?>" class="btn-link btn-submit">完成</a>
+			<a href="/sellreport/<?php echo $this->serialId."/".$this->nowCity->pinyin."/".$this->detailYear."/".$this->modelId."/".$this->detailMile."/" ?>" class="btn-link btn-submit">完成</a>
 		</div>
 	</div>
 </div>
