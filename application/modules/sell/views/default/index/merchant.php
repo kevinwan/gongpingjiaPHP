@@ -22,53 +22,37 @@
 		<!-- 优质商家 [[ -->
 		<h1 class="saler_mes">选择一个靠谱商家，您爱车售出的速度可能更快些</h1>
 		<div class="saler_choose">
-			<div id="saler_1" class="saler_choose_part saler_choose_part1">
-				<h5>优质商家</h5>
-				<div class="saler_choose_con">
-					<img src="$static/img/sell/saler_choose_Img.png">
-					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
-					<div><a href="">400-650-5268</a></div>
-
-				</div>
-			</div>
-			<div id="saler_2" class="saler_choose_part saler_choose_part2 saler_choose_margin">
-				<h5>优质商家</h5>
-				<div class="saler_choose_con">
-					<img src="$static/img/sell/saler_choose_Img.png">
-					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
-					<div><a href="">400-650-5268</a></div>
-
-				</div>
-			</div>
-			<div id="saler_3" class="saler_choose_part saler_choose_part1">
-				<h5>优质商家</h5>
-				<div class="saler_choose_con">
-					<img src="$static/img/sell/saler_choose_Img.png">
-					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
-					<div><a href="">400-650-5268</a></div>
-
-				</div>
-			</div>
-			<div id="saler_4" class="saler_choose_part saler_choose_part2 saler_choose_margin ">
-				<h5>优质商家</h5>
-				<div class="saler_choose_con">
-					<img src="$static/img/sell/saler_choose_Img.png">
-					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
-					<div><a href="">400-650-5268</a></div>
-
-				</div>
-			</div>
-			<div id="saler_5" class="saler_choose_part saler_choose_part2">
-				<h5>优质商家</h5>
-				<div class="saler_choose_con">
-					<img src="$static/img/sell/saler_choose_Img.png">
-					<p>二手车交易平台，拥有二手车检测技术,全程代办过户一站式服务，一站...</p>
-					<div><a href="">400-650-5268</a></div>
-
-				</div>
-			</div>
+            <?php
+            $isClose = false;
+            foreach ($this->dealers->data as $key => $dealer) {
+                if($key == "5") {
+                    $isClose = true;
+                    echo "<div class='otherDealers' style='display: none;'>";
+                }
+            ?>
+            <div id="saler_<?php echo $dealer->id ?>" class="saler_choose_part">
+                <h5>优质商家</h5>
+                <div class="saler_choose_con">
+                    <div class="preview"><?php echo $dealer->company_name; ?></div>
+                    <p class="des"><?php echo $dealer->address; ?></p>
+                    <div class="phone">
+                        <a href="javascript:void();"><?php echo $dealer->phone; ?></a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            ?>
+            <?php
+            if($isClose) {
+            $isClose = false;
+            ?>
+            </div>
+            <?php } ?>
 		</div>
-		<a class="saler_other" href="javascript:;">查看本地区其余<span>32</span>家优质商户</a>
+        <?php if(count($this->dealers->data) > 5) {?>
+            <a class="saler_other" href="javascript:;">查看本地区其余<span><?php echo count($this->dealers->data)-5; ?></span>家优质商户</a>
+        <?php } ?>
 		<!-- 优质商家 ]] -->
 		<!-- 服务 [[ -->
 		<div class="serve_main">
