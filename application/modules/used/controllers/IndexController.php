@@ -36,8 +36,6 @@ class Used_IndexController extends XF_Controller_Abstract
 
     public function indexAction()
     {
-
-
         $page = $this->getParam("page");
 
         if (!isset($page) || XF_Functions::isEmpty($page) || !is_numeric($page) || $page<1) {
@@ -68,8 +66,11 @@ class Used_IndexController extends XF_Controller_Abstract
             if(!XF_Functions::isEmpty($val->thumbnail)) {
                 $val->thumbnail = $val->thumbnail."?imageView2/1/w/190/h/142";
             }else {
-
+                // TODO: 没有图片的显示默认图片
             }
+            $report = new Report_Model_Valuation();
+            $valua = $report->getValuation($this->nowCity->id, $val->dmodel_id, $val->year, "", $val->mile, "buy");
+            $val->deal_price = $valua->deal_price;
         }
 
         $this->_view->pageNo = $page;
@@ -110,5 +111,12 @@ class Used_IndexController extends XF_Controller_Abstract
             die('{"code":"200", "cars":'.$carJsons.' }');
         }
     }
+
+    public function getValuationByModel() {
+        if($this->_request->isPost() && $this->_request->isXmlHttpRequest()) {
+
+        }
+    }
+
 }
 

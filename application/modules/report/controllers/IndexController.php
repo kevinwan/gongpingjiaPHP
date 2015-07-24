@@ -109,6 +109,7 @@ class Report_IndexController extends XF_Controller_Abstract
 
         $sessionAry["detail_year"] = $year;
         $sessionAry["detail_mile"] = $mile;
+        $sessionAry["serialId"] = $serialId;
         $gpj_session->write($sessionAry);
 
 		// print_r($V);

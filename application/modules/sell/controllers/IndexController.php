@@ -126,6 +126,8 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->detailYear = $session_ary["detail_year"];
         $this->_view->detailMile = $session_ary["detail_mile"];
         $this->_view->detailPrice = $session_ary["detail_price"];
+        $this->_view->serialId = $session_ary["serialId"];
+        $this->_view->modelId = $session_ary["modelId"];
     }
 
     public function uploadfileAction()
