@@ -10,22 +10,24 @@
 			</div>
 		</div>
 		<div class="r-choose">
-			<form name="srcForm" id="srcForm" action="">
 				<div class="r-logo"></div>
 				<ul class="r-form">
+                <input type="hidden" name="year" id="year" value="<?php echo $this->year ?>" />
+                <input type="hidden" name="city" id="city" value="<?php echo $this->cityId ?>" />
 					<input type="hidden" name="serialId" id="serialId" value="<?php echo $this->serialId ?>" />
+                <input type="hidden" name="typeid" id="typeid" value="<?php echo $this->type->id ?>" />
+                <input type="hidden" name="citypy" id="citypy" value="<?php echo $this->cityPinYin ?>" />
 					<li class="car-series"><?php echo $this->type->detail_model ?></li>
-					<input type="hidden" name="typeid" id="typeid" value="<?php echo $this->type->id ?>" />
 					<li class="r-form-even report-year">
-						<label>上牌时间</label><a class="form-text" id="yearBox" href="javascript:;">2011</a>年
+                    <label>上牌时间</label><a class="form-text" id="yearBox" href="javascript:;"><?php echo $this->year; ?></a>年
 					</li>
-					<li>
-						<label>上牌城市</label><a class="form-text" id="city" py="<?php echo $this->nowCity->pinyin; ?>" href="javascript:;"><?php echo $this->nowCity->name; ?></a>
-					</li>
-					<li class="r-form-even">
-						<label>行驶里程</label><input datatype="float" name="mileage" id="mileage" nullmsg="不能空" class="form-text form-input" value="<?php echo $this->mileage; ?>" type="text" />
-							<span>万公里</span>
-					</li>
+                <li class="report-city">
+                    <label>上牌城市</label><a class="form-text" id="cityBox" py="<?php echo $this->cityPinYin; ?>" href="javascript:;"><?php echo $this->cityName; ?></a>
+                </li>
+                <li class="r-form-even">
+                    <label>行驶里程</label><input name="mileage" id="mileage" maxlength="10" class="form-text form-input" value="<?php echo $this->mileage; ?>" type="text" />
+                    <span>万公里</span>
+                </li>
 				</ul>
 				<a class="more-car" href="javascript:;" onclick="sellreport();">更新爱车信息</a>
 				<div id="selectcar" class="selectcar popup" style="display: none;">
@@ -44,7 +46,24 @@
 					</div>
 					<?php }} ?>
 				</div>
-			</form>
+            <div id="report-year" class="popup" style="display: none;">
+                <ul></ul>
+            </div>
+            <div id="report-city" class="popup" style="display: none;">
+                <ul>
+                    <?php
+                    foreach($this->cities as $key => $value) {
+                        echo "<li id='city_".$value->id."'>".$value->name."</li>";
+                    }
+                    ?>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                var y = new Date().getFullYear();
+                for (var i = (y-30); i < y; i++) {
+                    $("#report-year ul").append("<li class=\"itemyear\">"+i+"</li>");
+                }
+            </script>
 		</div>
 		<div class="r-cost">
 			<div class="r-math">

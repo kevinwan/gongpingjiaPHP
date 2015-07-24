@@ -138,7 +138,7 @@ class Report_IndexController extends XF_Controller_Abstract
     public function buyReportAction()
     {
         $serialId = $this->getParam('serialId');
-        $city_py = $this->getParam('city');
+        $cityid = $this->getParam('city');
         $year = $this->getParam('year');
         $typeId = $this->getParam('typeId');
         $mileage = $this->getParam('mileage');
@@ -164,31 +164,12 @@ class Report_IndexController extends XF_Controller_Abstract
             $type = $mod->getsByTypeId($typeId);
         }
 
-        // 随机抽取6辆车型
-//        TODO:修改默认参数
-//        $serialCars = $mod->getsByCityAndSerialId($this->nowCity->id, $typeId);
-        $serialCars = $mod->getsByCityAndSerialId("35", "127945");
-        foreach ($serialCars as $key => $val) {
-            $val->mile = round($val->mile);
-            if (!XF_Functions::isEmpty($val->year)) {
-                $val->car_age = date("Y") - $val->year;
-            }
-            if (!XF_Functions::isEmpty($val->source_type)) {
-                $val->source_val = $this->source_type[$val->source_type];
-            }
-            if (!XF_Functions::isEmpty($val->thumbnail)) {
-                $val->thumbnail = $val->thumbnail . "?imageView2/1/w/296/h/193";
-            } else {
-
-            }
-        }
-        $this->_view->serialCars = $serialCars;
-
 //        获得session,存车型id
         $gpj_session = new XF_Session("gpj_session");
         $sessionAry = array();
         $sessionAry["modelId"] = $typeId;
-        $gpj_session->write($sessionAry);
+        $sessionAry["detail_model"] = $type->detail_model;
+        $sessionAry["detail_price"] = $type->price_bn;
 
         $this->_view->type = $type;
 
@@ -206,22 +187,54 @@ class Report_IndexController extends XF_Controller_Abstract
             $this->_view->totalNum = 0;
         }
 
-        // echo $this->nowCity->id.'_'.$type->id.'_'.($type->listed_year+2).'_'.$mileage.'_sell';
-        $cityid = $this->nowCity->id;
+        $cityModel = new Application_Model_City();
+        $cities = $cityModel->getsByCity($this->nowCity->id);
+        if (!isset ($cityid) || XF_Functions::isEmpty($cityid) || !is_numeric($cityid) || $cityid <= 0) {
+            $cityObj = $cities[0];
+            $cityid = $cities[0]->id;
+        }else {
+            $cityObj = $cityModel->get($cityid);
+            $cityid = $cityObj->id;
+        }
+        $this->_view->cities = $cities;
+        $this->_view->cityName = $cityObj->name;
+        $this->_view->cityId = $cityid;
+        $this->_view->cityPinYin = $cityObj->pinyin;
+
         $d_model = $type->id;
         $year = $year > 0 ? $year : $type->listed_year + 2;
-        $month = '';
         $mile = floatval($mileage) > 0 ? floatval($mileage) : (date("Y") - $type->listed_year);
-        $mile = 8;
         $intent = 'buy';
         $this->_view->mileage = $mile;
-        // 获取估值
-        //echo $cityid . '_' . $d_model . '_' . $year . '_' . $mile . '_' . $intent;
+        $this->_view->year = $year;
         $mod = new Report_Model_Valuation ();
         $V = $mod->getValuation($cityid, $d_model, $year, '', $mile, $intent);
         $this->_view->V = $V;
 
-        // print_r($V);
+        $sessionAry["detail_year"] = $year;
+        $sessionAry["detail_mile"] = $mile;
+        $sessionAry["serialId"] = $serialId;
+        $gpj_session->write($sessionAry);
+
+        // 随机抽取6辆车型
+        $carTypeModel = new Auto_Model_Type();
+        $serialCars = $carTypeModel->getsByCityAndSerialId($cityid, $typeId);
+        foreach ($serialCars as $key => $val) {
+            $val->mile = round($val->mile);
+            if (!XF_Functions::isEmpty($val->year)) {
+                $val->car_age = date("Y") - $val->year;
+            }
+            if (!XF_Functions::isEmpty($val->source_type)) {
+                $val->source_val = $this->source_type[$val->source_type];
+            }
+            if (!XF_Functions::isEmpty($val->thumbnail)) {
+                $val->thumbnail = $val->thumbnail . "?imageView2/1/w/296/h/193";
+            } else {
+
+            }
+        }
+        $this->_view->serialCars = $serialCars;
+
         $this->setLayout(new Layout_Default ());
         $this->_view->headTitle("买二手车价格评估-买二手车估价-买二手车技巧流程-公平价");
         $this->_view->headMeta("买二手车车评估，买二手车估价，买二手车流程，买二手车技巧");
