@@ -82,11 +82,10 @@
 	<div class="condition">
 		<div class="content">
 			<div class="top-cont">
-				<div class="totalnum fl">共找到 <span class="font-orange">5690</span> 辆车</div>
+				<div class="totalnum fl">共找到 <span class="font-orange"><?php echo $this->totalNum ?></span> 辆车</div>
 				<div class="tags fl">
 					<ul>
-						<li>宝马<i class="icon-close"></i></li>
-						<li>宝马<i class="icon-close"></i></li>
+<!--						<li>宝马<i class="icon-close"></i></li>-->
 					</ul>
 				</div>
 				<div class="sort fr">
@@ -101,204 +100,127 @@
 				</div>
 			</div>
 			<div class="used-list clearfix">
+                <?php
+                foreach ($this->usedList->cars as $used){
+                ?>
 				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
+					<div class="preview"><a href="<?php echo $used->url ?>"><img class="lazy" src="<?php echo $used->thumbnail ?>" /></a></div>
+					<div class="font-bold row title" title="<?php echo $used->title ?>"><a href="<?php echo $used->url ?>"><?php echo $used->title ?></a></div>
 					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
+						<div class="usedl fl">&yen;<?php echo $used->price ?> 万</div>
 						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
+							<div class="carage"><?php echo $used->car_age."年" ?></div>
+							<div class="mileage"><?php echo $used->mile; ?>万公里</div>
 						</div>
 					</div>
 					<div class="price row">公平价值28.97万</div>
 					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
+                        <?php
+                        if(!XF_Functions::isEmpty($used->source_type)) {
+                        ?>
+						<span class="tag <?php echo $used->source_val["bg"] ?>"><?php echo $used->source_val["name"] ?></span>
+                        <?php } ?>
 					</div>
 				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
-				<div class="useditem">
-					<div class="preview"><img class="lazy" src="$static/img/used/demo.png" /></div>
-					<div class="font-bold row">北京别克 君威 2015款 2.0L </div>
-					<div class="info row">
-						<div class="usedl fl">&yen;30.80 万</div>
-						<div class="usedr fr">
-							<div class="carage">3年</div>
-							<div class="mileage">2.8万公里</div>
-						</div>
-					</div>
-					<div class="price row">公平价值28.97万</div>
-					<div class="tags row">
-						<span class="tag green-bg">质保车</span>
-						<span class="tag blue-bg">纯个人</span>
-						<span class="tag violet-bg">低里程</span>
-						<span class="tag orange-bg">准新车</span>
-						<span class="tag red-bg">超实惠</span>
-					</div>
-				</div>
+                <?php } ?>
 			</div>
+            <div id="pager" class="clearfix" style="display: none;">
+                <div class="pager">
+                    <ul>
+                        <?php
+                        $pageNo = $this->pageNo;
+                        $activeNo = $pageNo;
+                        $totalPage = $this->totalPage;
+                        $firstPage = 1;
+                        $isLast = true;
+                        $isFirst = false;
+                        if($pageNo > 3) {
+                            $isFirst = true;
+                            if($totalPage-4 >= $pageNo ) {
+                                $firstPage = $pageNo;
+                                $activeNo = $pageNo + 2;
+                            }else {
+                                if($pageNo+2 > $totalPage) {
+                                    $activeNo = $totalPage;
+                                }else {
+                                    $activeNo = $pageNo + 2;
+                                }
+                                $isLast = false;
+                                $firstPage = $totalPage - 4;
+                            }
+                        }else {
+                            if($pageNo+2 > $totalPage) {
+                                $activeNo = $totalPage;
+                            }else {
+                                $activeNo = $pageNo + 2;
+                            }
+                        }
+                        if($totalPage < $firstPage+4) {
+                            $num = $totalPage;
+                        }else {
+                            $num = $firstPage+4;
+                        }
+                        if($isFirst) {
+                            ?>
+                            <li><a href="/used/index/index?page=1">1...</a></li>
+                        <?php
+                        }
+                        for ($i = $firstPage;$i <= $num;  $i++) {
+                            if($i == $activeNo) {
+                                ?>
+                                <li class="active"><a href="/used/index/index?page=<?php echo $i; ?>"><?php echo $i ?></a></li>
+                            <?php }else { ?>
+                                <li><a href="/used/index/index?page=<?php echo $i; ?>"><?php echo $i ?></a></li>
+                            <?php } ?>
+                        <?php
+                        }
+                        if($isLast) {
+                            ?>
+                            <li><a href="/used/index/index?page=<?php echo $totalPage; ?>">...<?php echo $totalPage ?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <li class="last"><input id="pageGo" maxlength="5" type="text" name="" /></li>
+                    </ul>
+                </div>
+                <div class="prev-next">
+                    <?php
+                    if($activeNo < $totalPage) {
+                        ?>
+                        <div class="next fr"><a href="/used/index/index?page=<?php echo $activeNo+1; ?>">下一页&nbsp;&gt;</a></div>
+                    <?php
+                    }
+                    ?>
+                    <div class="prev fr"><a href="/used/index/index?page=<?php echo $activeNo-1; ?>">&lt;&nbsp;上一页</a></div>
+                </div>
+            </div>
 		</div>
 	</div>
 	<div id="tipinfo" style="display: none;">
 		<img src="$static/img/loading.gif" height="24px" width="24px" alt="正在加载..." />
 	</div>
 </div>
+<script type="text/javascript">
+    curPage = pageNo = "<?php echo $pageNo ?>";
+    isScroll = true;
+    pageTotal = "<?php echo $totalPage ?>";
+</script>
 <div id="footer">
 	<div class="copyright">Copyright &copy; gongpingjia.com All Rights Reserved</div>
 </div>
-
+<div id="template" style="display: none;">
+    <div class="useditem">
+        <div class="preview"><a href=""><img class="lazy" src="" /></a></div>
+        <div class="font-bold row title" title=""></div>
+        <div class="info row">
+            <div class="usedl fl"></div>
+            <div class="usedr fr">
+                <div class="carage"></div>
+                <div class="mileage"></div>
+            </div>
+        </div>
+        <div class="price row"></div>
+        <div class="tags row">
+        </div>
+    </div>
+</div>

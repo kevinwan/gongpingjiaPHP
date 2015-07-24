@@ -469,3 +469,31 @@ body {
     width: 50%;
     display: block;
 }
+.sscreen #carMore {
+    background: none repeat scroll 0 0 #397294;
+    color: #FFFFFF;
+    font-size: 18px;
+    height: 100%;
+    left: 0;
+    line-height: 150px;
+    opacity: 0.8;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.bscreen #carMore {
+    background: none repeat scroll 0 0 #397294;
+    color: #FFFFFF;
+    font-size: 18px;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    line-height: 193px;
+}

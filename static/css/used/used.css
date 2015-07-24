@@ -8,6 +8,7 @@
 
 #main {
 	margin-bottom: 40px;
+    padding-bottom: 10px;
 }
 
 .sscreen .content {
@@ -16,7 +17,7 @@
 }
 
 .bscreen .content {
-	width: 1190px;
+	width: 990px;
 	margin: 0 auto;
 }
 
@@ -287,9 +288,24 @@
 	margin: 0px 5px 10px;
 }
 
+.condition .used-list .useditem img {
+    width: 190px;
+    height: 142px;
+}
+
 .condition .used-list .useditem .row {
 	margin: 10px 0;
 	clear: both;
+}
+
+.condition .used-list .useditem .title {
+    line-height: 18px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.condition .used-list .useditem .title a {
+    color: #34495e;
 }
 
 .condition .used-list .useditem .preview {
@@ -340,4 +356,48 @@
 #footer .copyright {
 	padding-right: 15%;
 	text-align: right;
+}
+#pager .pager {
+    float: left;
+    margin: 15px 0;
+}
+#pager .pager ul li {
+    float: left;
+    padding: 5px 10px;
+    margin-right: 13px;
+    background: #f8f8f8;
+    text-align: center;
+}
+#pager .prev-next a,
+#pager .prev-next a:visited,
+#pager .pager ul li a,
+#pager .pager ul li a:visited {
+    color: #cccccc;
+}
+#pager .pager ul .active {
+    background: #2da7e0;
+}
+#pager .pager ul .active a,
+#pager .pager ul .active a:visited{
+    color: #fff;
+}
+#pager .pager ul .last {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+#pageGo {
+    border: 1px solid #f4f4f4;
+    width: 40px;
+    height: 20px;
+}
+#pager .prev-next {
+    float: right;
+    margin: 15px 0;
+}
+#pager .prev-next .prev,
+#pager .prev-next .next {
+    padding: 5px 10px;
+    background: #f8f8f8;
+    margin-left: 13px;
 }

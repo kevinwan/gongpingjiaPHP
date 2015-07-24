@@ -17,13 +17,13 @@
 					</div>
 					<div class="label-value">
 						<div class="salebox" ></div>
-						<div class="buybox" style="display: none;"><input id="typeahead-input" name="" value="2015款 大众甲壳虫 1.2TSI"></div>
+						<div class="buybox" style="display: none;"><input id="typeahead-input" name="" value=""></div>
 					</div>
 					<div class="subbtn"><input type="submit" class="searchbtn" value="" /></div>
 				</div>
 			</form>
 		</div>
-		<a href="#" id="carMore">随便看看...</a>
+		<a href="/used/index/index" id="carMore">随便看看...</a>
 		<div id="cdsSearchBox" style="display: none;">
 			<div class="cdsSearchMain clearfix">
 				<div class="cdsbrandbg"></div>
