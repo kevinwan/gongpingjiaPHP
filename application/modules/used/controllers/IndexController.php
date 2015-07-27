@@ -37,6 +37,38 @@ class Used_IndexController extends XF_Controller_Abstract
     public function indexAction()
     {
         $page = $this->getParam("page");
+        $brandId = $this->getParam("brandId");
+        $brandName = $this->getParam("brandName");
+        $minAge = $this->getParam("minAge");
+        $maxAge = $this->getParam("maxAge");
+        $minMile = $this->getParam("minMile");
+        $maxMile = $this->getParam("maxMile");
+        $minPrice = $this->getParam("minPrice");
+        $maxPrice = $this->getParam("maxPrice");
+        $classify = $this->getParam("classify");
+        $control = $this->getParam("control");
+        $volume = $this->getParam("volume");
+
+        if($minAge == 0) { $minAge = ""; }
+        if($maxAge == 0) { $maxAge = ""; }
+        if($minMile == 0) { $minMile = ""; }
+        if($maxMile == 0) { $maxMile = ""; }
+        if($minPrice == 0) { $minPrice = ""; }
+        if($maxPrice == 0) { $maxPrice = ""; }
+
+        $searchCon = array(
+            "brandId" => $brandId,
+            "brandName" => $brandName,
+            "minAge" => $minAge,
+            "maxAge" => $maxAge,
+            "minMile" => $minMile,
+            "maxMile" => $maxMile,
+            "minPrice" => $minPrice,
+            "maxPrice" => $maxPrice,
+            "classify" => $classify,
+            "control" => $control,
+            "volume" => $volume,
+        );
 
         if (!isset($page) || XF_Functions::isEmpty($page) || !is_numeric($page) || $page<1) {
             $page = 1;
@@ -53,7 +85,7 @@ class Used_IndexController extends XF_Controller_Abstract
         $this->_view->headScript('/js/pagejs/used.js');
 
         $used = new Used_Model_Used();
-        $usedList = $used->getUsedList($this->nowCity->id, $page, 10);
+        $usedList = $used->getUsedList($this->nowCity->id, $page, 10, $searchCon);
 
         foreach($usedList->cars as $key => $val) {
             $val->mile = round($val->mile);
@@ -79,6 +111,7 @@ class Used_IndexController extends XF_Controller_Abstract
         $this->_view->totalPage = $usedList->pages;
         $this->_view->hasNext = $usedList->hax_next;
         $this->_view->hasPrevious = $usedList->has_previous;
+        $this->_view->searchCon = $searchCon;
     }
 
     public function getUsedListAction()

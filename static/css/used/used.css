@@ -98,7 +98,7 @@
 #search-container .active .sbtn-wrap {
 	background: none repeat scroll 0 0 #F9F9F9;
 	border-bottom: 1px solid rgba(0, 0, 0, 0);
-	padding: 15px 15px 16px;
+	padding: 14px 14px 17px;
 	position: absolute;
 	width: 89px;
 	z-index: 1000;
@@ -140,9 +140,9 @@
 	background: none repeat scroll 0 0 #F9F9F9;
 	border: 1px solid #DDDDDD;
 	position: absolute;
-	right: -1px;
+	right: 1px;
 	top: 50px;
-	width: 474px;
+	width: 483px;
 	z-index: 50;
 }
 
@@ -173,6 +173,7 @@
 	line-height: 38px;
 	color: #ff8416;
 	text-decoration: underline;
+    cursor: pointer;
 }
 
 #search-container .price_l {
@@ -187,6 +188,12 @@
 
 #search-container .price_l ul li:hover {
 	color: #ff8416;
+}
+
+.advSearch .dropdown .hover,
+.advSearch .searchBox .hover,
+#search-container .price_l ul .hover {
+    color: #ff8416;
 }
 
 #search-container .custom-price {
@@ -400,4 +407,185 @@
     padding: 5px 10px;
     background: #f8f8f8;
     margin-left: 13px;
+}
+#cdsSearchBox {
+    height: 380px;
+    margin: 0 auto;
+    position: relative;
+    width: 250px;
+}
+.cdsSearchMain .cdsbrandbg {
+    height: 380px;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    width: 250px;
+    z-index: 0;
+}
+.cdsSbrand {
+    float: left;
+    height: 554px;
+    position: relative;
+    width: 250px;
+}
+.cdsStabBox .cdsbTitle,
+.cdsSbrand .cdsbTitle {
+    text-align: center;
+    margin: 14px 0;
+    color: #33495d;
+}
+.csbNav {
+    padding: 0 0 10px 10px;
+}
+.csbNav a {
+    background: #FFF;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    margin: 10px 8px 0 0;
+    text-align: center;
+    width: 22px;
+    border: 1px solid #dadada;
+    text-decoration: none;
+}
+.cdsBtabBox {
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-left: 10px;
+    position: relative;
+    width: 240px;
+}
+.cdsSearchMain .ibrandBox {
+    border: 1px solid #f8f8f8;
+    margin: 0 auto;
+    width: 95%;
+}
+.cdsSearchMain p {
+    color: #999999;
+    background: #f8f8f8;
+    font-size: 12px;
+    height: 29px;
+    line-height: 29px;
+    text-indent: 8px;
+    margin: 0;
+}
+.cdsSearchMain li {
+    height: 30px;
+    line-height: 30px;
+    list-style: none;
+    cursor: pointer;
+}
+.cdsSearchMain li .preview {
+    float: left;
+    width: 30px;
+}
+.cdsStabBox .cdsStab a,
+.cdsBtabBox a {
+    color: #000;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 8px;
+}
+.carModel ul .active a,
+.cdsSearchMain a.active,
+#carSeries .active a {
+    color: #2da7e0;
+}
+.csbNav a.active {
+    background: #31a5db;
+    color: #FFF;
+    border: 1px solid #31a5db;
+}
+.cdsStabBox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    width: 370px;
+}
+.cdsStabBox .cdsStab {
+    height: 558px;
+}
+.advSearch {
+    margin: 10px 0;
+}
+.advSearch .searchBox {
+    display: table;
+    border: 1px solid #DDDDDD;
+    border-top: 0;
+    border-bottom: 1px dashed #DDDDDD;
+}
+.advSearch .first-box {
+    border-top: 1px solid #DDDDDD;
+}
+.advSearch .last-box {
+    border-bottom: 1px solid #DDDDDD;
+}
+.advSearch .searchLabel {
+    background-color: #FFFFFF;
+    font-size: 14px;
+    height: 100%;
+    line-height: 41px;
+    text-align: center;
+    width: 78px;
+    float: left;
+}
+.advSearch .searchItem {
+    height: 41px;
+    width: 910px;
+}
+.searchItem ul li {
+    float: left;
+    height: 42px;
+    line-height: 42px;
+    margin-left: 19px;
+    cursor: pointer;
+}
+#classifyBox .dropdown {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 8px;
+    padding: 5px 0;
+    position: relative;
+}
+#classifyBox .dropdown .arrow-down {
+    background: url("../../img/index/gray-arrow.png") no-repeat scroll right center rgba(0, 0, 0, 0);
+    height: 18px;
+    line-height: 18px;
+    padding-right: 22px;
+}
+#classifyBox .dropdown .suv {
+    border: 1px solid transparent;
+    border-bottom: 0;
+    padding: 0 10px;
+}
+#classifyBox .show .suv {
+    border: 1px solid #DDDDDD;
+    border-bottom: 0;
+}
+#classifyBox .dropdown .bottom-name-list {
+    position: absolute;
+    display: none;
+}
+#classifyBox .show .bottom-name-list {
+    display: block;
+}
+#classifyBox .dropdown .bottom-name-list ul li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDD;
+    border-bottom: 0;
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    text-align: center;
+    width: 70px;
+}
+#classifyBox .dropdown .bottom-name-list ul .last {
+    border-bottom: 1px solid #DDD;
 }

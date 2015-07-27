@@ -26,9 +26,9 @@ class Used_Model_Used extends Application_Model_Abstract
      *  获取首页二手车随便看看
      *  2015-7-15
      */
-    public function getUsedList($city, $page, $num)
+    public function getUsedList($city, $page, $num, $searchCon)
     {
-        $query = '/api/cars/car/lookcar/gongpingjia-php/?city=' . $city . '&num=' . $num . '&page=' . $page;
+        $query = '/api/cars/car/lookcar/gongpingjia-php/?city=' . $city . '&num=' . $num . '&page=' . $page . '&brand=' . $searchCon["brandId"] . '&minprice=' . $searchCon["minPrice"] . '&maxprice=' . $searchCon["maxPrice"] . '&minage=' . $searchCon["minAge"] . '&maxage=' . $searchCon["maxAge"] . '&minmile=' . $searchCon["minMile"] . '&maxmile=' . $searchCon["maxMile"] . '&classify=' . $searchCon["classify"] . '&control=' . $searchCon["control"] . '&volume=' . $searchCon["volume"];
         $used = $this->pull($query);
         return $used;
     }

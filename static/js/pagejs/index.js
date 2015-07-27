@@ -222,7 +222,7 @@ $(document).ready(function() {
 				if (row.brand_name) {
 					brand = row.brand_name + " ";
 				}
-				return "<div class='item'><a href=\"/sellreport/161/\">" + brand + row.name + "</a></div>";
+				return "<div class='item'>" + brand + row.name + "</div>";
 			},
 			formatMatch: function(row, i, max) {
 				return row.keywords;
