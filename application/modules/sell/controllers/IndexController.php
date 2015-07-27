@@ -259,6 +259,7 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->detailYear = $sessionAry["detail_year"];
         $this->_view->detailMile = $sessionAry["detail_mile"];
         $this->_view->detailPrice = $sessionAry["detail_price"];
+        $this->_view->detailBrand = $sessionAry["detail_brand"];
     }
 
     // 卖给4s店
@@ -295,6 +296,7 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->detailYear = $sessionAry["detail_year"];
         $this->_view->detailMile = $sessionAry["detail_mile"];
         $this->_view->detailPrice = $sessionAry["detail_price"];
+        $this->_view->detailBrand = $sessionAry["detail_brand"];
     }
 
     // 卖给个人
@@ -324,6 +326,7 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->_view->detailYear = $sessionAry["detail_year"];
         $this->_view->detailMile = $sessionAry["detail_mile"];
         $this->_view->detailPrice = $sessionAry["detail_price"];
+        $this->_view->detailBrand = $sessionAry["detail_brand"];
     }
 
     // 4s置换

@@ -17,11 +17,11 @@
 					<input type="hidden" name="serialId" id="serialId" value="<?php echo $this->serialId ?>" />
                 <input type="hidden" name="typeid" id="typeid" value="<?php echo $this->type->id ?>" />
                 <input type="hidden" name="citypy" id="citypy" value="<?php echo $this->cityPinYin ?>" />
-					<li class="car-series"><?php echo $this->type->detail_model ?></li>
-					<li class="r-form-even report-year">
-                    <label>上牌时间</label><a class="form-text" id="yearBox" href="javascript:;"><?php echo $this->year; ?></a>年
-					</li>
-                <li class="report-city">
+                <li class="car-series icon-arrow"><?php echo $this->type->detail_model ?></li>
+                <li class="r-form-even report-year icon-arrow">
+                <label>上牌时间</label><a class="form-text" id="yearBox" href="javascript:;"><?php echo $this->year; ?></a>年
+                </li>
+                <li class="report-city icon-arrow">
                     <label>上牌城市</label><a class="form-text" id="cityBox" py="<?php echo $this->cityPinYin; ?>" href="javascript:;"><?php echo $this->cityName; ?></a>
                 </li>
                 <li class="r-form-even">
@@ -94,8 +94,7 @@
 			<div class="r-list">
                 <?php
                 foreach ($this->serialCars as $key => $used) {
-                    if($key < 6) {
-                        if($key != 5) {
+                    if($key < 5) {
                         ?>
                         <div class="item">
                             <div class="wrap">
@@ -123,19 +122,15 @@
                             </div>
                         </div>
                         <?php
-                        }else {
-                        ?>
-                        <div class="item last">
-                            <div class="wrap">
-                                <img src="<?php echo $used->thumbnail ?>"/>
-                                <a href="/used/index/index" id="carMore">随便看看...</a>
-                            </div>
-                        </div>
-                        <?php
-                        }
                     }
                 }
                 ?>
+                <div class="item last">
+                    <div class="wrap">
+                        <img src="$static/img/report/bg.jpg"/>
+                        <a href="/used/index/index" id="carMore">随便看看...</a>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>

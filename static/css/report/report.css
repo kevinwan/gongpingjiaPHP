@@ -122,6 +122,11 @@ body {
     position: relative;
 }
 
+.sscreen .r-cost .r-list {
+    height: 300px;
+    background: #FFF;
+}
+
 .sscreen .r-logo {
 	width: 300px;
 	height: 300px;
@@ -268,7 +273,7 @@ body {
 	height: 50px;
 	line-height: 50px;
 	padding: 0 15px;
-	background: #FFF;
+    background: url(../../img/report/blue-arrow.png) no-repeat 270px center #FFF;
 	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=95);
 	opacity: 0.95;
 	-moz-opacity: 0.95;
@@ -284,6 +289,10 @@ body {
 	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=95);
 	opacity: 0.95;
 	-moz-opacity: 0.95;
+}
+
+.r-form .r-form-even.icon-arrow {
+    background: url(../../img/report/blue-arrow.png) no-repeat 270px center #F5F5F5;
 }
 
 .more-car {

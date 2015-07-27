@@ -74,6 +74,7 @@ class Report_IndexController extends XF_Controller_Abstract
         $sessionAry["modelId"] = $typeId;
         $sessionAry["detail_model"] = $type->detail_model;
         $sessionAry["detail_price"] = $type->price_bn;
+        $sessionAry["detail_brand"] = $type->global_slug__parent__name;
 
         $this->_view->type = $type;
 

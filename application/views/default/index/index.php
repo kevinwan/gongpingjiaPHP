@@ -11,7 +11,7 @@
 		<div id="search">
 			<form action="" method="post">
 				<input id="switch" type="hidden" name="switch" value="sale" />
-				<input id="buyId" type="hidden" name="buyId" value="161" />
+				<input id="buyId" type="hidden" name="buyId" value="" />
 				<div class="wrap">
 					<div class="lable-text salebtn">
 					</div>

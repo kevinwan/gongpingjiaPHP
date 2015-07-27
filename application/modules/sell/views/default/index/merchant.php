@@ -64,7 +64,7 @@
 			<div class="serve_part">
 				<div><img src="$static/img/displace/serve_Img4.png"></div>
 				<h4>覆盖更全</h4>
-				<p>面向本地全部xxx家xx（品牌）<br/>4S店及经销商</p>
+				<p>面向本地全部<?php echo count($this->dealers->data); ?>家<?php echo $this->detailBrand; ?>（品牌）4S店及经销商</p>
 			</div>
 		</div>
 		<!-- 服务 ]] -->
