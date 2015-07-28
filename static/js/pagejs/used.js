@@ -23,7 +23,7 @@ $(document).ready(function () {
                     $.ajax({
                         type: "POST",
                         url: "/used/index/getUsedList",
-                        data: "pageNo=" + (parseInt(curPage) + 1),
+                        data: "page="+(parseInt(curPage) + 1)+"&brandId="+$("#brandId").val()+"&minAge="+$("#minAge").val()+"&maxAge="+$("#maxAge").val()+"&minMile="+$("#minMile").val()+"&maxMile="+$("#maxMile").val()+"&classify="+$("#classify").val()+"&control="+$("#control").val()+"&minvolume="+$("#minvolume").val()+"&maxvolume="+$("#maxvolume").val()+"&order_key="+$("#order_key").val()+"&brandName="+$("#searchinput").val(),
                         success: function (msg) {
                             isScroll = true;
                             $("#tipinfo").hide();
@@ -166,9 +166,11 @@ $(document).ready(function () {
         $("#srcForm").submit();
     });
     $(document).on("click", "#volumeBox ul li", function() {
-        var thisObj = $(this).attr("rel");
-        $("#volume").val(thisObj);
-        $("#srcForm").submit();
+		var thisObj = $(this).attr("rel");
+		var thisAry = thisObj.split("_");
+		$("#minvolume").val(thisAry[0]);
+		$("#maxvolume").val(thisAry[1]);
+		$("#srcForm").submit();
     });
     $(document).on("click", ".top-cont .tags .icon-close", function() {
         $(this).parent().remove();
@@ -187,4 +189,14 @@ $(document).ready(function () {
     $(document).on("click", ".advanced", function() {
         $(".content .advSearch").fadeToggle();
     });
+	$(document).on("click", ".sort-l .icon-up", function() {
+		var sortVal = $(this).attr("rel");
+		$("#order_key").val("-"+sortVal);
+		$("#srcForm").submit();
+	});
+	$(document).on("click", ".sort-l .icon-down", function() {
+		var sortVal = $(this).attr("rel");
+		$("#order_key").val(sortVal);
+		$("#srcForm").submit();
+	});
 });

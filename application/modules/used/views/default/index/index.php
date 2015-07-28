@@ -8,7 +8,9 @@
     $maxMile = $this->searchCon["maxMile"];
     $classify = $this->searchCon["classify"];
     $control = $this->searchCon["control"];
-    $volume = $this->searchCon["volume"];
+    $minvolume = $this->searchCon["minVolume"];
+    $maxvolume = $this->searchCon["maxVolume"];
+    $order_key = $this->searchCon["order_key"];
 ?>
 <div id="main" class="bscreen">
     <form action="" name="srcForm" id="srcForm" method="get" >
@@ -19,7 +21,9 @@
         <input type="hidden" name="maxMile" id="maxMile" value="<?php echo $maxMile ?>" />
         <input type="hidden" name="classify" id="classify" value="<?php echo $classify ?>" />
         <input type="hidden" name="control" id="control" value="<?php echo $control ?>" />
-        <input type="hidden" name="volume" id="volume" value="<?php echo $volume ?>" />
+        <input type="hidden" name="minvolume" id="minvolume" value="<?php echo $minvolume ?>" />
+        <input type="hidden" name="maxvolume" id="maxvolume" value="<?php echo $maxvolume ?>" />
+        <input type="hidden" name="order_key" id="order_key" value="<?php echo $order_key ?>" />
         <div id="header">
             <div class="content">
                 <div id="top">
@@ -79,7 +83,7 @@
                             <div class="gray-arrow">
                                 <?php
                                 if(($maxAge == "" || $maxAge == "0") && ($minAge == "" || $minAge == "0")) {
-                                    echo "不限预算";
+                                    echo "不限车龄";
                                 }else {
                                     if($maxAge == "" || $maxAge == "0") {
                                         echo $minAge."年以上";
@@ -110,7 +114,7 @@
                             <div class="gray-arrow">
                                 <?php
                                 if(($maxMile == "" || $maxMile == "0") && ($minMile == "" || $minMile == "0")) {
-                                    echo "不限预算";
+                                    echo "不限里程";
                                 }else {
                                     if($maxMile == "" || $maxMile == "0") {
                                         echo $minMile."万公里以上";
@@ -188,14 +192,14 @@
                         <div class="searchLabel fl">排量</div>
                         <div class="searchItem fl">
                             <ul>
-                                <li class="<?php if($volume == "") { echo "hover"; } ?>" rel="">不限</li>
-                                <li class="<?php if($volume == "1.0") { echo "hover"; } ?>" rel="1.0">1.0升以内</li>
-                                <li class="<?php if($volume == "1.6") { echo "hover"; } ?>" rel="1.6">1.1-1.6升</li>
-                                <li class="<?php if($volume == "2.0") { echo "hover"; } ?>" rel="2.0">1.7-2.0升</li>
-                                <li class="<?php if($volume == "2.5") { echo "hover"; } ?>" rel="2.5">2.1-2.5升</li>
-                                <li class="<?php if($volume == "3.0") { echo "hover"; } ?>" rel="3.0">2.6-3.0升</li>
-                                <li class="<?php if($volume == "4.0") { echo "hover"; } ?>" rel="4.0">3.1-4.0升</li>
-                                <li class="<?php if($volume == "") { echo "hover"; } ?>" rel="">4.0升以上</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "_") { echo "hover"; } ?>" rel="_">不限</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "0_1.0") { echo "hover"; } ?>" rel="0_1.0">1.0升以内</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "1.1_1.6") { echo "hover"; } ?>" rel="1.1_1.6">1.1-1.6升</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "1.7_2.0") { echo "hover"; } ?>" rel="1.7_2.0">1.7-2.0升</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "2.1_2.5") { echo "hover"; } ?>" rel="2.1_2.5">2.1-2.5升</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "2.6_3.0") { echo "hover"; } ?>" rel="2.6_3.0">2.6-3.0升</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "3.1_4.0") { echo "hover"; } ?>" rel="3.1_4.0">3.1-4.0升</li>
+                                <li class="<?php if($minvolume."_".$maxvolume == "4.0_99.0") { echo "hover"; } ?>" rel="4.0_99.0">4.0升以上</li>
                             </ul>
                         </div>
                     </div>
@@ -205,19 +209,31 @@
                     <div class="tags fl">
                         <ul>
                             <?php
-                            if(!XF_Functions::isEmpty($this->searchCon["brandName"])) {
+                            if($this->searchCon["brandName"]!="选择品牌名称，体验快速查找" && !XF_Functions::isEmpty($this->searchCon["brandName"])) {
                             ?>
     						<li><?php echo $this->searchCon["brandName"] ?><i class="icon-close"></i></li>
                             <?php } ?>
                         </ul>
                     </div>
                     <div class="sort fr">
-                        <div class="sort-res fl">排序：<span>默认</span></div>
+                        <div class="sort-res fl">排序：<span>
+	                        <?php
+	                        if($order_key == "price" || $order_key == "-price") {
+		                        echo "价格";
+	                        }else if($order_key == "mile" || $order_key == "-mile") {
+		                        echo "里程";
+	                        }else if($order_key == "year" || $order_key == "-year") {
+		                        echo "车龄";
+	                        }else {
+		                        echo "默认";
+	                        }
+	                        ?>
+                        </span></div>
                         <div class="sort-l fl">
                             <ul>
-                                <li class="icon-up">价格<i class="icon"></i></li>
-                                <li class="icon-down">里程<i class="icon"></i></li>
-                                <li class="icon-down">车龄<i class="icon"></i></li>
+                                <li rel="price" class="<?php if($order_key == "price") { echo "icon-up"; }else { echo "icon-down"; }?>">价格<i class="icon"></i></li>
+                                <li rel="mile" class="<?php if($order_key == "mile") { echo "icon-up"; }else { echo "icon-down"; }?>">里程<i class="icon"></i></li>
+                                <li rel="year" class="<?php if($order_key == "year") { echo "icon-up"; }else { echo "icon-down"; }?>">车龄<i class="icon"></i></li>
                             </ul>
                         </div>
                     </div>

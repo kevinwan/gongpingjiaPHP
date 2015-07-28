@@ -58,7 +58,6 @@ class Report_IndexController extends XF_Controller_Abstract
         // 获取车型列表
         $mod = new Auto_Model_Type ();
         $types = $mod->getsBySerialId($serialId);
-        // print_r($types);
         $this->_view->types = $types;
 
         if ((!isset ($serialId) || XF_Functions::isEmpty($typeId)) && !XF_Functions::isEmpty($types)) {
@@ -72,7 +71,7 @@ class Report_IndexController extends XF_Controller_Abstract
         $gpj_session = new XF_Session("gpj_session");
         $sessionAry = array();
         $sessionAry["modelId"] = $typeId;
-        $sessionAry["detail_model"] = $type->detail_model;
+        $sessionAry["detail_model"] = $type->global_slug__name." ".$type->detail_model;
         $sessionAry["detail_price"] = $type->price_bn;
         $sessionAry["detail_brand"] = $type->global_slug__parent__name;
 
