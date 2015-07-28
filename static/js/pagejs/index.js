@@ -212,6 +212,7 @@ $(document).ready(function() {
                             layerStatue = true;
                             var arrscroll = [];
                             for (var i = 0; i < $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox").length; i++) {
+								var userAgent = window.navigator.userAgent.toLowerCase();
 								if($.browser.msie && /msie 8\.0/i.test(userAgent)) {
 									arrscroll.push($(".ibrandBox").eq(i).position().top);
 								}else {
