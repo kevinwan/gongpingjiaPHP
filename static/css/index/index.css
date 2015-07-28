@@ -113,6 +113,7 @@ body {
 }
 #search .label-value .buybox input {
 	height: 50px;
+    line-height: 50px;
 	width: 100%;
 	font-size: 14px;
 	color: #999999;

@@ -96,14 +96,14 @@
 }
 
 .serve_part div {
-	border: 2px solid #f0f0f0;
-	border-radius: 100%;
-	width: 93px;
+    background: url(../../img/displace/round.png) no-repeat center center;
+	width: 98px;
+    height: 98px;
 	margin: 0 auto;
 }
 
 .serve_part img {
-	padding: 25px;
+	padding: 30px;
 }
 
 .serve_part h4 {

@@ -38,6 +38,7 @@
 .info-list input[type='text'] {
     padding: 0 10px;
     height: 38px;
+    line-height: 38px;
     width: 348px;
     font-size: 16px;
     border: solid 1px #d1d1d1;

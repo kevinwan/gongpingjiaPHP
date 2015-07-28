@@ -154,7 +154,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 
         // usleep(5000);
 
-        $targetDir = "D:/xampp/htdocs/pahaoche/gongpingjiaPHP/static/uploads/car";
+        $targetDir = "/wwwroot/gongpingjiaPHP/static/uploads/car/"+gmdate("YMdHis");
 
         // $targetDir = 'uploads';
         $cleanupTargetDir = true;
