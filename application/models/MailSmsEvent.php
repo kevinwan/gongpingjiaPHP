@@ -338,17 +338,17 @@ class Application_Model_MailSmsEvent extends Application_Model_Abstract
 			}	
 		}
 		
-		$sms_sender_log_id = Application_Model_SmsSenderLog::add($mobile, $message, $type);
+		//$sms_sender_log_id = Application_Model_SmsSenderLog::add($mobile, $message, $type);
 		
 		if ($this->_sender !== NULL)
 		{
 			$this->_sender->send($mobile, $message);
-			Application_Model_SmsSenderLog::updateSource($sms_sender_log_id, $this->_sender->getSourceId());
+			//Application_Model_SmsSenderLog::updateSource($sms_sender_log_id, $this->_sender->getSourceId());
 			$status = $this->_sender->isOk();
-			Application_Model_SmsSenderLog::updateSendMessage($sms_sender_log_id, $this->_sender->getMessage());
+			//Application_Model_SmsSenderLog::updateSendMessage($sms_sender_log_id, $this->_sender->getMessage());
 			if ($status == TRUE)
 			{
-				Application_Model_SmsSenderLog::updateComplete($sms_sender_log_id);
+				//Application_Model_SmsSenderLog::updateComplete($sms_sender_log_id);
 				return TRUE;
 			}
 			return FALSE;
@@ -364,11 +364,11 @@ class Application_Model_MailSmsEvent extends Application_Model_Abstract
 			{
 				$sender = new $s();
 				$sender->send($mobile, $message);
-				Application_Model_SmsSenderLog::updateSource($sms_sender_log_id, $sender->getSourceId());
-				Application_Model_SmsSenderLog::updateSendMessage($sms_sender_log_id, $sender->getMessage());
+				//Application_Model_SmsSenderLog::updateSource($sms_sender_log_id, $sender->getSourceId());
+				//Application_Model_SmsSenderLog::updateSendMessage($sms_sender_log_id, $sender->getMessage());
 				if ($sender->isOk())
 				{
-					Application_Model_SmsSenderLog::updateComplete($sms_sender_log_id);
+					//Application_Model_SmsSenderLog::updateComplete($sms_sender_log_id);
 					return TRUE;
 				}
 			}
