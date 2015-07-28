@@ -97,7 +97,7 @@
 
 #search-container .active .sbtn-wrap {
 	background: none repeat scroll 0 0 #F9F9F9;
-	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	border-bottom: 0;
 	padding: 14px 14px 18px;
 	position: absolute;
 	width: 89px;

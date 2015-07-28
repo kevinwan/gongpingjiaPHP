@@ -156,7 +156,6 @@ $(document).ready(function() {
 
     $(document).on("click", "#searchbtn", function() {
         var switchVal = $("#switch").val();
-        console.log(switchVal);
         if(switchVal == "buy") {
             if($("#buyId").val() == "") {
                 layer.msg("请输入汽车品牌、型号名称或拼音");
