@@ -21,14 +21,12 @@
 	<div class="content">
 		<form id="srcform" action="" method="post">
             <input type="hidden" name="statue" value="<?php echo $this->statue; ?>" />
-			<input type="hidden" name="dataFrom" value="<?php echo $this->dataFrom; ?>" />
-			<input type="hidden" name="infoId" value="<?php echo $this->infoId; ?>" />
 			<h2 class="info-title"><span>个人信息</span></h2>
 			<p class="info-msg">留下可以联系到您的资料，才能促使交易完成</p>
 			<ul class="info-list">
 				<li><label>姓名</label><input type="text" name="username" /></li>
-				<li><label>手机</label><input type="text" name="phone" /></li>
-				<li><label>验证码</label><input class="info-code" name="validate_code" type="text" /><a class="btn-code" href="javascript:;">短信获取验证码</a></li>
+				<li><label>手机</label><input id="userPhone" type="text" name="phone" /></li>
+				<li><label>验证码</label><input class="info-code" name="validate_code" type="text" /><a class="btn-code" id="codeBtn" href="javascript:;">短信获取验证码</a></li>
 			</ul>
 			<div class="btn-list">
 				<a href="javascript:;" class="btn-link btn-submit">提交</a>

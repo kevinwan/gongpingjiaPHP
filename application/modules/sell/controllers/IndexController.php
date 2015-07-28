@@ -11,8 +11,8 @@ class Sell_IndexController extends XF_Controller_Abstract
 
 	public function __construct()
 	{
-//		$uploadPath = "D:/xampp/htdocs/pahaoche/gongpingjia/static/uploads/car/";
-		$uploadPath = "/wwwroot/gongpingjiaPHP/static/uploads/car/";
+//		$this->uploadPath = "D:/xampp/htdocs/pahaoche/gongpingjia/static/uploads/car/";
+		$this->uploadPath = "/wwwroot/gongpingjiaPHP/static/uploads/car/";
 		parent::__construct($this);
 		$this->_view->setResourcePath($this->static_url);
 	}
@@ -234,7 +234,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 		$attrObj = new Sell_Model_Attr();
 		$last_id = $attrObj->addAttr($sessionAry["userId"], $sessionAry["sellInfoId"], $attrType, "/" . $timestamp . "/" . $fileName, $attDes);
 
-		die ('{"jsonrpc" : "2.0", "result" : "/' . $timestamp . "/" . $fileName . '", "id" : "' . $last_id . '"}');
+		die ('{"jsonrpc" : "2.0", "result" : "http://static.'.XF_Config::getInstance()->getDomain() . "/uploads/car/" . $timestamp . "/" . $fileName . '", "id" : "' . $last_id . '"}');
 	}
 
 	public function delImageAction()
