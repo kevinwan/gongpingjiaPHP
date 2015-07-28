@@ -3,7 +3,7 @@
  * 短信网关接口协议
  * @author abiao 2015-7-28
  */
-class Application_Model_SmsSenderSms7 implements Application_Model_SmsSenderInterface
+class Application_Model_SmsSenderQXT implements Application_Model_SmsSenderInterface
 {	
 	private $_isOK = FALSE;
 	private $_source_id = '2';
@@ -14,11 +14,11 @@ class Application_Model_SmsSenderSms7 implements Application_Model_SmsSenderInte
 		$this->_isOK = FALSE;
 			
 		$post_data = array(
-			'uid' => 'gongpingjia',   
-			'pwd' => md5('Ki89ol.,gongpingjia'),
-			'mobile' => $mobile,
-                        'mobileids' => $mobile.'12345666688',
-			'content' => $message."【公平价】"
+			'user' => 'gpj_dev',   
+			'pwd' => 'gpj_dev',
+			'phone' => $mobile,
+                        'serial' => $mobile.'12345666688',
+			'msgcont' => iconv('utf-8', 'gbk', $message."【公平价】")
         );
         
 		$postdata = http_build_query($post_data);   
@@ -31,11 +31,11 @@ class Application_Model_SmsSenderSms7 implements Application_Model_SmsSenderInte
 			)   
 		);   
   		$context = stream_context_create($options);   
- 		$this->_send_result = file_get_contents('http://api.sms7.cn/mt/', false, $context); 
+ 		$this->_send_result = file_get_contents('http://qd.qxt666.cn/interface/tomsg.jsp', false, $context); 
  		//$tmp = explode('|', $this->_send_result);
                 $tmp = $this->_send_result;
  		//if (count($tmp) == 3 && $tmp[0] == 1 && $tmp[2] == $mobile)
-                if($tmp == 100)
+                if($tmp === 0)
  		{
  			$this->_isOK = TRUE;
  		}
@@ -56,4 +56,6 @@ class Application_Model_SmsSenderSms7 implements Application_Model_SmsSenderInte
 		return $this->_source_id.':'.$this->_send_result;
 	}
 }
+
+
 
