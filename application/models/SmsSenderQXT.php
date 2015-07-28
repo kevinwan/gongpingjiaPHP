@@ -17,7 +17,7 @@ class Application_Model_SmsSenderQXT implements Application_Model_SmsSenderInter
 			'user' => 'gpj_dev',   
 			'pwd' => 'gpj_dev',
 			'phone' => $mobile,
-                        'serial' => $mobile.'12345666688',
+                        'serial' => time(),
 			'msgcont' => iconv('utf-8', 'gbk', $message."【公平价】")
         );
         

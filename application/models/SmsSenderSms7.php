@@ -32,10 +32,10 @@ class Application_Model_SmsSenderSms7 implements Application_Model_SmsSenderInte
 		);   
   		$context = stream_context_create($options);   
  		$this->_send_result = file_get_contents('http://api.sms7.cn/mt/', false, $context); 
- 		//$tmp = explode('|', $this->_send_result);
-                $tmp = $this->_send_result;
+ 		$tmp = explode('&', $this->_send_result);
+                //$tmp = $this->_send_result;
  		//if (count($tmp) == 3 && $tmp[0] == 1 && $tmp[2] == $mobile)
-                if($tmp == 100)
+                if(count($tmp) == 3 && $tmp[0] == 'sms' && $tmp[1] == 100)
  		{
  			$this->_isOK = TRUE;
  		}
