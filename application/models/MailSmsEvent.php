@@ -281,7 +281,7 @@ class Application_Model_MailSmsEvent extends Application_Model_Abstract
 
 		
 		$mod = new Application_Model_SmsSenderLog();
-		if ($type == 'code')
+		/*if ($type == 'code')
 		{
 			//每个手机号每小时最多10条
 			$where = array(
@@ -318,7 +318,7 @@ class Application_Model_MailSmsEvent extends Application_Model_Abstract
 					
 				'13701242648',
 				'13910250340',
-				'18911697907'*/
+				'18911697907'
 			);
 			$where = array('mobile' => $mobile, 'created,>' => date('Y-m-d 00:00:00'), 'mobile,notin' => $tmp);
 			$c = $mod->select()->setWhere($where)->fetchCount();
@@ -326,7 +326,7 @@ class Application_Model_MailSmsEvent extends Application_Model_Abstract
 			{
 				throw new XF_Exception('您今日发送短信次数已超出上限');
 			}
-		}
+		}*/
 		//每个手机号码2分钟内只能发送一次
 		$log = $mod->getByMobile($mobile);
 		if ($log != false)

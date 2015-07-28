@@ -114,7 +114,7 @@ class Api_CommonController extends Api_AbstractController
 				$this->responseError($e->getMessage());
 			}
 		}
-		$this->responseError('请求错误');
+		$this->responseError('请求错误1');
 	}
 	
 	/**
