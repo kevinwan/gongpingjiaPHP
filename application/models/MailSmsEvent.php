@@ -357,7 +357,7 @@ class Application_Model_MailSmsEvent extends Application_Model_Abstract
 		///////依次发送
 		$senders = array(
 			'Application_Model_SmsSenderSms7',
-                        'Application_Model_SmsSenderQXT'
+                       // 'Application_Model_SmsSenderQXT'
 		);
 		try 
 		{
