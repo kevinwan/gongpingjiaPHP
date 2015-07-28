@@ -2,8 +2,8 @@ $(document).ready(function() {
 var uploadopcity1 = new plupload.Uploader({
 	browse_button : 'uploadopcity1',
 	url : '/sell/index/uploadfile/attdes/lefttop45/attrtype/upload',
-	flash_swf_url : '/static/js/demo/Moxie.swf',
-	silverlight_xap_url : '/static/js/demo/Moxie.xap',
+	flash_swf_url : '/static/js/plupload/Moxie.swf',
+	silverlight_xap_url : '/static/js/plupload/Moxie.xap',
 	multi_selection : false,
 	filters: {
 		max_file_size : '2mb',
@@ -49,8 +49,8 @@ $(document).on("click", ".content .upload-img .l-font .close", function() {
 var uploadopcity2 = new plupload.Uploader({
 	browse_button : 'uploadopcity2',
 	url : '/sell/index/uploadfile/attdes/backtop45/attrtype/upload',
-	flash_swf_url : '/static/js/demo/Moxie.swf',
-	silverlight_xap_url : '/static/js/demo/Moxie.xap',
+	flash_swf_url : '/static/js/plupload/Moxie.swf',
+	silverlight_xap_url : '/static/js/plupload/Moxie.xap',
 	multi_selection : false,
 	filters: {
 		max_file_size : '2mb',
@@ -96,8 +96,8 @@ $(document).on("click", ".content .upload-img .e-font .close", function() {
 var uploadopcity3 = new plupload.Uploader({
 	browse_button : 'uploadopcity3',
 	url : '/sell/index/uploadfile/attdes/inner/attrtype/upload',
-	flash_swf_url : '/static/js/demo/Moxie.swf',
-	silverlight_xap_url : '/static/js/demo/Moxie.xap',
+	flash_swf_url : '/static/js/plupload/Moxie.swf',
+	silverlight_xap_url : '/static/js/plupload/Moxie.xap',
 	multi_selection : false,
 	filters: {
 		max_file_size : '2mb',
@@ -143,8 +143,8 @@ $(document).on("click", ".content .upload-img .n-shi .close", function() {
 var uploadopcity4 = new plupload.Uploader({
 	browse_button : 'uploadopcity4',
 	url : '/sell/index/uploadfile/attdes/side/attrtype/upload',
-	flash_swf_url : '/static/js/demo/Moxie.swf',
-	silverlight_xap_url : '/static/js/demo/Moxie.xap',
+	flash_swf_url : '/static/js/plupload/Moxie.swf',
+	silverlight_xap_url : '/static/js/plupload/Moxie.xap',
 	multi_selection : false,
 	filters: {
 		max_file_size : '2mb',
@@ -190,8 +190,8 @@ $(document).on("click", ".content .upload-img .i-side .close", function() {
 var uploadopcity5 = new plupload.Uploader({
 	browse_button : 'uploadopcity5',
 	url : '/sell/index/uploadfile/attdes/cabin/attrtype/upload',
-	flash_swf_url : '/static/js/demo/Moxie.swf',
-	silverlight_xap_url : '/static/js/demo/Moxie.xap',
+	flash_swf_url : '/static/js/plupload/Moxie.swf',
+	silverlight_xap_url : '/static/js/plupload/Moxie.xap',
 	multi_selection : false,
 	filters: {
 		max_file_size : '2mb',

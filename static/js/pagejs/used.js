@@ -102,7 +102,12 @@ $(document).ready(function () {
                             layerStatue = true;
                             var arrscroll = [];
                             for (var i = 0; i < $("#cdsSearchBox .cdsSbrand .cdsBtabBox .ibrandBox").length; i++) {
-                                arrscroll.push($(".ibrandBox").eq(i).position().top * 2);
+								var userAgent = window.navigator.userAgent.toLowerCase();
+								if($.browser.msie && /msie 8\.0/i.test(userAgent)) {
+									arrscroll.push($(".ibrandBox").eq(i).position().top);
+								}else {
+									arrscroll.push($(".ibrandBox").eq(i).position().top * 2);
+								}
                             }
                             $("#cdsSearchBox .cdsSbrand .csbNav a").click(function () {
                                 $(this).addClass('active').siblings('a').removeClass('active');

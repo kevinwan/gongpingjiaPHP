@@ -82,7 +82,7 @@ class Used_IndexController extends XF_Controller_Abstract
 
         //设置页面资源
         $this->_view->headStylesheet('/css/used/used.css');
-        $this->_view->headScript('/js/pagejs/used.js');
+        $this->_view->headScript('/js/pagejs/used.js')->appendFile("/js/jquery/jquery-migrate-1.2.1.min.js");
 
         $used = new Used_Model_Used();
         $usedList = $used->getUsedList($this->nowCity->id, $page, 10, $searchCon);

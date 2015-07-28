@@ -343,7 +343,7 @@ class Sell_IndexController extends XF_Controller_Abstract
         $this->setLayout(new Layout_Default ());
         $this->_view->headStylesheet('/css/common.css');
         $this->_view->headStylesheet('/css/displace/displace.css');
-        $this->_view->headScript('/js/pagejs/displace.js');
+        $this->_view->headScript('/js/pagejs/displace.js')->appendFile("/js/jquery/jquery-migrate-1.2.1.min.js");
         $this->_view->detailModel = $sessionAry["detail_model"];
         $this->_view->detailYear = $sessionAry["detail_year"];
         $this->_view->detailMile = $sessionAry["detail_mile"];
