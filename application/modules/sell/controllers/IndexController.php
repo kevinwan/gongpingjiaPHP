@@ -332,6 +332,11 @@ class Sell_IndexController extends XF_Controller_Abstract
     // 4s置换
     public function displaceAction()
     {
+        //        获取车商
+        $used = new Used_Model_Used();
+        $carDealers = $used->getUsedCarDealers($this->nowCity->id);
+        $this->_view->fourshop = $carDealers->{'4s'};
+
         $gpj_session = new XF_Session("gpj_session");
         $sessionAry = $gpj_session->read();
         $this->setLayout(new Layout_Default ());
