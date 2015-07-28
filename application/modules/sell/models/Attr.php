@@ -26,4 +26,28 @@ class Sell_Model_Attr extends Application_Model_Abstract
         $res = $this->insert($sellInfo);
         return $res;
     }
+
+	/*
+	 * 删除图片
+	 * 2015-7-28
+	 */
+	public function delAttr($userId, $fileId) {
+		$where = array(
+			"user_id" => $userId,
+			"id" => $fileId
+		);
+		return $this->delete($where);
+	}
+
+	/*
+	 * 查找图片路径
+	 * 2015-7-28
+	 */
+	public function selAttr($userId, $fileId) {
+		$where = array(
+			"user_id" => $userId,
+			"id" => $fileId
+		);
+		return $this->select()->setWhere($where)->fetchRow();
+	}
 }

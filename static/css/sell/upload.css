@@ -103,6 +103,10 @@
 	overflow: hidden;
 }
 
+.upload-img a img {
+    width: 100%;
+}
+
 .upload-img a .shade {
 	position: absolute;
 	left: 0;
