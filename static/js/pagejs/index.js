@@ -147,7 +147,6 @@ $(document).ready(function() {
 	});
 
     $("#typeahead-input").focus(function(){
-        //TODO: 清除壁纸id
         $(this).val("");
         $("#buyId").val("");
         $("#searchbtn").hide();

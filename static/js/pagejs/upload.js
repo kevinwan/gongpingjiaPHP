@@ -33,8 +33,9 @@ $(document).ready(function() {
 		if(responseObject.status == "200") {
 			var userAgent = window.navigator.userAgent.toLowerCase();
 			eval("var resJSON = "+responseObject.response+";");
+			console.log(resJSON);
 			if($.browser.msie && /msie 8\.0/i.test(userAgent)) {
-				$('#uploadopcity1').attr("src", "http://static.gpj.com/uploads/car"+resJSON.result);
+				$('#uploadopcity1').attr("src", resJSON.result);
 			}
 			$('#uploadopcity1').attr("fileId", resJSON.id);
 			$('#uploadopcity1').siblings(".shade").css("height", 152).addClass("close hide");
@@ -89,7 +90,7 @@ $(document).ready(function() {
 			var userAgent = window.navigator.userAgent.toLowerCase();
 			eval("var resJSON = "+responseObject.response+";");
 			if($.browser.msie && /msie 8\.0/i.test(userAgent)) {
-				$('#uploadopcity2').attr("src", "http://static.gpj.com/uploads/car"+resJSON.result);
+				$('#uploadopcity2').attr("src", resJSON.result);
 			}
 			$('#uploadopcity2').attr("fileId", resJSON.id);
 			$('#uploadopcity2').siblings(".shade").css("height", 152).addClass("close hide");
@@ -144,7 +145,7 @@ $(document).ready(function() {
 			var userAgent = window.navigator.userAgent.toLowerCase();
 			eval("var resJSON = "+responseObject.response+";");
 			if($.browser.msie && /msie 8\.0/i.test(userAgent)) {
-				$('#uploadopcity3').attr("src", "http://static.gpj.com/uploads/car"+resJSON.result);
+				$('#uploadopcity3').attr("src", resJSON.result);
 			}
 			$('#uploadopcity3').attr("fileId", resJSON.id);
 			$('#uploadopcity3').siblings(".shade").css("height", 152).addClass("close hide");
@@ -199,7 +200,7 @@ $(document).ready(function() {
 			var userAgent = window.navigator.userAgent.toLowerCase();
 			eval("var resJSON = "+responseObject.response+";");
 			if($.browser.msie && /msie 8\.0/i.test(userAgent)) {
-				$('#uploadopcity4').attr("src", "http://static.gpj.com/uploads/car"+resJSON.result);
+				$('#uploadopcity4').attr("src", resJSON.result);
 			}
 			$('#uploadopcity4').attr("fileId", resJSON.id);
 			$('#uploadopcity4').siblings(".shade").css("height", 152).addClass("close hide");
@@ -254,7 +255,7 @@ $(document).ready(function() {
 			var userAgent = window.navigator.userAgent.toLowerCase();
 			eval("var resJSON = "+responseObject.response+";");
 			if($.browser.msie && /msie 8\.0/i.test(userAgent)) {
-				$('#uploadopcity5').attr("src", "http://static.gpj.com/uploads/car"+resJSON.result);
+				$('#uploadopcity5').attr("src", resJSON.result);
 			}
 			$('#uploadopcity5').attr("fileId", resJSON.id);
 			$('#uploadopcity5').siblings(".shade").css("height", 152).addClass("close hide");
