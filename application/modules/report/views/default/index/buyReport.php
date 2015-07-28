@@ -17,7 +17,7 @@
 					<input type="hidden" name="serialId" id="serialId" value="<?php echo $this->serialId ?>" />
                 <input type="hidden" name="typeid" id="typeid" value="<?php echo $this->type->id ?>" />
                 <input type="hidden" name="citypy" id="citypy" value="<?php echo $this->cityPinYin ?>" />
-                <li class="car-series icon-arrow"><?php echo $this->type->detail_model ?></li>
+                <li title="<?php echo $this->type->global_slug__name." ".$this->type->detail_model ?>" class="car-series icon-arrow"><?php echo $this->type->global_slug__name." ".$this->type->detail_model ?></li>
                 <li class="r-form-even report-year icon-arrow">
                 <label>上牌时间</label><a class="form-text" id="yearBox" href="javascript:;"><?php echo $this->year; ?></a>年
                 </li>

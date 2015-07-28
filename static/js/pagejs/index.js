@@ -38,7 +38,7 @@ $(document).ready(function() {
 		success: function(msg){
 			msgObj=jQuery.parseJSON(msg);
 			$.each(msgObj.result, function(i,n) {
-				var item_img = $("<img class=\"shade\" title=\""+n.title+"\" src=\""+n.imgGrayUrl+"\" sourcesrc=\""+n.imgUrl+"\" height=\""+itemheight+"\" width=\""+itemwidth+"\" />")
+				var item_img = $("<img id=\"model_"+n.modelSlugId+"\" class=\"shade\" rel=\""+n.modelSlugName+"\" title=\""+n.title+"\" src=\""+n.imgGrayUrl+"\" sourcesrc=\""+n.imgUrl+"\" height=\""+itemheight+"\" width=\""+itemwidth+"\" />")
 				if(i%x_num == 0) {
 					img_left = axis;
 					img_top = img_top + itemheight;
@@ -57,7 +57,10 @@ $(document).ready(function() {
 				item_img.click(function(){
 					$("#switch").val("buy");
 					$("#search .label-value .buybox").show();
-					$("#search .label-value .buybox input").val(item_img.attr("title"));
+					var itemObj = item_img.attr("id");
+					var itemAry = itemObj.split("_");
+					$("#buyId").val(itemAry[1]);
+					$("#search .label-value .buybox input").val(item_img.attr("rel"));
 					$("#search .label-value .salebox").hide();
 					$("#search .lable-text").removeClass("salebtn").addClass("buybtn");
 				});

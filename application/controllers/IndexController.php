@@ -49,12 +49,14 @@ class IndexController extends XF_Controller_Abstract
 			$newGrayImgUrl = '';
 			foreach ( $useds as $k => $used )
 			{
-				$data [$k] ['title'] = $used->dmodel;
+				$data [$k] ['title'] = $used->model_slug__name." ".$used->dmodel;
+				$data [$k] ['modelSlugName'] = $used->model_slug__name;
 				$newImgUrlTemp = str_replace ( 'gongpingjia.qiniudn.com', 'static.souchela.com/qiniudn', $used->thumbnail );
 				$newImgUrl = $newImgUrlTemp . '?19812x';
 				$newGrayImgUrl = $newImgUrlTemp . '?gray19812x';
 				$data [$k] ['imgUrl'] = $newImgUrl;
 				$data [$k] ['imgGrayUrl'] = $newGrayImgUrl;
+				$data [$k] ['modelSlugId'] = $used->model_slug__id;
 			}
 			// print_r($data);
 			// exit;
