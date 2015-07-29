@@ -30,7 +30,7 @@
                     echo "<div class='otherDealers' style='display: none;'>";
                 }
             ?>
-            <div id="saler_<?php echo $dealer->id ?>" class="saler_choose_part">
+            <div id="saler_<?php echo $dealer->id ?>" title="<?php echo $dealer->company_name; ?>" class="saler_choose_part">
                 <h5>优质商家</h5>
                 <div class="saler_choose_con">
                     <div class="preview"><?php echo $dealer->company_name; ?></div>

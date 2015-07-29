@@ -25,8 +25,15 @@
     color: #999;
 }
 
+.info-com {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #ff0000;
+}
+
 .info-list {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .info-list li {

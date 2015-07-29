@@ -23,6 +23,7 @@
             <input type="hidden" name="statue" value="<?php echo $this->statue; ?>" />
 			<h2 class="info-title"><span>个人信息</span></h2>
 			<p class="info-msg">留下可以联系到您的资料，才能促使交易完成</p>
+			<p class="info-com">已选择商家：<?php echo $this->comName; ?></p>
 			<ul class="info-list">
 				<li><label>姓名</label><input type="text" name="username" value="<?php echo $this->username ?>" /></li>
 				<li><label>手机</label><input id="userPhone" type="text" name="phone" value="<?php echo $this->phone ?>" /></li>

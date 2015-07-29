@@ -25,7 +25,7 @@
             <?php
             foreach ($this->selfperson->data as $key => $dealer) {
             ?>
-			<div id="saler_<?php echo $dealer->id ?>" class="saler_choose_part">
+			<div id="saler_<?php echo $dealer->id ?>" title="<?php echo $dealer->company_name; ?>" class="saler_choose_part">
 				<div class="saler_choose_con">
                     <div class="preview"><?php echo $dealer->company_name; ?></div>
                     <p class="des"><?php echo $dealer->address; ?></p>

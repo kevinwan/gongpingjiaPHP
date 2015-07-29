@@ -32,7 +32,7 @@
                     echo "<div class='otherDealers' style='display: none;'>";
                 }
                 ?>
-                <div id="shop_<?php echo $dealer->id ?>" class="fourshop">
+                <div id="shop_<?php echo $dealer->id ?>" title="<?php echo $dealer->company_name ?>" class="fourshop">
                     <div class="info fl">
                         <div class="shopname"><?php echo $dealer->company_name ?></div>
                         <div class="shopadr">公司地址：<?php echo $dealer->address ?></div>
