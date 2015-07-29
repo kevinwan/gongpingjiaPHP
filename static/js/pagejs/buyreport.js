@@ -26,7 +26,7 @@ $(document).ready(function() {
 		$(".r-choose .car-series").text($(carmodel).text());
 		$("input[name='typeid']").val(typeid);
 		$("#selectcar").hide();
-		sellreport();
+		sellreport2();
 	});
     $(document).on("click", "#report-city ul li", function() {
         $("#cityBox").text($(this).text());
@@ -95,6 +95,12 @@ function sellreport() {
     }else {
         layer.msg("请输入正确的里程数。");
     }
+}
+function sellreport2() {
+    var typeId = $("input[name='typeid']").val();
+    var city = $("#citypy").val();
+    var serialId = $("input[name='serialId']").val();
+	window.location.href="/buyreport/"+serialId+"/"+city+"/0/"+typeId+"/0/";
 }
 function genVote(totalVote, goodVote) {
     if(goodVote != "0") {
