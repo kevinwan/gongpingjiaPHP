@@ -26,6 +26,7 @@ $(document).ready(function() {
 		$(".r-choose .car-series").text($(carmodel).text());
 		$("input[name='typeid']").val(typeid);
 		$("#selectcar").hide();
+		sellreport();
 	});
     $(document).on("click", "#report-city ul li", function() {
         $("#cityBox").text($(this).text());
