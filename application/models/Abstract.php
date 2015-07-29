@@ -53,7 +53,7 @@ abstract class Application_Model_Abstract
      * 是否开启接口缓存
      * @var bool
      */
-    private $Is_Open_Cache = FALSE;
+    private $Is_Open_Cache = TRUE;
     
     private $_data_cache_time = 3600;
 	
