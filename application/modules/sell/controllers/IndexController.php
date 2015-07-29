@@ -40,17 +40,26 @@ class Sell_IndexController extends XF_Controller_Abstract
 				$phone = $this->getParam("phone");
 				$validate_code = $this->getParam("validate_code");
 				$user = $userObj->findUserByPhone($phone);
+				XF_View::getInstance()->assign('username', $username);
+				XF_View::getInstance()->assign('phone', $phone);
 
-				if ($user) {
-					$submit_statue = "ok";
-					XF_View::getInstance()->assign('userId', $user->id);
-					$session_ary["userId"] = $user->id;
-				} else {
-					$last_id = $userObj->addUser($username, $phone, $session_ary["dataFrom"], $infoId);
-					if ($last_id) {
+				if(!$userObj->smsCodeIsOk($phone, $validate_code)) {
+					$submit_statue = "errorCode";
+				}else {
+					if ($user) {
 						$submit_statue = "ok";
-						XF_View::getInstance()->assign('userId', $last_id);
-						$session_ary["userId"] = $last_id;
+						XF_View::getInstance()->assign('userId', $user->id);
+						$session_ary["userId"] = $user->id;
+					} else {
+						$last_id = $userObj->addUser($username, $phone, $session_ary["dataFrom"], $infoId);
+						if ($last_id) {
+							$submit_statue = "ok";
+							XF_View::getInstance()->assign('userId', $last_id);
+							$session_ary["userId"] = $last_id;
+						}
+					}
+					if($submit_statue == "ok") {
+						$userObj->clearCode($phone, $validate_code);
 					}
 				}
 

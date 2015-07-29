@@ -24,8 +24,8 @@
 			<h2 class="info-title"><span>个人信息</span></h2>
 			<p class="info-msg">留下可以联系到您的资料，才能促使交易完成</p>
 			<ul class="info-list">
-				<li><label>姓名</label><input type="text" name="username" /></li>
-				<li><label>手机</label><input id="userPhone" type="text" name="phone" /></li>
+				<li><label>姓名</label><input type="text" name="username" value="<?php echo $this->username ?>" /></li>
+				<li><label>手机</label><input id="userPhone" type="text" name="phone" value="<?php echo $this->phone ?>" /></li>
 				<li><label>验证码</label><input class="info-code" name="validate_code" type="text" /><input type="button" class="btn-code" id="codeBtn" value="短信获取验证码"></li>
 			</ul>
 			<div class="btn-list">
@@ -59,4 +59,9 @@
         });
     });
 </script>
+<?php }else if($this->statue == "errorCode") { ?>
+<script type="text/javascript">
+	layer.msg("手机验证码错误，请重新获取");
+</script>
 <?php } ?>
+

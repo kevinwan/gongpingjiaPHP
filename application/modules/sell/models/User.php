@@ -32,4 +32,12 @@ class Sell_Model_User extends Application_Model_Abstract
     public function findUserByPhone($phone) {
         return $this->getf("phone", $phone);
     }
+
+	public function validateCode($phone, $validateCode) {
+		return parent::smsCodeIsOk($phone, $validateCode);
+	}
+
+	public function clearCode($phone, $validateCode) {
+		return parent::smsCodeClear($phone, $validateCode);
+	}
 }
