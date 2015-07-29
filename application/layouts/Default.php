@@ -17,10 +17,12 @@ class Layout_Default extends XF_View_Layout_Abstract
 		$this->nowCity = $this->getView()->nowCity;
 	$this->assign('domain', XF_Config::getInstance()->getDomain());
 	$this->assign('nowCity', $this->nowCity);
+        $this->assign('referer', $_SERVER['HTTP_REFERER']);
 		
 	$a = $this->getRequest()->getAction();
 	$c = $this->getRequest()->getController();
 	$m = $this->getRequest()->getModule();
+        
 	}
 
 }

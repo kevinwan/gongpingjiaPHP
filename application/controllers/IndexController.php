@@ -3,9 +3,56 @@ class IndexController extends XF_Controller_Abstract
 {
 	public function __construct()
 	{
+            parent::__construct($this);
+		try
+		{
+			$this->setCache(XF_Cache_Memcache::getInstance());
+		}
+		catch (XF_Exception $e)
+		{}
 		parent::__construct ( $this );
                 $this->_view->setResourcePath($this->static_url);
 	}
+        
+        protected function __cacheSign($action_name)
+	{
+		switch ($action_name)
+		{
+			case 'index':
+				//是否存在跳转url
+				if ($val = $this->getParam('redirect_url'))
+				{
+                                        //二手车随便看看
+					if (strpos($val, '/used/index/index') !== false)
+					{
+						XF_Functions::go('/used/index/index');
+					}
+					//卖车估值页面
+					elseif (preg_match_all("/\/sellreport\/(\d+)\/(.*?)\/(\d+)\/(\d+)\/(\d+)\//", $this->getParam('redirect_url'), $matchs))
+					{
+						XF_Functions::go('/sellreport/'.$matchs[2][0].'/');
+					}
+					//买车估值页面
+					elseif (preg_match_all("/\/buyreport\/(\d+)\/(.*?)\/(\d+)\/(\d+)\/(\d+)\//", $this->getParam('redirect_url'), $matchs))
+					{
+						XF_Functions::go('/buyreport/'.$matchs[2][0].'/');
+					}
+					else
+					{
+						XF_Functions::go($val);
+					}
+					
+				}
+				if (is_object($this->nowCity))
+				{
+					return $this->nowCity->id.'_indexhome';
+				}
+				break;
+		}
+		
+		return '';
+	}
+        
 	public function indexAction()
 	{
 		$this->nowCity->id;
