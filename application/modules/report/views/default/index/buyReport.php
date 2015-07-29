@@ -60,7 +60,7 @@
             </div>
 			<script type="text/javascript">
 				var startYear = "<?php echo $this->type->listed_year; ?>";
-				var endYear = "<?php echo $this->type->delisted_year; ?>";
+				var endYear = "<?php echo $this->type->delisted_year?$this->type->delisted_year:date("Y"); ?>";
 				for (var i = startYear; i <= endYear; i++) {
 					$("#report-year ul").append("<li class=\"itemyear\">"+i+"</li>");
 				}

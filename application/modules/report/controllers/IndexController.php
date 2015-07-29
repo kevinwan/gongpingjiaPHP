@@ -106,7 +106,7 @@ class Report_IndexController extends XF_Controller_Abstract
         $this->_view->cityPinYin = $cityObj->pinyin;
 
         $d_model = $type->id;
-        $year = $type->listed_year;
+        $year = $year > 0 ? $year : $type->listed_year;
         $month = '';
         $mile = floatval($mileage) > 0 ? floatval($mileage) : (date("Y") - $type->listed_year);
         $intent = 'sell';
@@ -202,7 +202,7 @@ class Report_IndexController extends XF_Controller_Abstract
         $this->_view->cityPinYin = $cityObj->pinyin;
 
         $d_model = $type->id;
-        $year = $year > 0 ? $year : $type->listed_year + 2;
+        $year = $year > 0 ? $year : $type->listed_year;
         $mile = floatval($mileage) > 0 ? floatval($mileage) : (date("Y") - $type->listed_year);
         $intent = 'buy';
         $this->_view->mileage = $mile;
