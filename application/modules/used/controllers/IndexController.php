@@ -109,7 +109,7 @@ class Used_IndexController extends XF_Controller_Abstract
             }
             $report = new Report_Model_Valuation();
             $valua = $report->getValuation($this->nowCity->id, $val->dmodel_id, $val->year, "", $val->mile, "buy");
-            $val->deal_price = $valua->deal_price;
+            $val->deal_price = $valua->deal_price > 0 ? "公平价值".$valua->deal_price."万" : "暂无数据";
         }
 
         $this->_view->pageNo = $page;

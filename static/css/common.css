@@ -58,14 +58,15 @@
 }
 
 .info-car h3 {
-	padding-left: 20px;
-	width: 415px;
-	height: 50px;
-	line-height: 50px;
-	background-color: #34b773;
-	color: #FFF;
-	font-size: 24px;
-	font-weight: normal;
+    background-color: #34B773;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 34px;
+    padding: 10px 20px;
+    width: 415px;
+    text-align: justify;
+    text-justify: inter-ideograph;
 }
 
 .footer {
