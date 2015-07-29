@@ -252,7 +252,7 @@
                                 <div class="mileage"><?php echo $used->mile; ?>万公里</div>
                             </div>
                         </div>
-                        <div class="price row">公平价值<?php echo $used->deal_price; ?>万</div>
+                        <div class="price row"><?php echo $used->deal_price; ?></div>
                         <div class="tags row">
                             <?php
                             if(!XF_Functions::isEmpty($used->source_type)) {
