@@ -59,8 +59,9 @@
                 </ul>
             </div>
             <script type="text/javascript">
-                var y = new Date().getFullYear();
-                for (var i = (y-30); i < y; i++) {
+                var startYear = "<?php echo $this->type->listed_year; ?>";
+                var endYear = "<?php echo $this->type->delisted_year; ?>";
+                for (var i = startYear; i <= endYear; i++) {
                     $("#report-year ul").append("<li class=\"itemyear\">"+i+"</li>");
                 }
             </script>
@@ -85,11 +86,11 @@
 					</div>
 					<div class="fr count-group">
 						<h5>估值准确率</h5>
-						<p><?php echo $this->V->accuracy ?>%</p>
+						<p><?php echo $this->V->accuracy*100 ?>%</p>
 					</div>
 				</div>
                 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a></div>
-                <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+				<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 			</div>
 			<ul class="r-sells">
 				<li class="sealer">
