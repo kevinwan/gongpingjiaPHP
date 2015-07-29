@@ -48,6 +48,14 @@ abstract class Application_Model_Abstract
      * @var int
      */
     const _webapi_domain = 'http://www.gongpingjia.com';
+    
+    /**
+     * 是否开启接口缓存
+     * @var bool
+     */
+    private $Is_Open_Cache = TRUE;
+    
+    private $_data_cache_time = 3600;
 	
     /**
      * 初始化当前Model对应的Table对象
@@ -265,27 +273,78 @@ abstract class Application_Model_Abstract
 	 */
         public function pull($query)
 	{
-            //$url = urlencode($query);
-            $url = self::_webapi_domain.$query;
-            $curl = curl_init();  
-            curl_setopt($curl, CURLOPT_URL, $url);  
-            curl_setopt($curl, CURLOPT_HEADER, false);  
-            curl_setopt($curl, CURLOPT_USERAGENT);  
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);  
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0);  
-            curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-            $response = curl_exec($curl);  
-            curl_close($curl); 
-            $json = json_decode($response);
-            if (is_object($json))
+            //获取数据缓存
+            if($this->Is_Open_Cache == TRUE)
             {
-                return $json;
+                $result = $this->_getDataCache($query);
+            }  
+            if ($result == XF_CACHE_EMPTY || $this->Is_Open_Cache == FALSE)
+            {
+                //$url = urlencode($query);
+                $url = self::_webapi_domain.$query;
+                $curl = curl_init();  
+                curl_setopt($curl, CURLOPT_URL, $url);  
+                curl_setopt($curl, CURLOPT_HEADER, false);  
+                curl_setopt($curl, CURLOPT_USERAGENT);  
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);  
+                curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 0);  
+                curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+                $response = curl_exec($curl);  
+                curl_close($curl); 
+                $json = json_decode($response);
+                if (is_object($json))
+                {
+                    if($this->Is_Open_Cache == TRUE)
+                    {
+                        $this->_setDataCache($result,$query);  //设置数据缓存
+                    }
+                    return $json;
+                }
+                else 
+                {
+                    $message = '接口获取数据失败';
+                    XF_Functions::writeErrLog($message);
+                }
             }
-            else 
+            else
             {
-                $message = '接口获取数据失败';
-                XF_Functions::writeErrLog($message);
+                return $result;
             }
         }
+        
+        
+        /**
+	 * 获取数据缓存
+	 * @access protected
+	 * @param array $result
+	 */
+	protected  function _getDataCache($file)
+	{
+		$content = XF_CACHE_EMPTY;
+                
+                $mem = XF_Cache_Memcache::getInstance();
+                $content = $mem->read(md5($file));
+		
+		return $content;
+	}
+        
+        
+        /**
+	 * 设置数据缓存
+	 * @access protected
+	 * @param mixed $data
+	 */
+	protected function _setDataCache($data, $saveFile)
+	{
+		if ($this->_data_cache_time > 0 )
+		{ 
+			$mem = XF_Cache_Memcache::getInstance();
+			$mem->setCacheTime($this->_data_cache_time);
+                        $saveFile = md5($saveFile);
+			$mem->add($saveFile, $data);
+		}
+		
+		return true;
+	}
 }
 
