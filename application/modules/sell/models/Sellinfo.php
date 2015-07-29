@@ -15,7 +15,7 @@ class Sell_Model_Sellinfo extends Application_Model_Abstract
      *  添加其他信息
      *  2015-7-17
      */
-    public function addSellInfo($userId, $modelId, $changeModelId, $dataFrom, $infoId, $car_parts, $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num)
+    public function addSellInfo($userId, $modelId, $changeModelId, $dataFrom, $infoId, $car_parts, $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num, $nowCityId)
     {
         $sellInfo["user_id"] = $userId;
         $sellInfo["data_from"] = $dataFrom;
@@ -30,6 +30,7 @@ class Sell_Model_Sellinfo extends Application_Model_Abstract
         $sellInfo["car_maintain"] = $car_maintain;
         $sellInfo["max_cost"] = $max_cost;
         $sellInfo["transfer_num"] = $transfer_num;
+        $sellInfo["city_id"] = $nowCityId;
         $sellInfo["created"] = time();
         $res = $this->insert($sellInfo);
         return $res;

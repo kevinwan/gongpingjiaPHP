@@ -104,7 +104,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 				$transfer_num = $this->getParam("transfer_num");
 
 				$sellObj = new Sell_Model_Sellinfo();
-				$last_id = $sellObj->addSellInfo($session_ary["userId"], $session_ary["modelId"], $session_ary["changeId"], $session_ary["dataFrom"], $session_ary["infoId"], implode(",", $car_parts), $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num);
+				$last_id = $sellObj->addSellInfo($session_ary["userId"], $session_ary["modelId"], $session_ary["changeId"], $session_ary["dataFrom"], $session_ary["infoId"], implode(",", $car_parts), $car_color, $period_insurance, $car_maintain, $max_cost, $transfer_num, $this->nowCity->id);
 				if ($last_id) {
 					$session_ary["sellInfoId"] = $last_id;
 					$gpj_session->write($session_ary);

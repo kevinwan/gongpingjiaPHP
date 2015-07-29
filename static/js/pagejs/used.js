@@ -131,7 +131,7 @@ $(document).ready(function () {
         var itemA = $(this).find("a");
         var brandName = $(itemA).attr("ref");
         $("#brandId").val(brandId);
-        $("#brandName").val(brandName);
+        $("#searchinput").val(brandName);
         $("#srcForm").submit();
     });
     $(document).on("click", "#search-container .bud-cont ul li", function() {

@@ -127,6 +127,11 @@ body {
     background: #FFF;
 }
 
+.bscreen .r-cost .r-list {
+    height: 400px;
+    background: #FFF;
+}
+
 .sscreen .r-logo {
 	width: 300px;
 	height: 300px;
