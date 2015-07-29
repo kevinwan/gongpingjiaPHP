@@ -26,6 +26,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 	{
 		$submit_statue = $this->getParam('statue');
 		$infoId = $this->getParam('infoId');
+		$comName = $this->getParam('comName');
 		$gpj_session = new XF_Session("gpj_session");
 		$session_ary = $gpj_session->read();
 
@@ -81,6 +82,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 		$this->_view->detailYear = $session_ary["detail_year"];
 		$this->_view->detailMile = $session_ary["detail_mile"];
 		$this->_view->detailPrice = $session_ary["detail_price"];
+		$this->_view->comName = $comName;
 	}
 
 	//补充商品信息
