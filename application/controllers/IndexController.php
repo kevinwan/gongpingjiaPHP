@@ -30,12 +30,12 @@ class IndexController extends XF_Controller_Abstract
 					//卖车估值页面
 					elseif (preg_match_all("/\/sellreport\/(\d+)\/(.*?)\/(\d+)\/(\d+)\/(\d+)\//", $this->getParam('redirect_url'), $matchs))
 					{
-						XF_Functions::go('/sellreport/'.$matchs[2][0].'/');
+						XF_Functions::go('/sellreport/'.$matchs[1][0].'/');
 					}
 					//买车估值页面
 					elseif (preg_match_all("/\/buyreport\/(\d+)\/(.*?)\/(\d+)\/(\d+)\/(\d+)\//", $this->getParam('redirect_url'), $matchs))
 					{
-						XF_Functions::go('/buyreport/'.$matchs[2][0].'/');
+						XF_Functions::go('/buyreport/'.$matchs[1][0].'/');
 					}
 					else
 					{
