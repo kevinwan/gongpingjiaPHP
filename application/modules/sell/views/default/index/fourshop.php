@@ -26,7 +26,7 @@
 		<div class="fourshops clearfix">
             <?php
             $isClose = false;
-            foreach ($this->fourshop->data as $key => $dealer) {
+            foreach ($this->fourshop as $key => $dealer) {
                 if ($key == "4") {
                     $isClose = true;
                     echo "<div class='otherDealers' style='display: none;'>";
@@ -51,8 +51,8 @@
             </div>
             <?php } ?>
 		</div>
-        <?php if(count($this->fourshop->data) > 4) {?>
-        <a class="saler_other" href="javascript:;">查看本地区其余<span><?php echo count($this->fourshop->data)-4; ?></span>家优质商户</a>
+        <?php if(count($this->fourshop) > 4) {?>
+        <a class="saler_other" href="javascript:;">查看本地区其余<span><?php echo count($this->fourshop)-4; ?></span>家优质商户</a>
         <?php } ?>
 		<div class="serve_main">
 			<div class="serve_part">
@@ -63,7 +63,7 @@
 			<div class="serve_part">
 				<div><img src="$static/img/displace/serve_Img4.png"></div>
 				<h4>覆盖更全</h4>
-				<p>面向本地全部<?php echo count($this->fourshop->data); ?>家<?php echo $this->detailBrand; ?>（品牌）<br/>4S店及经销商</p>
+				<p>面向本地全部<?php echo count($this->fourshop); ?>家<?php echo $this->detailBrand; ?>（品牌）4S店及经销商</p>
 			</div>
 		</div>
     </div>

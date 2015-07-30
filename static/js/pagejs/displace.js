@@ -56,6 +56,7 @@ $(document).ready(function() {
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 success: function (msg) {
+					console.log(msg);
                     $("#cdsSearchBox .cdsStabBox .cdsStab").empty();
                     var modelList = msg.models;
                     $.each(modelList, function (i, n) {

@@ -281,8 +281,8 @@ class Sell_IndexController extends XF_Controller_Abstract
 
 //        获取车商
 		$used = new Used_Model_Used();
-		$carDealers = $used->getUsedCarDealers($this->nowCity->id);
-		$this->_view->dealers = $carDealers->dealer;
+		$carDealers = $used->getUsedCarDealers($sessionAry["province"], "dealer", "", "1", "1000");
+		$this->_view->dealers = $carDealers;
 
 		$this->setLayout(new Layout_Default ());
 		$this->_view->headStylesheet('/css/sell/merchant.css');
@@ -314,12 +314,12 @@ class Sell_IndexController extends XF_Controller_Abstract
 
 		$model = new Auto_Model_Type();
 		$car_model = $model->getsByTypeId($changeId);
-		$this->_view->changeModel = $car_model->detail_model;
+		$this->_view->changeModel = $car_model->global_slug__name." ".$car_model->detail_model;
 
-		//        获取车商
+		//        获取4s
 		$used = new Used_Model_Used();
-		$carDealers = $used->getUsedCarDealers($this->nowCity->id);
-		$this->_view->fourshop = $carDealers->{'4s'};
+		$carDealers = $used->getUsedCarDealers($sessionAry["province"], "4s", "", "1", "1000");
+		$this->_view->fourshop = $carDealers;
 
 		$this->setLayout(new Layout_Default ());
 		$this->_view->headStylesheet('/css/sell/fourshop.css');
@@ -348,8 +348,8 @@ class Sell_IndexController extends XF_Controller_Abstract
 
 		//        获取车商
 		$used = new Used_Model_Used();
-		$carDealers = $used->getUsedCarDealers($this->nowCity->id);
-		$this->_view->selfperson = $carDealers->c2c;
+		$carDealers = $used->getUsedCarDealers($sessionAry["province"], "c2c", "", "1", "1000");
+		$this->_view->selfperson = $carDealers;
 
 		$this->setLayout(new Layout_Default ());
 		$this->_view->headStylesheet('/css/sell/selfperson.css');
@@ -365,13 +365,14 @@ class Sell_IndexController extends XF_Controller_Abstract
 	// 4s置换
 	public function displaceAction()
 	{
-		//        获取车商
-		$used = new Used_Model_Used();
-		$carDealers = $used->getUsedCarDealers($this->nowCity->id);
-		$this->_view->fourshop = $carDealers->{'4s'};
-
 		$gpj_session = new XF_Session("gpj_session");
 		$sessionAry = $gpj_session->read();
+		//        获取4s
+		$used = new Used_Model_Used();
+		$carDealers = $used->getUsedCarDealers($sessionAry["province"], "4s", "", "1", "1000");
+		$this->_view->fourshop = $carDealers;
+
+
 		$this->setLayout(new Layout_Default ());
 		$this->_view->headStylesheet('/css/common.css');
 		$this->_view->headStylesheet('/css/displace/displace.css');

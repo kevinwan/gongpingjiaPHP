@@ -23,7 +23,7 @@
 		<h1 class="saler_mes">选择一个个人在线交易平台</h1>
 		<div class="saler_choose">
             <?php
-            foreach ($this->selfperson->data as $key => $dealer) {
+            foreach ($this->selfperson as $key => $dealer) {
             ?>
 			<div id="saler_<?php echo $dealer->id ?>" title="<?php echo $dealer->company_name; ?>" class="saler_choose_part">
 				<div class="saler_choose_con">
@@ -48,7 +48,7 @@
 			<div class="serve_part">
 				<div><img src="$static/img/displace/serve_Img4.png"></div>
 				<h4>覆盖更全</h4>
-				<p>面向本地全部<?php echo count($this->selfperson->data); ?>家<?php echo $this->detailBrand; ?>（品牌）<br/>个人交易平台</p>
+				<p>面向本地全部<?php echo count($this->selfperson); ?>家<?php echo $this->detailBrand; ?>（品牌）个人交易平台</p>
 			</div>
 		</div>
 		<!-- 服务 ]] -->

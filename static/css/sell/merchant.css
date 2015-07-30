@@ -16,9 +16,13 @@
     margin: 35px -5px 0;
 }
 .saler_choose_part {
-	width: 190px;
+	width: 188px;
 	float: left;
     margin: 0 5px 20px;
+    border: 1px solid transparent;
+}
+.saler_choose_part:hover {
+    border: 1px solid #33B773;
 }
 .saler_choose_part h5{
 	color: white;
@@ -42,6 +46,7 @@
     padding: 20px 20px 0;
     height: 60px;
     line-height: 22px;
+    color: #999;
 }
 .saler_choose_con .des {
     height: 60px;
