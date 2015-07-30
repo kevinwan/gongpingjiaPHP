@@ -35,7 +35,7 @@ class Application_Model_SmsSenderSms7 implements Application_Model_SmsSenderInte
  		$tmp = explode('&', $this->_send_result);
                 //$tmp = $this->_send_result;
  		//if (count($tmp) == 3 && $tmp[0] == 1 && $tmp[2] == $mobile)
-                if(count($tmp) == 3 && $tmp[0] == 'sms' && $tmp[1] == 100)
+                if(count($tmp) == 3 && $tmp[0] == 'sms' && $tmp[1] == 'stat=100')
  		{
  			$this->_isOK = TRUE;
  		}
