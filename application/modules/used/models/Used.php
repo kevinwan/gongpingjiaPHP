@@ -37,9 +37,9 @@ class Used_Model_Used extends Application_Model_Abstract
      *  获取首页二手车随便看看
      *  2015-7-15
      */
-    public function getUsedCarDealers($city)
+    public function getUsedCarDealers($city, $category, $brand, $page, $num)
     {
-        $query = '/api/cars/dealer/gongpingjia-php/?city=' . $city;
+        $query = '/api/cars/dealers/gongpingjia-php/?city=' . $city . "&category=" . $category . "&brand=" . $brand . "&page=" . $page . "&num=" . $num;
         $dealers = $this->pull($query);
         return $dealers->dealers;
     }

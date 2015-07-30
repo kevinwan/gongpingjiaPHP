@@ -94,25 +94,25 @@
 			</div>
 			<ul class="r-sells">
 				<li class="sealer">
-<!--                    <a href="/sell/index/merchant">-->
+                    <a href="javascript:;">
                         <h2>卖给商家</h2>
                         <p class="title-msg">3日内成交 安全快捷</p>
                         <p class="sell-cost"><span><?php echo $this->V->min_sell_price; ?></span> - <span><?php echo $this->V->max_sell_price; ?></span><label>万元</label></p>
-<!--                    </a>-->
+                    </a>
 				</li>
 				<li class="sFour">
-<!--                    <a href="/sell/index/displace">-->
+                    <a href="javascript:;">
                         <h2>卖给4S店</h2>
                         <p class="title-msg">服务有保障 手续快捷方便</p>
                         <p class="sell-cost"><span><?php echo $this->V->min_replace_price; ?></span> - <span><?php echo $this->V->max_replace_price; ?></span><label>万元</label></p>
-<!--                    </a>-->
+                    </a>
 				</li>
 				<li class="self">
-<!--                    <a href="/sell/index/selfperson">-->
+                    <a href="javascript:;">
                         <h2>卖给个人</h2>
                         <p class="title-msg">省去中间环节 透明交易流程</p>
                         <p class="sell-cost"><span><?php echo $this->V->min_private_price; ?></span> - <span><?php echo $this->V->max_private_price; ?></span><label>万元</label></p>
-<!--                    </a>-->
+                    </a>
 				</li>
 			</ul>
 		</div>

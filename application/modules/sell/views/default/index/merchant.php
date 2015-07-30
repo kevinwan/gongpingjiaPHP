@@ -24,7 +24,7 @@
 		<div class="saler_choose">
             <?php
             $isClose = false;
-            foreach ($this->dealers->data as $key => $dealer) {
+            foreach ($this->dealers as $key => $dealer) {
                 if($key == "5") {
                     $isClose = true;
                     echo "<div class='otherDealers' style='display: none;'>";
@@ -50,8 +50,8 @@
             </div>
             <?php } ?>
 		</div>
-        <?php if(count($this->dealers->data) > 5) {?>
-            <a class="saler_other" href="javascript:;">查看本地区其余<span><?php echo count($this->dealers->data)-5; ?></span>家优质商户</a>
+        <?php if(count($this->dealers) > 5) {?>
+            <a class="saler_other" href="javascript:;">查看本地区其余<span><?php echo count($this->dealers)-5; ?></span>家优质商户</a>
         <?php } ?>
 		<!-- 优质商家 ]] -->
 		<!-- 服务 [[ -->
@@ -64,7 +64,7 @@
 			<div class="serve_part">
 				<div><img src="$static/img/displace/serve_Img4.png"></div>
 				<h4>覆盖更全</h4>
-				<p>面向本地全部<?php echo count($this->dealers->data); ?>家<?php echo $this->detailBrand; ?>（品牌）4S店及经销商</p>
+				<p>面向本地全部<?php echo count($this->dealers); ?>家<?php echo $this->detailBrand; ?>（品牌）4S店及经销商</p>
 			</div>
 		</div>
 		<!-- 服务 ]] -->

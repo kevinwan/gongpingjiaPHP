@@ -104,6 +104,7 @@ class Report_IndexController extends XF_Controller_Abstract
         $this->_view->cityName = $cityObj->name;
         $this->_view->cityId = $cityid;
         $this->_view->cityPinYin = $cityObj->pinyin;
+	    $sessionAry["province"] = $cityid;
 
         $d_model = $type->id;
         $year = $year > 0 ? $year : $type->listed_year;
@@ -200,6 +201,7 @@ class Report_IndexController extends XF_Controller_Abstract
         $this->_view->cityName = $cityObj->name;
         $this->_view->cityId = $cityid;
         $this->_view->cityPinYin = $cityObj->pinyin;
+	    $sessionAry["province"] = $cityid;
 
         $d_model = $type->id;
         $year = $year > 0 ? $year : $type->listed_year;

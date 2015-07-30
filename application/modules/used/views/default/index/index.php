@@ -243,7 +243,7 @@
                     foreach ($this->usedList->cars as $used){
                     ?>
                     <div class="useditem" id="used_<?php echo $used->id ?>">
-                        <div class="preview"><a href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站"><img class="lazy" src="<?php echo $used->thumbnail ?>" /></a></div>
+                        <div class="preview"><a target="_blank" href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站"><img class="lazy" src="<?php echo $used->thumbnail ?>" /></a></div>
                         <div class="font-bold row title" title="<?php echo $used->title ?>"><a href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站"><?php echo $used->title ?></a></div>
                         <div class="info row">
                             <div class="usedl fl">&yen;<?php echo $used->price ?> 万</div>
@@ -356,7 +356,7 @@
 </div>
 <div id="template" style="display: none;">
     <div class="useditem">
-        <div class="preview"><a href=""><img class="lazy" src="" /></a></div>
+        <div class="preview"><a target="_blank" href=""><img class="lazy" src="" /></a></div>
         <div class="font-bold row title" title=""></div>
         <div class="info row">
             <div class="usedl fl"></div>
