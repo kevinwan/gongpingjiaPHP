@@ -16,7 +16,6 @@ echo $this->getView()->headMeta();
 </head>
 <body>
 <?php
-echo funcGetDebugContent();
 require_once APPLICATION_PATH.'/layouts/scripts/header.php';
 ?>
 <?php echo $this->{'$layoutContent'}?>
