@@ -122,7 +122,7 @@ class MainBootstrap extends XF_Application_Bootstrap
     */
     protected function initImportFunctions()
     {
-
+        require APPLICATION_PATH.'/functions/misc.php';
     }
     
 }
