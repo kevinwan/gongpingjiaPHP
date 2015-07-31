@@ -169,6 +169,8 @@ function funcGetDebugContent()
 			echo '<br/>RunBootstrap:'.XF_DataPool::getInstance()->get('RunBootstrap').'s';
 			echo '<br/>RunBootstraps:';
 			print_r(XF_DataPool::getInstance()->get('Bootstrap_Inits'));
+                        echo '<br/>Load_Interface:';
+                        print_r(XF_DataPool::getInstance()->get('Load_Interface'));
 			echo '<br/>LoadFile:'.sprintf("%.5fs", XF_Application::getInstance()->loadFileTime());
 			echo '<br/>RunTime:'.sprintf("%.5fs", microtime(true)-APP_START_TIME);
 			echo "</pre>";

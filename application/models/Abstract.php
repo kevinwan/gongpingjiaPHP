@@ -280,6 +280,7 @@ abstract class Application_Model_Abstract
             }  
             if ($result == XF_CACHE_EMPTY || $this->Is_Open_Cache == FALSE)
             {
+                $st = microtime(true);
                 //$url = urlencode($query);
                 $url = self::_webapi_domain.$query;
                 $curl = curl_init();  
@@ -298,6 +299,8 @@ abstract class Application_Model_Abstract
                     {
                         $this->_setDataCache($result,$query);  //设置数据缓存
                     }
+                    
+                    XF_DataPool::getInstance()->addList('Load_Interface', $query.' '.sprintf('%.5fs', microtime(true) - $st));
                     return $json;
                 }
                 else 
