@@ -26,6 +26,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 	{
 		$submit_statue = $this->getParam('statue');
 		$infoId = $this->getParam('infoId');
+		$dataFrom = $this->getParam('dataFrom');
 		$comName = $this->getParam('comName');
 		$gpj_session = new XF_Session("gpj_session");
 		$session_ary = $gpj_session->read();
@@ -68,6 +69,8 @@ class Sell_IndexController extends XF_Controller_Abstract
 				$gpj_session->write($session_ary);
 			}
 		} else {
+			$session_ary["dataFrom"] = $dataFrom;
+			$gpj_session->write($session_ary);
 			$submit_statue = "submit";
 		}
 
@@ -281,8 +284,9 @@ class Sell_IndexController extends XF_Controller_Abstract
 
 //        获取车商
 		$used = new Used_Model_Used();
+		$carAuctions = $used->getUsedCarDealers($sessionAry["province"], "auction", "", "1", "1000");
 		$carDealers = $used->getUsedCarDealers($sessionAry["province"], "dealer", "", "1", "1000");
-		$this->_view->dealers = $carDealers;
+		$this->_view->dealers = array_merge($carAuctions, $carDealers);
 
 		$this->setLayout(new Layout_Default ());
 		$this->_view->headStylesheet('/css/sell/merchant.css');

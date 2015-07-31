@@ -20,7 +20,7 @@
 	<!-- 选商家 [[ -->
 	<div class="saler_main">
 		<!-- 优质商家 [[ -->
-		<h1 class="saler_mes">选择一个靠谱商家，您爱车售出的速度可能更快些</h1>
+		<h1 class="saler_mes">选择一个靠谱商家，交易更省心</h1>
 		<div class="saler_choose">
             <?php
             $isClose = false;
@@ -29,9 +29,15 @@
                     $isClose = true;
                     echo "<div class='otherDealers' style='display: none;'>";
                 }
+	            $title = "";
+		        if($dealer->category == "auction") {
+					$title = "认证平台";
+		        }else if($dealer->category == "dealer") {
+			        $title = "优质商家";
+		        }
             ?>
-            <div id="saler_<?php echo $dealer->id ?>" title="<?php echo $dealer->company_name; ?>" class="saler_choose_part">
-                <h5>优质商家</h5>
+            <div id="<?php echo $dealer->category; ?>_<?php echo $dealer->id ?>" title="<?php echo $dealer->company_name; ?>" class="saler_choose_part <?php echo $dealer->category; ?>">
+	            <h5><?php echo $title ?></h5>
                 <div class="saler_choose_con">
                     <div class="preview"><?php echo $dealer->company_name; ?></div>
                     <p class="des"><?php echo $dealer->address; ?></p>
