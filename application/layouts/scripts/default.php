@@ -25,6 +25,13 @@ require_once APPLICATION_PATH.'/layouts/scripts/selectcity.php';
 <?php
 require_once APPLICATION_PATH.'/layouts/scripts/footer.php';
 ?>
+<?php
+//打印debug信息
+if(XF_Controller_Request_Http::getInstance()->getParam('debug') == 'true')
+{
+	echo funcGetDebugContent();
+}
+?>
 </body>
 </html>
 
