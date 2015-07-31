@@ -27,7 +27,7 @@
 			<ul class="info-list">
 				<li><label>姓名</label><input type="text" name="username" value="<?php echo $this->username ?>" /></li>
 				<li><label>手机</label><input id="userPhone" type="text" name="phone" value="<?php echo $this->phone ?>" /></li>
-				<li><label>验证码</label><input class="info-code" name="validate_code" type="text" /><input type="button" class="btn-code" id="codeBtn" value="短信获取验证码"></li>
+				<li><label>验证码</label><input class="info-code" name="validate_code" type="text" /><input type="button" class="btn-code" id="codeBtn" value="获取短信验证码"></li>
 			</ul>
 			<div class="btn-list">
 				<a href="javascript:;" class="btn-link btn-submit">提交</a>
