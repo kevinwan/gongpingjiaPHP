@@ -188,7 +188,7 @@ $(document).ready(function() {
                     $("#cdsSearchBox .cdsStabBox").empty();
                     var brandList = msg.brands;
                     $.each(brandList, function (i, n) {
-                        if (n[0] != "P") {
+                        if (n[0] != "P" && n[0] != "") {
                             var ibrandBox = $("<div class=\"ibrandBox clearfix\"></div>");
                             var ibrandBoxP = $("<p id=\"" + n[0] + "\">" + n[0] + "</p>");
                             var ibrandBoxUl = $("<ul></ul>");

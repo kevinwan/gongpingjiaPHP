@@ -53,7 +53,7 @@
                 <ul>
                     <?php
                     foreach($this->cities as $key => $value) {
-                        echo "<li id='city_".$value->id."'>".$value->name."</li>";
+                        echo "<li id='city_".$value->parent."'>".$value->name."</li>";
                     }
                     ?>
                 </ul>

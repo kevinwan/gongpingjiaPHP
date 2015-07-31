@@ -94,12 +94,9 @@ class Report_IndexController extends XF_Controller_Abstract
         $cityModel = new Application_Model_City();
         $cities = $cityModel->getsByCity($this->nowCity->id);
         if (!isset ($cityid) || XF_Functions::isEmpty($cityid) || !is_numeric($cityid) || $cityid <= 0) {
-            $cityObj = $cities[0];
-            $cityid = $cities[0]->id;
-        }else {
-            $cityObj = $cityModel->get($cityid);
-            $cityid = $cityObj->id;
+	        $cityid = $this->nowCity->id;
         }
+	    $cityObj = $cityModel->get($cityid);
         $this->_view->cities = $cities;
         $this->_view->cityName = $cityObj->name;
         $this->_view->cityId = $cityid;
@@ -191,12 +188,9 @@ class Report_IndexController extends XF_Controller_Abstract
         $cityModel = new Application_Model_City();
         $cities = $cityModel->getsByCity($this->nowCity->id);
         if (!isset ($cityid) || XF_Functions::isEmpty($cityid) || !is_numeric($cityid) || $cityid <= 0) {
-            $cityObj = $cities[0];
-            $cityid = $cities[0]->id;
-        }else {
-            $cityObj = $cityModel->get($cityid);
-            $cityid = $cityObj->id;
+	        $cityid = $this->nowCity->id;
         }
+	    $cityObj = $cityModel->get($cityid);
         $this->_view->cities = $cities;
         $this->_view->cityName = $cityObj->name;
         $this->_view->cityId = $cityid;
