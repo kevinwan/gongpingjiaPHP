@@ -72,6 +72,22 @@ $(document).ready(function() {
             }
         });
     });
+	$("#vote .no-right").hover(
+		function() {
+			$(this).addClass("shake animated");
+		},
+		function() {
+			$(this).removeClass("shake animated");
+		}
+	);
+	$("#vote .right").hover(
+		function() {
+			$(this).addClass("shakeTwo animated");
+		},
+		function() {
+			$(this).removeClass("shakeTwo animated");
+		}
+	);
 });
 function sellreport() {
     var typeId = $("input[name='typeid']").val();
