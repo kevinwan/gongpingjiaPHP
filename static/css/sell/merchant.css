@@ -21,14 +21,22 @@
     margin: 0 5px 20px;
     border: 1px solid transparent;
 }
-.saler_choose_part:hover {
-    border: 1px solid #33B773;
+.saler_choose_part h5 {
+    color: white;
+    padding: 8px 0;
+    font-weight: 500;
 }
-.saler_choose_part h5{
-	color: white;
-	padding: 8px 0;
-	font-weight: 500;
+.saler_choose .auction h5 {
+    background: #2da7e0;
+}
+.saler_choose .dealer h5 {
     background: #33b773;
+}
+.saler_choose .auction:hover {
+    border: 1px solid #2da7e0;
+}
+.saler_choose .dealer:hover {
+    border: 1px solid #33b773;
 }
 .saler_choose_part .phone {
     line-height: 40px;
