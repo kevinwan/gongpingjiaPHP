@@ -88,9 +88,9 @@
 						<h5>估值准确率</h5>
 						<p><?php echo $this->V->accuracy*100 ?>%</p>
 					</div>
-                    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a></div>
-					<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 				</div>
+				<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a></div>
+				<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 			</div>
 			<div class="r-list">
                 <?php
@@ -100,26 +100,26 @@
                         <div class="item">
                             <div class="wrap">
                                 <img src="<?php echo $used->thumbnail ?>"/>
-                                <a target="_blank" href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站">
-                                    <div class="carinfo">
-                                        <div class="font-bold"><?php echo $used->title; ?></div>
-                                        <div class="info">
-                                            <div class="usedl fl">&yen;<?php echo $used->price; ?> 万</div>
-                                            <div class="usedr fr">
-                                                <div class="carage"><?php echo $used->car_age; ?>年</div>
-                                                <div class="mileage"><?php echo $used->mile; ?>万公里</div>
-                                            </div>
-                                        </div>
-                                        <div class="tags">
-                                            <?php
-                                            if (!XF_Functions::isEmpty($used->source_type)) {
-                                                ?>
-                                                <span
-                                                    class="tag <?php echo $used->source_val["bg"] ?>"><?php echo $used->source_val["name"] ?></span>
-                                            <?php } ?>
-                                        </div>
+                                <div class="carinfo">
+                                    <a target="_blank" href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站">
+                                    <div class="font-bold"><?php echo $used->title; ?></div>
+	                                    <div class="info">
+		                                    <div class="usedl fl">&yen;<?php echo $used->price; ?> 万</div>
+		                                    <div class="usedr fr">
+			                                    <div class="carage"><?php echo $used->car_age; ?>年</div>
+			                                    <div class="mileage"><?php echo $used->mile; ?>万公里</div>
+		                                    </div>
+	                                    </div>
+	                                    <div class="tags">
+		                                    <?php
+		                                    if (!XF_Functions::isEmpty($used->source_type)) {
+                                            ?>
+                                            <span
+                                                class="tag <?php echo $used->source_val["bg"] ?>"><?php echo $used->source_val["name"] ?></span>
+                                        <?php } ?>
                                     </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <?php
@@ -133,6 +133,19 @@
                     </div>
                 </div>
 			</div>
+			<script type="text/javascript">
+				$.each($(".r-list .item .carinfo").not(".last"), function(i, n) {
+					var title = $(n).find(".font-bold");
+					var h = $(n).parents(".wrap").height();
+					var title_h = h - $(title).height();
+					$(n).css("top", title_h-20);
+					$(n).hover(function() {
+						$(this).animate({top: h-$(n).height()-20}, "fast");
+					}, function() {
+						$(this).animate({top: title_h-20}, "fast");
+					});
+				});
+			</script>
 		</div>
 	</div>
 </div>

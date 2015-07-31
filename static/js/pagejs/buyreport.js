@@ -33,17 +33,6 @@ $(document).ready(function() {
         $("#report-city").hide();
         $("#city").val($(this).text());
     });
-	$.each($(".r-list .item .carinfo").not(".last"), function(i, n) {
-		var title = $(n).find(".font-bold");
-		var h = $(n).parents(".wrap").height();
-		var title_h = h - $(title).height();
-		$(n).css("top", title_h-20);
-		$(n).hover(function() {
-			$(this).animate({top: h-$(n).height()-20}, "fast");
-		}, function() {
-			$(this).animate({top: title_h-20}, "fast");
-		});
-	});
     $(document).on("click", "#vote .right", function() {
         $.ajax({
             type: "POST",
