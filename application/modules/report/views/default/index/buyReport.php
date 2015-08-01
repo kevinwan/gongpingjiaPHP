@@ -100,8 +100,8 @@
                         <div class="item">
                             <div class="wrap">
                                 <img src="<?php echo $used->thumbnail ?>"/>
+	                            <a target="_blank" href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站">
                                 <div class="carinfo">
-                                    <a target="_blank" href="http://www.<?php echo $this->domain; ?>/index/linkSite/?slink=<?php echo $used->url; ?>&sname=原网站">
                                     <div class="font-bold"><?php echo $used->title; ?></div>
 	                                    <div class="info">
 		                                    <div class="usedl fl">&yen;<?php echo $used->price; ?> 万</div>
@@ -118,8 +118,8 @@
                                                 class="tag <?php echo $used->source_val["bg"] ?>"><?php echo $used->source_val["name"] ?></span>
                                         <?php } ?>
                                     </div>
-                                    </a>
                                 </div>
+	                            </a>
                             </div>
                         </div>
                         <?php
