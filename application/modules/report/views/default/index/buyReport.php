@@ -68,7 +68,7 @@
 		</div>
 		<div class="r-cost">
 			<div class="r-math">
-				<h4>您爱车的公平价值为</h4>
+				<h4>您要买的车的公平价值为</h4>
 				<p class="g-cost"><span><?php echo $this->V->deal_price; ?></span>万元</p>
                 <div id="vote" class="margin-top">
                     <div class="right icon"></div>
@@ -140,6 +140,7 @@
 					var title_h = h - $(title).height();
 					$(n).css("top", title_h-20);
 					$(n).hover(function() {
+						$(".r-list .item .carinfo:animated").stop().css("top", title_h-20);
 						$(this).animate({top: h-$(n).height()-20}, "fast");
 					}, function() {
 						$(this).animate({top: title_h-20}, "fast");
