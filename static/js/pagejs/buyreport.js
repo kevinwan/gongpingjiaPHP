@@ -88,6 +88,18 @@ $(document).ready(function() {
 			$(this).removeClass("shakeTwo animated");
 		}
 	);
+	$.each($(".r-list .item .carinfo").not(".last"), function(i, n) {
+		var title = $(n).find(".font-bold");
+		var h = $(n).parents(".wrap").height();
+		var title_h = h - $(title).height();
+		$(n).css("top", title_h-20);
+		$(n).hover(function() {
+			$(".r-list .item .carinfo:animated").stop().css("top", title_h-20);
+			$(this).animate({top: h-$(n).height()-20}, "fast");
+		}, function() {
+			$(this).animate({top: title_h-20}, "fast");
+		});
+	});
 });
 function sellreport() {
     var typeId = $("input[name='typeid']").val();

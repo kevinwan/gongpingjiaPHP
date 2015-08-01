@@ -382,6 +382,11 @@ body {
     width: 230px;
 }
 
+.bscreen .r-list .item .wrap {
+    width: 296px;
+    height: 193px;
+}
+
 .r-list .item .wrap .carinfo {
 	position: absolute;
 	left: 0;
