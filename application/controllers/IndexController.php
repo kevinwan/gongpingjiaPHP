@@ -83,6 +83,8 @@ class IndexController extends XF_Controller_Abstract
 		 * }
 		 */
 		// $this->_view->brands = $first_letter;
+                $u = new Used_Model_Used ();
+			$useds = $u->getIndexUsed ( $this->nowCity->id, 50 );
 		
 		// /////是否为AJAX请求
 		if ($this->_request->isXmlHttpRequest ())

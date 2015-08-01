@@ -47,7 +47,7 @@ abstract class Application_Model_Abstract
      * solr服务器端口
      * @var int
      */
-    const _webapi_domain = 'http://www.gongpingjia.com';
+    const _webapi_domain = 'http://100.98.24.129';
     
     /**
      * 是否开启接口缓存
