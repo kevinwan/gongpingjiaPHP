@@ -496,7 +496,7 @@ body {
 #vote .vote .scale span {
     background: #2da7e0;
     height: 2px;
-    width: 50%;
+    width: 0%;
     display: block;
 }
 .sscreen #carMore {
