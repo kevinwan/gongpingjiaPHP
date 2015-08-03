@@ -95,8 +95,14 @@ class Report_IndexController extends XF_Controller_Abstract
         $cities = $cityModel->getsByCity($this->nowCity->id);
         if (!isset ($cityid) || XF_Functions::isEmpty($cityid) || !is_numeric($cityid) || $cityid <= 0) {
 	        $cityid = $this->nowCity->id;
+	        foreach($cities as $key => $v) {
+		        if($v->is_capital == "1") {
+			        $cityObj = $v;
+		        }
+	        }
+        }else {
+	        $cityObj = $cityModel->get($cityid);
         }
-	    $cityObj = $cityModel->get($cityid);
         $this->_view->cities = $cities;
         $this->_view->cityName = $cityObj->name;
         $this->_view->cityId = $cityid;
