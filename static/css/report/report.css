@@ -287,6 +287,10 @@ body {
 	overflow: hidden;
 }
 
+.report .r-form .report-year {
+    background: url(../../img/report/blue-row-arrow.png) no-repeat 270px center #F5F5F5;
+}
+
 .r-form li label {
 	color: #999;
 }
@@ -496,7 +500,7 @@ body {
 #vote .vote .scale span {
     background: #2da7e0;
     height: 2px;
-    width: 50%;
+    width: 0%;
     display: block;
 }
 .sscreen #carMore {

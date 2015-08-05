@@ -45,9 +45,9 @@ class Sell_IndexController extends XF_Controller_Abstract
 				XF_View::getInstance()->assign('username', $username);
 				XF_View::getInstance()->assign('phone', $phone);
 
-				if(!$userObj->smsCodeIsOk($phone, $validate_code)) {
-					$submit_statue = "errorCode";
-				}else {
+//				if(!$userObj->smsCodeIsOk($phone, $validate_code)) {
+//					$submit_statue = "errorCode";
+//				}else {
 					if ($user) {
 						$submit_statue = "ok";
 						XF_View::getInstance()->assign('userId', $user->id);
@@ -63,7 +63,7 @@ class Sell_IndexController extends XF_Controller_Abstract
 					if($submit_statue == "ok") {
 						$userObj->clearCode($phone, $validate_code);
 					}
-				}
+//				}
 
 				$session_ary["infoId"] = $infoId;
 				$gpj_session->write($session_ary);
