@@ -41,7 +41,9 @@
 	<div class="sub-dialog">
 		<i></i>
 		<p>您的售车信息已发送成功！<br>请等待车商与您联系!</p>
+		<div>
 		<img src="$static/img/sell/dialog_msg.png" />
+		</div>
 		<a href="/sell/index/goodinfo">补充信息</a>
 	</div>
 </div>

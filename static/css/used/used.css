@@ -365,6 +365,9 @@
 	padding-right: 15%;
 	text-align: right;
 }
+#footer a {
+    color: #2ca6df;
+}
 #pager .pager {
     float: left;
     margin: 15px 0;
