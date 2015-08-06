@@ -46,5 +46,5 @@
 		</div>
 	</div>
 	<div id="footer">
-		<div class="copyright">Copyright &copy; gongpingjia.com All Rights Reserved</div>
+		<div class="copyright">Copyright &copy; <a href="http://www.gongpingjia.com">gongpingjia.com</a> All Rights Reserved</div>
 	</div>
